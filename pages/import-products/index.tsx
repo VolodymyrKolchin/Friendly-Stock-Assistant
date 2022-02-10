@@ -27,7 +27,7 @@ const importProducts = () => {
         clientData.push(process.env.CLIENT_ID);
     }
 
-//     if (isLoading) return <Loading />;
+    if (isLoading) return <Loading />;
     if (error) return <ErrorMessage error={error} />;
 
     const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
