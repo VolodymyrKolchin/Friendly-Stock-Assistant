@@ -47,9 +47,9 @@ const importProducts = () => {
             e.target.setAttribute('disabled', 'true');
             e.target.parentElement.setAttribute('disabled', 'true');
         }
-        // https://express-heroku-app-email.herokuapp.com/send
+
         // http://localhost:8080/send
-        fetch('https://express-heroku-app-email.herokuapp.com/send', {
+        fetch('https://stock-assistant-friendsofcomme.herokuapp.com/send', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -100,9 +100,9 @@ const importProducts = () => {
             e.target.setAttribute('disabled', 'true');
             e.target.parentElement.setAttribute('disabled', 'true');
         }
-        // https://express-heroku-app-email.herokuapp.com/send
+
         // http://localhost:8080/send
-        fetch('https://express-heroku-app-email.herokuapp.com/subscribe', {
+        fetch('https://stock-assistant-friendsofcomme.herokuapp.com/subscribe', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
