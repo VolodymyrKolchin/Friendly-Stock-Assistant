@@ -4,6 +4,10 @@ import ErrorMessage from '../../components/error';
 import Loading from '../../components/loading';
 import {useProductListAll} from '../../lib/hooks';
 import { CSVLink } from 'react-csv';
+import * as React from "react";
+import Cron, { CronError } from "react-js-cron";
+import "antd/dist/antd.css";
+import { Divider, AntdInput } from "antd";
 
 
 const importProducts = () => {
@@ -138,8 +142,45 @@ const importProducts = () => {
         console.log('selectData', selectData)
     }
      const [selectData, setSelectData] = useState();
+
+     /**/
+     const inputRef = React.useRef<Input>(null);
+       const defaultValue = "30 5 * * 1,6";
+       const [value, setValue] = React.useState(defaultValue);
+       const customSetValue = React.useCallback(
+         (newValue: string) => {
+           setValue(newValue);
+           console.log("newValue", newValue)
+//             inputRef.current?.setValue(newValue);
+         },
+         [inputRef]
+       );
+       const [errorMy, onErrorMy] = React.useState<CronError>();
+
     return (
         <Panel>
+        <div>
+                <Input
+                  ref={inputRef}
+                  value={value.defaultValue}
+                  onBlur={(event) => {
+                    setValue(event.target.value);
+                  }}
+
+                />
+                <Cron value={value} setValue={customSetValue} onError={onErrorMy} />
+
+                <div>
+                  <span style={{ fontSize: 12 }}>
+                    Double click on a dropdown option to automatically select / unselect
+                    a periodicity
+                  </span>
+                </div>
+
+                <p style={{ marginTop: 20 }}>
+                  Error: {error ? error.description : "undefined"}
+                </p>
+              </div>
             <Panel header="Download products BigCommerce">
                 <CSVLink
                     data={dataImportProduct}
