@@ -1,11 +1,9 @@
 import {Button, Flex, FormGroup, Input, Panel, Form as StyledForm, Message, Checkbox} from '@bigcommerce/big-design';
-import {useState, ChangeEvent} from 'react';
+import {useState, ChangeEvent, useEffect} from 'react';
 import ErrorMessage from '../../components/error';
 import Loading from '../../components/loading';
 import {useProductListAll} from '../../lib/hooks';
 import { CSVLink } from 'react-csv';
-import Script from 'next/script';
-import $ from "jquery";
 
 const importProducts = () => {
     const [isShownSuccess, setIsShownSuccess] = useState(false);
@@ -28,7 +26,7 @@ const importProducts = () => {
         clientData.push(process.env.CLIENT_ID);
     }
 
-    // if (isLoading) return <Loading />;
+    if (isLoading) return <Loading />;
     if (error) return <ErrorMessage error={error} />;
 
     const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -134,6 +132,35 @@ const importProducts = () => {
                 }, 4000);
             })
     }
+    useEffect(() => {
+        const aScript = document.createElement('script');
+        aScript.type = 'text/javascript';
+        aScript.src = "./jquery.js";
+
+        document.head.appendChild(aScript);
+        aScript.onload = () => {
+            console.log('script load jquery.js');
+            const bScript = document.createElement('script');
+            bScript.type = 'text/javascript';
+            bScript.src = "./jquery-cron-min.js";
+
+            document.head.appendChild(bScript);
+            bScript.onload = () => {
+                console.log('script load jquery-cron-min.js');
+                const cScript = document.createElement('script');
+                cScript.type = 'text/javascript';
+                cScript.src = "./cron.js";
+
+                document.head.appendChild(cScript);
+                cScript.onload = () => {
+                    console.log('script load 3')
+                };
+            };
+        };
+
+
+    }, [])
+    //stripe_load();
 
     return (
         <Panel>
@@ -213,18 +240,6 @@ const importProducts = () => {
                         marginVertical="medium"
                     />}
                 <FormGroup>
-                    <Script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" strategy="beforeInteractive"/>
-                    <Script src="https://admin.fa.gov.sa/CDN/admin/shawnchin-jquery-cron/cron/jquery-cron-min.js" strategy="beforeInteractive"/>
-                    <Script id="show-ban" strategy="beforeInteractive">
-                        {`$(document).ready(function() {
-                            $('#cron').cron({
-                                initial: "0 9 * * *",
-                                onChange: function() {
-                                    $('#example1-val').text($(this).cron("value"));
-                                }
-                            });
-                        });`}
-                    </Script>
 
                     <div id='cron'></div>
                     <div id='example1-val'></div>
