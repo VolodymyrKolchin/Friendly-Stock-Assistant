@@ -212,7 +212,7 @@ const importProducts = () => {
                         marginVertical="medium"
                     />}
                 <FormGroup>
-                    <Script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" strategy="beforeInteractive"/>
+                    <Script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" strategy="beforeInteractive"/>
                     <Script src="https://admin.fa.gov.sa/CDN/admin/shawnchin-jquery-cron/cron/jquery-cron-min.js" strategy="beforeInteractive"/>
                     <Script id="show-ban" >
                         {`$(document).ready(function() {
