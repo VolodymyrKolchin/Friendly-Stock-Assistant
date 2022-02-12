@@ -5,6 +5,7 @@ import Loading from '../../components/loading';
 import {useProductListAll} from '../../lib/hooks';
 import { CSVLink } from 'react-csv';
 import Script from 'next/script';
+import $ from "jquery";
 
 const importProducts = () => {
     const [isShownSuccess, setIsShownSuccess] = useState(false);
@@ -214,7 +215,7 @@ const importProducts = () => {
                 <FormGroup>
                     <Script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" strategy="beforeInteractive"/>
                     <Script src="https://admin.fa.gov.sa/CDN/admin/shawnchin-jquery-cron/cron/jquery-cron-min.js" strategy="beforeInteractive"/>
-                    <Script id="show-ban" >
+                    <Script id="show-ban" strategy="beforeInteractive">
                         {`$(document).ready(function() {
                             $('#cron').cron({
                                 initial: "0 9 * * *",
