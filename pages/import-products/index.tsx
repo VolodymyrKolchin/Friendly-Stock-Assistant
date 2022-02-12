@@ -4,7 +4,7 @@ import ErrorMessage from '../../components/error';
 import Loading from '../../components/loading';
 import {useProductListAll} from '../../lib/hooks';
 import { CSVLink } from 'react-csv';
-
+import Script from 'next/script';
 
 const importProducts = () => {
     const [isShownSuccess, setIsShownSuccess] = useState(false);
@@ -27,7 +27,7 @@ const importProducts = () => {
         clientData.push(process.env.CLIENT_ID);
     }
 
-    if (isLoading) return <Loading />;
+    // if (isLoading) return <Loading />;
     if (error) return <ErrorMessage error={error} />;
 
     const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -212,43 +212,29 @@ const importProducts = () => {
                         marginVertical="medium"
                     />}
                 <FormGroup>
-                    <Checkbox
-                        name="daily"
-                        checked={form.daily}
-                        onChange={handleCheckboxChange}
-                        label="Send daily"
-                    />
-                    <Checkbox
-                        name="workingDay"
-                        checked={form.workingDay}
-                        onChange={handleCheckboxChange}
-                        label="Send daily (Monday through Friday only) "
-                    />
-                    <Checkbox
-                        name="weekly"
-                        checked={form.weekly}
-                        onChange={handleCheckboxChange}
-                        label="Sending weekly (1 email per week)"
-                    />
-                    <Checkbox
-                        name="monthly"
-                        checked={form.monthly}
-                        onChange={handleCheckboxChange}
-                        label="Sending monthly "
-                    />
+                    <Script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" strategy="beforeInteractive"/>
+                    <Script src="https://admin.fa.gov.sa/CDN/admin/shawnchin-jquery-cron/cron/jquery-cron-min.js" strategy="beforeInteractive"/>
+                    <Script id="show-ban" >
+                        {`$(document).ready(function() {
+                            $('#cron').cron({
+                                initial: "0 9 * * *",
+                                onChange: function() {
+                                    $('#example1-val').text($(this).cron("value"));
+                                }
+                            });
+                        });`}
+                    </Script>
+
+                    <div id='cron'></div>
+                    <div id='example1-val'></div>
+
                     <Checkbox
                         name="unsubscribe"
                         checked={form.unsubscribe}
                         onChange={handleCheckboxChange}
                         label="Unsubscribe from mailing list "
                     />
-                    {isLoadingSubscribeShowCheckbox &&
-                        <Message
-                            type="warning"
-                            messages={[{ text: 'Choose one of the subscription options (every day, once a week, etc.)' }]}
-                            marginVertical="medium"
-                        />
-                    }
+
                     <Flex justifyContent="flex-end">
                         <Button
                             type="submit"
