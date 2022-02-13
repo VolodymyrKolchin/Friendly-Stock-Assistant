@@ -1,6 +1,6 @@
 $(document).ready(function() {
-    $('#cron').cron({
-        initial: "0 8 * * *",
+    $('#my-custom-id').cron({
+        initial: "42 3 * * *",
         onChange: function() {
             $('#example1-val').text($(this).cron("value"));
         }
