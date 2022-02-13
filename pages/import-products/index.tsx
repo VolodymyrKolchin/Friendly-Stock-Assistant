@@ -87,21 +87,21 @@ const importProducts = () => {
     };
 
     const onClickBtnSubscribe = (e) => {
-        if(form.email === '' ) {
-            setIsLoadingSubscribeShowEmail(true);
-            return;
-        }
-        if (form.daily === false && form.weekly === false && form.workingDay === false && form.monthly=== false && form.unsubscribe === false) {
-            setIsLoadingSubscribeShowCheckbox(true);
-            return;
-        }
+        // if(form.email === '' ) {
+        //     setIsLoadingSubscribeShowEmail(true);
+        //     return;
+        // }
+        // if (form.daily === false && form.weekly === false && form.workingDay === false && form.monthly=== false && form.unsubscribe === false) {
+        //     setIsLoadingSubscribeShowCheckbox(true);
+        //     return;
+        // }
         if (e.target.nodeName || e.target.parentElement.nodeName == 'BUTTON') {
             e.target.setAttribute('disabled', 'true');
             e.target.parentElement.setAttribute('disabled', 'true');
         }
-
+        console.log("$('#example1-val')", $('#example1-val')[0].textContent);
         // http://localhost:8080/send
-        fetch('https://stock-assistant-friendsofcomme.herokuapp.com/subscribe', {
+        fetch('https://stock-assistant-friendsofcomme.herokuapp.com/subscribeddd', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -135,29 +135,29 @@ const importProducts = () => {
     useEffect(() => {
         const aScript = document.createElement('script');
         aScript.type = 'text/javascript';
-        aScript.src = "https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js";
+        aScript.src = "./jquery.min.js";
 
         document.head.appendChild(aScript);
         aScript.onload = () => {
-            console.log('script load');
-        };
-        const bScript = document.createElement('script');
-        bScript.type = 'text/javascript';
-        bScript.src = "https://admin.fa.gov.sa/CDN/admin/shawnchin-jquery-cron/cron/jquery-cron-min.js";
+            console.log('script load jquery.js');
+            const bScript = document.createElement('script');
+            bScript.type = 'text/javascript';
+            bScript.src = "./jquery-cron-min.js";
 
-        document.head.appendChild(bScript);
-        bScript.onload = () => {
-            console.log('script load 2');
-        };
-        const cScript = document.createElement('script');
-        cScript.type = 'text/javascript';
-        cScript.src = "./cron.js";
+            document.head.appendChild(bScript);
+            bScript.onload = () => {
+                console.log('script load jquery-cron-min.js');
+                const cScript = document.createElement('script');
+                cScript.type = 'text/javascript';
+                cScript.src = "./cron.js";
 
-        document.head.appendChild(cScript);
-        cScript.onload = () => {
-            console.log('script load 3')
+                document.head.appendChild(cScript);
+                cScript.onload = () => {
+                    $('#example1-val').hide();
+                    console.log('script load cron.js')
+                };
+            };
         };
-
     }, [])
     //stripe_load();
 
