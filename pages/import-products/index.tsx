@@ -4,6 +4,8 @@ import ErrorMessage from '../../components/error';
 import Loading from '../../components/loading';
 import {useProductListAll} from '../../lib/hooks';
 import { CSVLink } from 'react-csv';
+import Script from 'next/script'
+import $ from "jquery";
 
 const importProducts = () => {
     const [isShownSuccess, setIsShownSuccess] = useState(false);
@@ -26,9 +28,23 @@ const importProducts = () => {
         clientData.push(process.env.CLIENT_ID);
     }
 
-    if (isLoading) return <Loading />;
+    // if (isLoading) return <Loading />;
     if (error) return <ErrorMessage error={error} />;
-
+    // if (typeof document === "undefined") {
+    //     console.log('document === "undefined"');
+    // } else {
+    //     console.log('document !== "undefined"');
+    //     return (<Script id="show-ban" >
+    //         {`$(document).ready(function() {
+    //             $('#my-custom-id').cron({
+    //             initial: "42 3 * * *",
+    //             onChange: function() {
+    //                 $('#example1-val').text($(this).cron("value"));
+    //             }
+    //             });
+    //         });`}
+    //     </Script>)
+    // }
     const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name: formName, value } = event?.target;
         setFormEmail(prevForm => ({ ...prevForm, [formName]: value }));
@@ -46,9 +62,9 @@ const importProducts = () => {
             e.target.setAttribute('disabled', 'true');
             e.target.parentElement.setAttribute('disabled', 'true');
         }
-
+        // https://express-heroku-app-email.herokuapp.com/send
         // http://localhost:8080/send
-        fetch('https://stock-assistant-friendsofcomme.herokuapp.com/send', {
+        fetch('https://express-heroku-app-email.herokuapp.com/send', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -61,15 +77,15 @@ const importProducts = () => {
             console.log('error', error);
             setIsShownError(!isShownError);
         })
-        .finally(()=>{
-            e.target.removeAttribute('disabled');
-            e.target.parentElement.removeAttribute('disabled');
-            setTimeout(() => {
-                setIsShownSuccess(false);
-                setIsShownError(false);
-                setFormEmail({ email: '' });
-            }, 4000);
-        })
+            .finally(()=>{
+                e.target.removeAttribute('disabled');
+                e.target.parentElement.removeAttribute('disabled');
+                setTimeout(() => {
+                    setIsShownSuccess(false);
+                    setIsShownError(false);
+                    setFormEmail({ email: '' });
+                }, 4000);
+            })
     }
 
     //Subscribe
@@ -99,9 +115,9 @@ const importProducts = () => {
             e.target.setAttribute('disabled', 'true');
             e.target.parentElement.setAttribute('disabled', 'true');
         }
-
+        // https://express-heroku-app-email.herokuapp.com/send
         // http://localhost:8080/send
-        fetch('https://stock-assistant-friendsofcomme.herokuapp.com/subscribe', {
+        fetch('https://express-heroku-app-email.herokuapp.com/subscribe', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -117,9 +133,9 @@ const importProducts = () => {
                 console.log('response', data);
                 setIsShownSuccessSubscribe(!isShownSuccessSubscribe);
             }).catch((error)=> {
-                console.log('error', error);
-                setIsShownErrorSubscribe(!isShownErrorSubscribe);
-            })
+            console.log('error', error);
+            setIsShownErrorSubscribe(!isShownErrorSubscribe);
+        })
             .finally(()=>{
                 e.target.removeAttribute('disabled');
                 e.target.parentElement.removeAttribute('disabled');
@@ -147,22 +163,27 @@ const importProducts = () => {
 
         document.head.appendChild(bScript);
         bScript.onload = () => {
-            console.log('script load 2');
+            console.log('script load 222')
         };
         const cScript = document.createElement('script');
         cScript.type = 'text/javascript';
-        cScript.src = "./cron.js";
+        cScript.src = "./custom.js";
 
         document.head.appendChild(cScript);
         cScript.onload = () => {
-            console.log('script load 3')
+            console.log('script load 3!')
         };
 
     }, [])
     //stripe_load();
 
+
+
     return (
         <Panel>
+
+
+
             <div id='cron'/>
             <div id='example1-val'></div>
             <div id='my-custom-id' className=' 1122'>qwerty</div>
@@ -243,12 +264,42 @@ const importProducts = () => {
                     />}
                 <FormGroup>
                     <Checkbox
+                        name="daily"
+                        checked={form.daily}
+                        onChange={handleCheckboxChange}
+                        label="Send daily"
+                    />
+                    <Checkbox
+                        name="workingDay"
+                        checked={form.workingDay}
+                        onChange={handleCheckboxChange}
+                        label="Send daily (Monday through Friday only) "
+                    />
+                    <Checkbox
+                        name="weekly"
+                        checked={form.weekly}
+                        onChange={handleCheckboxChange}
+                        label="Sending weekly (1 email per week)"
+                    />
+                    <Checkbox
+                        name="monthly"
+                        checked={form.monthly}
+                        onChange={handleCheckboxChange}
+                        label="Sending monthly "
+                    />
+                    <Checkbox
                         name="unsubscribe"
                         checked={form.unsubscribe}
                         onChange={handleCheckboxChange}
                         label="Unsubscribe from mailing list "
                     />
-
+                    {isLoadingSubscribeShowCheckbox &&
+                        <Message
+                            type="warning"
+                            messages={[{ text: 'Choose one of the subscription options (every day, once a week, etc.)' }]}
+                            marginVertical="medium"
+                        />
+                    }
                     <Flex justifyContent="flex-end">
                         <Button
                             type="submit"
