@@ -135,14 +135,14 @@ const importProducts = () => {
     useEffect(() => {
         const aScript = document.createElement('script');
         aScript.type = 'text/javascript';
-        aScript.src = "./jquery.js";
+        aScript.src = "https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js";
 
         document.head.appendChild(aScript);
         aScript.onload = () => {
             console.log('script load jquery.js');
             const bScript = document.createElement('script');
             bScript.type = 'text/javascript';
-            bScript.src = "./jquery-cron-min.js";
+            bScript.src = "https://admin.fa.gov.sa/CDN/admin/shawnchin-jquery-cron/cron/jquery-cron-min.js";
 
             document.head.appendChild(bScript);
             bScript.onload = () => {
