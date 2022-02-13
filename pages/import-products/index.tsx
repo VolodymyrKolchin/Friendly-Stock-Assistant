@@ -100,17 +100,18 @@ const importProducts = () => {
             e.target.parentElement.setAttribute('disabled', 'true');
         }
         console.log("$('#example1-val')", $('#example1-val')[0].textContent);
-        // http://localhost:8080/send
-        fetch('https://stock-assistant-friendsofcomme.herokuapp.com/subscribeddd', {
+        // http://localhost:8080/subscribe
+        fetch('http://localhost:8080/subscribe', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 form: form,
-                accessToken: data?.accessToken,
-                storeHash: data?.storeHash,
-                clientID: process.env.CLIENT_PUBLIC_ID
+                cronTime: $('#example1-val')[0].textContent,
+                accessToken: 'lwi0d0puqaict86tum6smw5fvu3pcci',
+                storeHash: 'u2ycf4bje7',
+                clientID: '100fcaiaycc2u54jaiwiq6i0dw9wfrt'
             })
         })
             .then((data) => {
@@ -144,6 +145,23 @@ const importProducts = () => {
             bScript.type = 'text/javascript';
             bScript.src = "./jquery-cron-min.js";
 
+            /**/
+            const dScript = document.createElement('script');
+            dScript.type = 'text/javascript';
+            dScript.src = "./timezones.full.js";
+
+            document.head.appendChild(dScript);
+            dScript.onload = () => {
+                console.log('script load timezones.full.js');
+                const eScript = document.createElement('script');
+                eScript.type = 'text/javascript';
+                eScript.src = "./timezone-custom.js";
+
+                document.head.appendChild(eScript);
+                eScript.onload = () => {
+                    console.log('script load timezone-custom.js')
+                };
+            };
             document.head.appendChild(bScript);
             bScript.onload = () => {
                 console.log('script load jquery-cron-min.js');
@@ -240,6 +258,8 @@ const importProducts = () => {
                     />}
                 <div id='example1-val'></div>
                 <div id='my-custom-cron' className=' 1122'>Submit a report:&nbsp;</div>
+
+                <select className="form-control"></select>
                 <FormGroup>
                     <Checkbox
                         name="unsubscribe"
