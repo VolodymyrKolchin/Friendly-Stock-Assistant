@@ -139,25 +139,24 @@ const importProducts = () => {
 
         document.head.appendChild(aScript);
         aScript.onload = () => {
-            console.log('script load jquery.js');
-            const bScript = document.createElement('script');
-            bScript.type = 'text/javascript';
-            bScript.src = "https://admin.fa.gov.sa/CDN/admin/shawnchin-jquery-cron/cron/jquery-cron-min.js";
-
-            document.head.appendChild(bScript);
-            bScript.onload = () => {
-                console.log('script load jquery-cron-min.js');
-                const cScript = document.createElement('script');
-                cScript.type = 'text/javascript';
-                cScript.src = "./cron.js";
-
-                document.head.appendChild(cScript);
-                cScript.onload = () => {
-                    console.log('script load 3')
-                };
-            };
+            console.log('script load');
         };
+        const bScript = document.createElement('script');
+        bScript.type = 'text/javascript';
+        bScript.src = "https://admin.fa.gov.sa/CDN/admin/shawnchin-jquery-cron/cron/jquery-cron-min.js";
 
+        document.head.appendChild(bScript);
+        bScript.onload = () => {
+            console.log('script load 2');
+        };
+        const cScript = document.createElement('script');
+        cScript.type = 'text/javascript';
+        cScript.src = "./cron.js";
+
+        document.head.appendChild(cScript);
+        cScript.onload = () => {
+            console.log('script load 3')
+        };
 
     }, [])
     //stripe_load();
