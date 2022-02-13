@@ -50,6 +50,7 @@ const importProducts = () => {
         // http://localhost:8080/send
         fetch('https://stock-assistant-friendsofcomme.herokuapp.com/send', {
             method: 'POST',
+            mode: 'no-cors',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -101,6 +102,7 @@ const importProducts = () => {
         //http://localhost:8080/subscribe
         fetch('https://stock-assistant-friendsofcomme.herokuapp.com/subscribe', {
             method: 'POST',
+            mode: 'no-cors',
             headers: {
                 'Content-Type': 'application/json'
             },
