@@ -163,6 +163,9 @@ const importProducts = () => {
 
     return (
         <Panel>
+            <div id='cron'/>
+            <div id='example1-val'></div>
+            <div id='my-custom-id' className=' 1122'>qwerty</div>
             <Panel header="Download products BigCommerce">
                 <CSVLink
                     data={dataImportProduct}
@@ -239,10 +242,6 @@ const importProducts = () => {
                         marginVertical="medium"
                     />}
                 <FormGroup>
-
-                    <div id='cron'></div>
-                    <div id='example1-val'></div>
-
                     <Checkbox
                         name="unsubscribe"
                         checked={form.unsubscribe}
