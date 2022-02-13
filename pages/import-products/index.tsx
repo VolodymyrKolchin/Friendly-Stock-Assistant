@@ -163,9 +163,6 @@ const importProducts = () => {
 
     return (
         <Panel>
-            <div id='cron'/>
-            <div id='example1-val'></div>
-            <div id='my-custom-id' className=' 1122'>qwerty</div>
             <Panel header="Download products BigCommerce">
                 <CSVLink
                     data={dataImportProduct}
@@ -241,6 +238,8 @@ const importProducts = () => {
                         messages={[{ text: 'Email field is empty, please enter your email ' }]}
                         marginVertical="medium"
                     />}
+                <div id='example1-val'></div>
+                <div id='my-custom-cron' className=' 1122'>Submit a report:&nbsp;</div>
                 <FormGroup>
                     <Checkbox
                         name="unsubscribe"
