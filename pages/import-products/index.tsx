@@ -12,8 +12,8 @@ const importProducts = () => {
     const [isShownSuccessSubscribe, setIsShownSuccessSubscribe] = useState(false);
     const [isShownErrorSubscribe, setIsShownErrorSubscribe] = useState(false);
     const [isLoadingSubscribeShowEmail, setIsLoadingSubscribeShowEmail] = useState(false);
-    const [isLoadingSubscribeShowCheckbox, setIsLoadingSubscribeShowCheckbox] = useState(false);
-    const [form, setForm] = useState({ email: '', daily: false, weekly: false, workingDay: false, monthly:false, unsubscribe: false });
+    const [form, setForm] = useState({ email: '', cronTime: '', timezone: '', unsubscribe: false });
+    const [formTimeZone, setFormTimeZone] = useState({timezone: 'Africa/Blantyre'});
 
     const dataImportProduct = [];
     const { error, isLoading, list = [], meta = {}, mutateList=[], data } = useProductListAll();
@@ -81,37 +81,36 @@ const importProducts = () => {
 
     const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { checked, name: formName } = event?.target;
-        setForm({ email:form.email, daily: false, weekly: false, workingDay: false, monthly:false, unsubscribe: false });
+        setForm({ email:form.email, cronTime: form.cronTime, timezone: form.timezone, unsubscribe: false });
         setForm(prevForm => ({ ...prevForm, [formName]: checked }));
-        setIsLoadingSubscribeShowCheckbox(false);
     };
 
+    const onSelectFun = (event) => {
+        const { name: formName, value } = event?.target;
+        setFormTimeZone(prevForm => ({ ...prevForm, [formName]: value }));
+    }
     const onClickBtnSubscribe = (e) => {
-        // if(form.email === '' ) {
-        //     setIsLoadingSubscribeShowEmail(true);
-        //     return;
-        // }
-        // if (form.daily === false && form.weekly === false && form.workingDay === false && form.monthly=== false && form.unsubscribe === false) {
-        //     setIsLoadingSubscribeShowCheckbox(true);
-        //     return;
-        // }
+        if(form.email === '' ) {
+            setIsLoadingSubscribeShowEmail(true);
+            return;
+        }
         if (e.target.nodeName || e.target.parentElement.nodeName == 'BUTTON') {
             e.target.setAttribute('disabled', 'true');
             e.target.parentElement.setAttribute('disabled', 'true');
         }
-        console.log("$('#example1-val')", $('#example1-val')[0].textContent);
-        // http://localhost:8080/subscribe
-        fetch('http://localhost:8080/subscribe', {
+        //http://localhost:8080/subscribe
+        fetch('https://stock-assistant-friendsofcomme.herokuapp.com/subscribe', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 form: form,
+                timeZone: formTimeZone.timezone,
                 cronTime: $('#example1-val')[0].textContent,
-                accessToken: 'lwi0d0puqaict86tum6smw5fvu3pcci',
-                storeHash: 'u2ycf4bje7',
-                clientID: '100fcaiaycc2u54jaiwiq6i0dw9wfrt'
+                accessToken: data?.accessToken,
+                storeHash: data?.storeHash,
+                clientID: process.env.CLIENT_PUBLIC_ID
             })
         })
             .then((data) => {
@@ -124,12 +123,11 @@ const importProducts = () => {
             .finally(()=>{
                 e.target.removeAttribute('disabled');
                 e.target.parentElement.removeAttribute('disabled');
-                setIsLoadingSubscribeShowCheckbox(false);
                 setIsLoadingSubscribeShowEmail(false);
                 setTimeout(() => {
                     setIsShownSuccessSubscribe(false);
                     setIsShownErrorSubscribe(false);
-                    setForm({ email:'', daily: false, weekly: false, workingDay: false, monthly:false, unsubscribe: false });
+                    setForm({ email:'', cronTime: '', timezone: '', unsubscribe: false });
                 }, 4000);
             })
     }
@@ -256,10 +254,13 @@ const importProducts = () => {
                         messages={[{ text: 'Email field is empty, please enter your email ' }]}
                         marginVertical="medium"
                     />}
-                <div id='example1-val'></div>
-                <div id='my-custom-cron' className=' 1122'>Submit a report:&nbsp;</div>
-
-                <select className="form-control"></select>
+                <div id='example1-val'/>
+                <div id='my-custom-cron' className='cron-style'>Submit a report:&nbsp;</div>
+                <select
+                    name="timezone"
+                    className="form-control"
+                    onChange={onSelectFun}
+                />
                 <FormGroup>
                     <Checkbox
                         name="unsubscribe"
