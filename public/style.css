@@ -7,4 +7,11 @@
 }
 .product-name-thead {
     font-weight: bold;
+    background-color: rgb(246, 247, 252);
+    border-bottom: 1px solid rgb(217, 220, 233);
+    border-top: 1px solid rgb(217, 220, 233);
+    box-sizing: border-box;
+    color: rgb(94, 99, 122);
+    font-size: 1rem;
+    padding: 0.75rem;
 }
