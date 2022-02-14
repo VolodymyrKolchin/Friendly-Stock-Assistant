@@ -137,10 +137,10 @@ const Products = () => {
                                 <td className="product-name">
                                    SKU: {element.sku}
                                 </td>
-                                <td>
+                                <td className="product-stock">
                                    {element.inventory_level}
                                 </td>
-                                <td>
+                                <td className="product-price">
                                     {element.price > 0
                                         ? <div className='element_price'>{element.price}</div>
                                         : <div className='el_price'>{el.price}</div>
