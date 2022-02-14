@@ -106,13 +106,13 @@ const Products = () => {
             <thead className="styled__thead">
                 <tr>
                     <th className="product-name product-name-thead">
-                        <div>Product name</div>
+                        Product name
                     </th>
                     <th className="stock">
-                        <div>Stock</div>
+                        Stock
                     </th>
                     <th className="price">
-                        <div>Price</div>
+                        Price
                     </th>
                 </tr>
             </thead>
