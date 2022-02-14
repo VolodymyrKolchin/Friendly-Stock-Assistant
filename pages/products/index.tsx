@@ -121,15 +121,15 @@ const Products = () => {
                 return(
                 <>
                     <tr>
-                        <th className="product-name с">
+                        <td className="product-name">
                             {el.name}
-                        </th>
-                        <th>
+                        </td>
+                        <td>
                             {el.stock}
-                        </th>
-                        <th>
+                        </td>
+                        <td>
                             {el.price}
-                        </th>
+                        </td>
                     </tr>
                     {el.variants.map((element)=>{
                         return (
