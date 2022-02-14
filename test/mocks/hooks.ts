@@ -21,6 +21,7 @@ const generateList = (): TableItem[] => (
         name: `Product ${index}`,
         price: (index + 1) * 10,
         stock: 7,
+        variants: [...variants];
     }))
 );
 
