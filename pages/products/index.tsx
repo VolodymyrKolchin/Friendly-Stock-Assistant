@@ -120,10 +120,11 @@ const Products = () => {
                             'abcd'
                         </th>
                     </tr>
-                <div>
+                </div>
                 )
             })}
             </tbody>
+
         </table>
 
 
