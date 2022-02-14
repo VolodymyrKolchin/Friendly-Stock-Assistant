@@ -179,10 +179,6 @@ const importProducts = () => {
 
     return (
         <Panel>
-            <div id='bd-table-232'>heelllll</div>
-            <Script id="show-banner" strategy="lazyOnload">
-                {$('[id^="bd-table-"]').classList.add('hidden')}
-            </Script>
             <Panel header="Download products BigCommerce">
                 <CSVLink
                     data={dataImportProduct}
