@@ -2,7 +2,7 @@ import { Button, Dropdown, Panel, Small, Link as StyledLink, Table, TableSortDir
 import { MoreHorizIcon } from '@bigcommerce/big-design-icons';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { ReactElement, useState } from 'react';
+import {ReactElement, useEffect, useState} from 'react';
 import ErrorMessage from '../../components/error';
 import Loading from '../../components/loading';
 import { useProductList } from '../../lib/hooks';
@@ -68,6 +68,17 @@ const Products = () => {
             toggle={<Button iconOnly={<MoreHorizIcon color="secondary60" />} variant="subtle" />}
         />
     );
+    useEffect(() => {
+        const aScript = document.createElement('script');
+        aScript.type = 'text/javascript';
+        aScript.src = "./jquery.min.js";
+
+        document.head.appendChild(aScript);
+        aScript.onload = () => {
+            console.log('load script page list products');
+
+        };
+    }, [])
     const onClickBtn = (e) => {
         console.log('e.target', e.target);
         console.log('e', e);
@@ -80,7 +91,25 @@ const Products = () => {
 
     return (
         <Panel>
-        <Table
+
+
+            <button className="accordion">Вопрос 1</button>
+            <div className="panel">
+                <p>Ответ на Вопрос 1...</p>
+            </div>
+
+            <button className="accordion">Вопрос 2</button>
+            <div className="panel">
+                <p>Ответ на Вопрос 2...</p>
+            </div>
+
+            <button className="accordion">Вопрос 3</button>
+            <div className="panel">
+                <p>Ответ на Вопрос 3 ...</p>
+            </div>
+
+
+            <Table
             columns={[
                 { header: 'Product name', hash: 'name', render: ({ id, name }) => renderName(id, name), isSortable: true, display:'none'},
                 { header: 'Stock', hash: 'stock', render: ({ stock }) => renderStock(stock), isSortable: true, display:'none'},
