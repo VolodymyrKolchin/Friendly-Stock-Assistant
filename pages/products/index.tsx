@@ -50,7 +50,7 @@ const Products = () => {
         setDirection(newDirection);
     };
 
-    const renderName = (id: number, name: string): ReactElement => (
+    const renderName = (id: number, name: string, variants: array): ReactElement => (
         <Link href={`/products/${id}`}>
             <StyledLink>{name}</StyledLink>
         </Link>
@@ -77,19 +77,9 @@ const Products = () => {
 
     return (
         <Panel>
-        {tableItems.map((el)=>{
-        console.log('elelel', el)
-            return(
-                <div>
-                    <div>{el.name}</div>
-                    <div>{el.stock}</div>
-                    <div>{el.price}</div>
-                </div>
-                )
-        })}
             <Table
                 columns={[
-                    { header: 'Product name', hash: 'name', render: ({ id, name }) => renderName(id, name), isSortable: true },
+                    { header: 'Product name', hash: 'name', render: ({ id, name, variants }) => renderName(id, name, variants), isSortable: true },
                     { header: 'Stock', hash: 'stock', render: ({ stock }) => renderStock(stock), isSortable: true },
                     { header: 'Price', hash: 'price', render: ({ price }) => renderPrice(price), isSortable: true },
                     { header: 'Action', hideHeader: true, hash: 'id', render: ({ id }) => renderAction(id) },
