@@ -158,7 +158,7 @@ const Products = () => {
             {tableItems.map((el)=>{
                 return(
                 <>
-                    <tr>
+                    <tr className="accordion">
                         <td className="product-name">
                             <a href="#" onClick={onClickBtn}>{el.name}</a>
                         </td>
@@ -171,7 +171,7 @@ const Products = () => {
                     </tr>
                     {el.variants.map((element)=>{
                         return (
-                            <tr>
+                            <tr className="panel">
                                 <td className="product-name">
                                    SKU: {element.sku}
                                 </td>
