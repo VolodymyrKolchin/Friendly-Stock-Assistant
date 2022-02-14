@@ -50,10 +50,15 @@ const Products = () => {
         setDirection(newDirection);
     };
 
-    const renderName = (id: number, name: string): ReactElement => (
+    const renderName = (id: number, name: string, variants: array): ReactElement => (
+        <div>
         <Link href={`/products/${id}`}>
             <StyledLink>{name}</StyledLink>
         </Link>
+        {variants.map((el)=>{
+            return( <div>{el.product_id}</div>)
+        })}
+        </div>
     );
 
     const renderPrice = (price: number): string => (
