@@ -114,9 +114,6 @@ const Products = () => {
                     <th className="price">
                         <div className="">Price</div>
                     </th>
-                    <th className="action">
-                        <div className="">Action</div>
-                    </th>
                 </tr>
             </thead>
             <tbody>
