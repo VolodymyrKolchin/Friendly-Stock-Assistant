@@ -124,17 +124,6 @@ const Products = () => {
                             </tr>
                         )
                     })}
-                    <tr>
-                        <th>
-                            'name'
-                        </th>
-                        <th>
-                            'stock'
-                        </th>
-                        <th>
-                            'price'
-                        </th>
-                    </tr>
                 </>
                 )
             })}
