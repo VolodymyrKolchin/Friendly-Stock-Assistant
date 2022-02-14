@@ -30,10 +30,10 @@ const Products = () => {
     const dataProduct = [];
     const dataProductVariants= [];
     if(!isLoading) {
-        list.forEach((el)=>{
-            dataProduct.push(...el.variants);
-            dataProductVariants.push(...el.variants)
-        })
+//         list.forEach((el)=>{
+//             dataProduct.push(...el.variants);
+//             dataProductVariants.push(...el.variants)
+//         })
         console.log("list", list);
     }
     console.log('dataProduct', dataProduct);
