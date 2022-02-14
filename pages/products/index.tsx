@@ -26,7 +26,7 @@ const Products = () => {
         name,
         price,
         stock,
-        variants,
+        ...variants,
     }));
 
     const dataProductVariants= [];
@@ -101,21 +101,12 @@ const Products = () => {
                         {el.name}
                     </th>
                     <th>
-                        {el.price}
-                    </th>
-                    <th>
                         {el.stock}
                     </th>
-                <table style={{width: '100%'}}>
-                    <tr>
-                        <td>Ячейка 2.1 - 1.1</td>
-                        <td>Ячейка 2.1 - 1.2</td>
-                    </tr>
-                    <tr>
-                        <td>Ячейка 2.1 - 2.1</td>
-                        <td>Ячейка 2.1 - 2.2</td>
-                    </tr>
-                </table>
+                    <th>
+                        {el.price}
+                    </th>
+
                 </tr>
                 )
             })}
