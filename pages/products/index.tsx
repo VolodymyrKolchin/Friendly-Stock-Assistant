@@ -121,7 +121,7 @@ const Products = () => {
                 return(
                 <>
                     <tr>
-                        <th className="product-name">
+                        <th className="product-name с">
                             {el.name}
                         </th>
                         <th>
