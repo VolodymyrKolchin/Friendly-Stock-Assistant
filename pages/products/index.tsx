@@ -106,7 +106,7 @@ const Products = () => {
                     <th>
                         {el.stock}
                     </th>
-                <table border="1" style="width: 100%;">
+                <table border="1" style={{width: '100%'}}>
                     <tr>
                         <td>Ячейка 2.1 - 1.1</td>
                         <td>Ячейка 2.1 - 1.2</td>
