@@ -134,18 +134,18 @@ const Products = () => {
                     {el.variants.map((element)=>{
                         return (
                             <tr>
-                                <th className="product-name">
+                                <td className="product-name">
                                    SKU: {element.sku}
-                                </th>
-                                <th>
+                                </td>
+                                <td>
                                    {element.inventory_level}
-                                </th>
-                                <th>
+                                </td>
+                                <td>
                                     {element.price > 0
                                         ? <div className='element_price'>{element.price}</div>
                                         : <div className='el_price'>{el.price}</div>
                                     }
-                                </th>
+                                </td>
                             </tr>
                         )
                     })}
