@@ -95,29 +95,30 @@ const Products = () => {
                 </tr>
             </thead>
             {tableItems.map((el)=>{
-                return(<div>
-                    <div>
+                return(
+                <tr>
+                    <th>
                         {el.name}
-                    </div>
-                    <div>
+                    </th>
+                    <th>
                         {el.price}
-                    </div>
-                    <div>
+                    </th>
+                    <th>
                         {el.stock}
-                    </div>
-                    <div>
+                    </th>
+                    <th>
                         {el.variants.map((element)=>{
                             return(
-                                <div>
-                                    <div>{element.sku}</div>
-                                    <div>{element.product_id}</div>
-                                    <div>{element.sku_id}</div>
-                                    <div>{element.inventory_level}</div>
-                                </div>
+                                <tr>
+                                    <th>{element.sku}</th>
+                                    <th>{element.product_id}</th>
+                                    <th>{element.sku_id}</th>
+                                    <th>{element.inventory_level}</th>
+                                </tr>
                             )
                         })}
-                    </div>
-                </div>
+                    </th>
+                </tr>
                 )
             })}
         </table>
