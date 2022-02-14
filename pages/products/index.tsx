@@ -99,24 +99,6 @@ const Products = () => {
 
     return (
         <Panel>
-
-
-            <button className="accordion">Вопрос 1</button>
-            <div className="panel">
-                <p>Ответ на Вопрос 1...</p>
-            </div>
-
-            <button className="accordion">Вопрос 2</button>
-            <div className="panel">
-                <p>Ответ на Вопрос 2...</p>
-            </div>
-
-            <button className="accordion">Вопрос 3</button>
-            <div className="panel">
-                <p>Ответ на Вопрос 3 ...</p>
-            </div>
-
-
             <Table
             columns={[
                 { header: 'Product name', hash: 'name', render: ({ id, name }) => renderName(id, name), isSortable: true, display:'none'},
