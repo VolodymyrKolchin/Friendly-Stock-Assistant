@@ -50,7 +50,7 @@ const Products = () => {
         setDirection(newDirection);
     };
 
-    const renderName = (id: number, name: string, variants: Array<Object>): ReactElement => (
+    const renderName = (id: number, name: string): ReactElement => (
         <Link href={`/products/${id}`}>
             <StyledLink>{name}</StyledLink>
         </Link>
