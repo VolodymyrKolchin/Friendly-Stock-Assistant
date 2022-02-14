@@ -4,7 +4,7 @@
 .product-name {
     font-weight: normal;
 }
-.product-name-thead {
+.product-name-thead , .product-stock-thead, .product-price-thead{
     font-weight: bold;
     padding: 0.75rem;
 }
@@ -19,10 +19,9 @@
     padding: 0.75rem;
 }
 
-.product-name{
+.product-name, .product-stock, .product-price{
     box-sizing: border-box;
     color: rgb(49, 52, 64);
-    font-size: 1rem;
     padding: 0.75rem;
     border-bottom: 1px solid rgb(217, 220, 233);
     transition: color 70ms ease-out 0s;

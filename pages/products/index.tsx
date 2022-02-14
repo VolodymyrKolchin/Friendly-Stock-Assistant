@@ -104,14 +104,14 @@ const Products = () => {
         />
             <table className="table-list-products">
             <thead className="styled__thead">
-                <tr  className="tr-thead">
+                <tr className="tr-thead">
                     <th className="product-name product-name-thead">
                         Product name
                     </th>
-                    <th className="stock">
+                    <th className="stock product-stock-thead">
                         Stock
                     </th>
-                    <th className="price">
+                    <th className="price .product-price-thead">
                         Price
                     </th>
                 </tr>
@@ -124,10 +124,10 @@ const Products = () => {
                         <td className="product-name">
                             <a href="">{el.name}</a>
                         </td>
-                        <td>
+                        <td className="product-stock">
                             {el.stock}
                         </td>
-                        <td>
+                        <td className="product-price">
                             {el.price}
                         </td>
                     </tr>
