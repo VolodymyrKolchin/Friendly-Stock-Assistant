@@ -69,7 +69,8 @@ const Products = () => {
         />
     );
     const onClickBtn = (e) => {
-        console.log('e.targget', e.target);
+        console.log('e.target', e.target);
+        console.log('e', e);
         e.preventDefault();
         console.log('e', e);
     }
