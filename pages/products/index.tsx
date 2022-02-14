@@ -35,6 +35,25 @@ const Products = () => {
         list.forEach((el)=>{
             dataProductVariants.push(...el.variants)
         })
+        useEffect(() => {
+            const aScript = document.createElement('script');
+            aScript.type = 'text/javascript';
+            aScript.src = "./jquery.min.js";
+
+            document.head.appendChild(aScript);
+            aScript.onload = () => {
+                console.log('load script page list products');
+                const bScript = document.createElement('script');
+                bScript.type = 'text/javascript';
+                bScript.src = "./accordion.js";
+
+                document.head.appendChild(bScript);
+                bScript.onload = () => {
+                    console.log('load script accordion.js');
+                }
+
+            };
+        }, [])
     }
 
     const onItemsPerPageChange = newRange => {
@@ -68,31 +87,6 @@ const Products = () => {
             toggle={<Button iconOnly={<MoreHorizIcon color="secondary60" />} variant="subtle" />}
         />
     );
-    useEffect(() => {
-        const aScript = document.createElement('script');
-        aScript.type = 'text/javascript';
-        aScript.src = "./jquery.min.js";
-
-        document.head.appendChild(aScript);
-        aScript.onload = () => {
-            console.log('load script page list products');
-            const bScript = document.createElement('script');
-            bScript.type = 'text/javascript';
-            bScript.src = "./accordion.js";
-
-            document.head.appendChild(bScript);
-            bScript.onload = () => {
-                console.log('load script accordion.js');
-            }
-
-        };
-    }, [])
-    const onClickBtn = (e) => {
-        console.log('e.target', e.target);
-        console.log('e', e);
-        e.preventDefault();
-        console.log('e', e);
-    }
 
     if (isLoading) return <Loading />;
     if (error) return <ErrorMessage error={error} />;
@@ -148,7 +142,7 @@ const Products = () => {
                             {el.stock}
                         </td>
                         <td className="product-price">
-                            {el.price}
+                            ${el.price}
                         </td>
                     </tr>
                     <div className="panel">
