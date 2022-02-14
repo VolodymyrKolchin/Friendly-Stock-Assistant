@@ -140,17 +140,20 @@ const Products = () => {
             {tableItems.map((el)=>{
                 return(
                 <>
-                    <tr className="accordion">
-                        <td className="product-name">
-                            <button className="accordion">{el.name}</button>
-                        </td>
-                        <td className="product-stock">
-                            {el.stock}
-                        </td>
-                        <td className="product-price">
-                            {el.price}
-                        </td>
-                    </tr>
+                    <button className="accordion">
+                        <tr className="accordion">
+                            <td className="product-name">
+                                {el.name}
+                            </td>
+                            <td className="product-stock">
+                                {el.stock}
+                            </td>
+                            <td className="product-price">
+                                {el.price}
+                            </td>
+                        </tr>
+                    </button>
+                    <div className="panel">
                     {el.variants.map((element)=>{
                         return (
                             <tr className="panel">
@@ -169,6 +172,7 @@ const Products = () => {
                             </tr>
                         )
                     })}
+                    </div>
                 </>
                 )
             })}
