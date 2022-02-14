@@ -77,8 +77,25 @@ const Products = () => {
 
     return (
         <Panel>
-        <div>{tableItems.map((el)=>{
-            return(<div>
+            <table>
+            <thead class="styled__thead">
+                <tr>
+                    <th class="product-name">
+                        <div class="s">Product name</div>
+                    </th>
+                    <th class="stock">
+                        <div class=" ">Stock</div>
+                    </th>
+                    <th class="price">
+                        <div class="">Price</div>
+                    </th>
+                    <th class="action">
+                        <div class="">Action</div>
+                    </th>
+                </tr>
+            </thead>
+            {tableItems.map((el)=>{
+                return(<div>
                     <div>
                         {el.name}
                     </div>
@@ -101,10 +118,12 @@ const Products = () => {
                         })}
                     </div>
                 </div>
-            )
-        })
+                )
+            })}
+        </table>
 
-        }</div>
+
+
             <Table
                 columns={[
                     { header: 'Product name', hash: 'name', render: ({ id, name }) => renderName(id, name), isSortable: true },
