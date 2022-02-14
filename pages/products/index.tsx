@@ -94,18 +94,21 @@ const Products = () => {
                     </th>
                 </tr>
             </thead>
+            <tbody>
             {tableItems.map((el)=>{
                 return(
-                <tr>
-                    <th>
-                        {el.name}
-                    </th>
-                    <th>
-                        {el.stock}
-                    </th>
-                    <th>
-                        {el.price}
-                    </th>
+                <div>
+                    <tr>
+                        <th>
+                            {el.name}
+                        </th>
+                        <th>
+                            {el.stock}
+                        </th>
+                        <th>
+                            {el.price}
+                        </th>
+                    </tr>
                     <tr>
                         <th>
                             'bbb'
@@ -117,9 +120,11 @@ const Products = () => {
                             'abcd'
                         </th>
                     </tr>
-                </tr>
+                </div>
                 )
             })}
+            </tbody>
+
         </table>
 
 
