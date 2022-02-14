@@ -34,8 +34,7 @@ const Products = () => {
         list.forEach((el)=>{
             dataProductVariants.push(...el.variants)
         })
-        $('#bd-table-*').hide();
-        console.log("$('#bd-table-*')", $('#bd-table-*'));
+
         console.log("list", list);
         console.log('dataProductVariants2', dataProductVariants);
         console.log("tableItems", tableItems);
