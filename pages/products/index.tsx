@@ -160,7 +160,7 @@ const Products = () => {
                 <>
                     <tr className="accordion">
                         <td className="product-name">
-                            <a href="#" onClick={onClickBtn}>{el.name}</a>
+                            <button className="accordion">{el.name}</button>
                         </td>
                         <td className="product-stock">
                             {el.stock}
