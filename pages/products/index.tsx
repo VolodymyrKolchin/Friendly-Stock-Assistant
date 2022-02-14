@@ -104,7 +104,7 @@ const Products = () => {
         />
             <table className="table-list-products">
             <thead className="styled__thead">
-                <tr>
+                <tr  className="tr-thead">
                     <th className="product-name product-name-thead">
                         Product name
                     </th>

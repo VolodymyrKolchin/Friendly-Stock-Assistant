@@ -5,7 +5,7 @@
     float: left;
     font-weight: normal;
 }
-.product-name-thead {
+.tr-thead {
     font-weight: bold;
     background-color: rgb(246, 247, 252);
     border-bottom: 1px solid rgb(217, 220, 233);
