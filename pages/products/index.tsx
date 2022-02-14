@@ -106,18 +106,16 @@ const Products = () => {
                     <th>
                         {el.stock}
                     </th>
-                    <th>
-                        {el.variants.map((element)=>{
-                            return(
-                                <tr>
-                                    <th>{element.sku}</th>
-                                    <th>{element.product_id}</th>
-                                    <th>{element.sku_id}</th>
-                                    <th>{element.inventory_level}</th>
-                                </tr>
-                            )
-                        })}
-                    </th>
+                <table border="1" style="width: 100%;">
+                    <tr>
+                        <td>Ячейка 2.1 - 1.1</td>
+                        <td>Ячейка 2.1 - 1.2</td>
+                    </tr>
+                    <tr>
+                        <td>Ячейка 2.1 - 2.1</td>
+                        <td>Ячейка 2.1 - 2.2</td>
+                    </tr>
+                </table>
                 </tr>
                 )
             })}
