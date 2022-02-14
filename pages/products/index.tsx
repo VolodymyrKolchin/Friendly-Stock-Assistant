@@ -7,7 +7,6 @@ import ErrorMessage from '../../components/error';
 import Loading from '../../components/loading';
 import { useProductList } from '../../lib/hooks';
 import { TableItem } from '../../types';
-import Script from 'next/script';
 
 
 const Products = () => {
@@ -40,10 +39,6 @@ const Products = () => {
         console.log("list", list);
         console.log('dataProductVariants2', dataProductVariants);
         console.log("tableItems", tableItems);
-        <Script id="show-banner" strategy="lazyOnload">
-          {`document.getElementById('bd-table-*').classList.add('hidden')`}
-        </Script>
-
     }
     console.log('dataProductVariants', dataProductVariants);
 
