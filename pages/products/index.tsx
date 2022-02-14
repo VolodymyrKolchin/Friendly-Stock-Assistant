@@ -122,7 +122,7 @@ const Products = () => {
                 <>
                     <tr>
                         <td className="product-name">
-                            {el.name}
+                            <a href="">{el.name}</a>
                         </td>
                         <td>
                             {el.stock}
