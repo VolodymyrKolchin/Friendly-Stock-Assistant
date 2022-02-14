@@ -34,6 +34,8 @@ const Products = () => {
         list.forEach((el)=>{
             dataProductVariants.push(...el.variants)
         })
+        $('#bd-table-*').hide();
+        console.log("$('#bd-table-*')", $('#bd-table-*'));
         console.log("list", list);
         console.log('dataProductVariants2', dataProductVariants);
         console.log("tableItems", tableItems);
@@ -82,7 +84,6 @@ const Products = () => {
                 { header: 'Product name', hash: 'name', render: ({ id, name }) => renderName(id, name), isSortable: true },
                 { header: 'Stock', hash: 'stock', render: ({ stock }) => renderStock(stock), isSortable: true },
                 { header: 'Price', hash: 'price', render: ({ price }) => renderPrice(price), isSortable: true },
-                { header: 'Action', hideHeader: true, hash: 'id', render: ({ id }) => renderAction(id) },
             ]}
             items={tableItems}
             itemName="Products"
@@ -137,7 +138,7 @@ const Products = () => {
                         return (
                             <tr>
                                 <th>
-                                   {element.sku}
+                                   SKU: {element.sku}
                                 </th>
                                 <th>
                                    {element.inventory_level}
