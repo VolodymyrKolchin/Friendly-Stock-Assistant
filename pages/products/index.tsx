@@ -35,12 +35,7 @@ const Products = () => {
         list.forEach((el)=>{
             dataProductVariants.push(...el.variants)
         })
-
-        console.log("list", list);
-        console.log('dataProductVariants2', dataProductVariants);
-        console.log("tableItems", tableItems);
     }
-    console.log('dataProductVariants', dataProductVariants);
 
     const onItemsPerPageChange = newRange => {
         setCurrentPage(1);
@@ -73,6 +68,11 @@ const Products = () => {
             toggle={<Button iconOnly={<MoreHorizIcon color="secondary60" />} variant="subtle" />}
         />
     );
+    const onClickBtn = (e) => {
+        console.log('e.targget', e.target);
+        e.preventDefault();
+        console.log('e', e);
+    }
 
     if (isLoading) return <Loading />;
     if (error) return <ErrorMessage error={error} />;
@@ -122,7 +122,7 @@ const Products = () => {
                 <>
                     <tr>
                         <td className="product-name">
-                            <a href="">{el.name}</a>
+                            <a href="#" onClick={onClickBtn}>{el.name}</a>
                         </td>
                         <td className="product-stock">
                             {el.stock}
