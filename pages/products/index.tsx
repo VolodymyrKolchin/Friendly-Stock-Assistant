@@ -140,21 +140,21 @@ const Products = () => {
             {tableItems.map((el)=>{
                 return(
                 <>
-                        <tr className="accordion">
-                            <td className="product-name">
-                                {el.name}
-                            </td>
-                            <td className="product-stock">
-                                {el.stock}
-                            </td>
-                            <td className="product-price">
-                                {el.price}
-                            </td>
-                        </tr>
+                    <tr className="accordion">
+                        <td className="product-name">
+                            {el.name}
+                        </td>
+                        <td className="product-stock">
+                            {el.stock}
+                        </td>
+                        <td className="product-price">
+                            {el.price}
+                        </td>
+                    </tr>
                     <div className="panel">
                     {el.variants.map((element)=>{
                         return (
-                            <tr className="panel">
+                            <tr>
                                 <td className="product-name">
                                    SKU: {element.sku}
                                 </td>
