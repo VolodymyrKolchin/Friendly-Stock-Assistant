@@ -55,19 +55,6 @@
     background-color: #607D8B;
 }
 
-.accordion:after {
-    content: '\002B';
-    color: #fff;
-    font-size: 18px;
-    font-weight: bold;
-    float: right;
-    margin-left: 5px;
-}
-
-.active:after {
-    content: "\2212";
-}
-
 .panel {
     padding: 0 18px;
     color: #212121;
