@@ -106,7 +106,17 @@ const Products = () => {
                     <th>
                         {el.price}
                     </th>
-
+                    <tr>
+                        <th>
+                            'bbb'
+                        </th>
+                        <th>
+                            'aaaa'
+                        </th>
+                        <th>
+                            'abcd'
+                        </th>
+                    </tr>
                 </tr>
                 )
             })}
