@@ -97,7 +97,7 @@ const Products = () => {
             <tbody>
             {tableItems.map((el)=>{
                 return(
-                <div>
+                <tr>
                     <tr>
                         <th>
                             {el.name}
@@ -111,16 +111,16 @@ const Products = () => {
                     </tr>
                     <tr>
                         <th>
-                            'bbb'
+                            'name'
                         </th>
                         <th>
-                            'aaaa'
+                            'stock'
                         </th>
                         <th>
-                            'abcd'
+                            'price'
                         </th>
                     </tr>
-                </div>
+                </tr>
                 )
             })}
             </tbody>
