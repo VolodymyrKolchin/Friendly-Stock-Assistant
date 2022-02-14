@@ -82,7 +82,7 @@ const Products = () => {
                 <div>
                     <div>{el.name}</div>
                     <div>{el.stock}</div>
-                    <div>{el.variants}</div>
+                    <div>{el.price}</div>
                 </div>
                 )
         })}
