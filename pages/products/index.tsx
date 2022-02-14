@@ -27,16 +27,15 @@ const Products = () => {
         price,
         stock,
     }));
-    const dataProduct = [];
+
     const dataProductVariants= [];
     if(!isLoading) {
-//         list.forEach((el)=>{
-//             dataProduct.push(...el.variants);
-//             dataProductVariants.push(...el.variants)
-//         })
+        list.forEach((el)=>{
+            dataProductVariants.push(...el.variants)
+        })
         console.log("list", list);
+        console.log('dataProductVariants2', dataProductVariants);
     }
-    console.log('dataProduct', dataProduct);
     console.log('dataProductVariants', dataProductVariants);
 
     const onItemsPerPageChange = newRange => {
