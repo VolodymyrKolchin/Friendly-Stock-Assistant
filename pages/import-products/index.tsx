@@ -254,25 +254,26 @@ const importProducts = () => {
                         messages={[{ text: 'Email field is empty, please enter your email ' }]}
                         marginVertical="medium"
                     />}
-                    <p>
-                        <div id='example1-val'></div>
-                        <div id='my-custom-cron' style={{ marginBottom: '10px' }} className='cron-style'>Submit a report:&nbsp;</div>
-                        <select
-                            name="timezone"
-                            className="form-control"
-                            onChange={onSelectFun}
-                        />
-                    </p>
-
-                <FormGroup style={{ display: 'block' }}>
+                    <FormGroup>
+                        <p>
+                            <div id='example1-val'></div>
+                            <div id='my-custom-cron' style={{ marginBottom: '10px' }} className='cron-style'>Submit a report:&nbsp;</div>
+                            <select
+                                name="timezone"
+                                className="form-control"
+                                onChange={onSelectFun}
+                            />
+                        </p>
+                    </FormGroup>
+                <FormGroup>
                     <Checkbox
-                        style={{ display: 'block' }}
                         name="unsubscribe"
                         checked={form.unsubscribe}
                         onChange={handleCheckboxChange}
                         label="Unsubscribe from mailing list "
                     />
-
+                </FormGroup>
+                <FormGroup>
                     <Flex justifyContent="flex-end">
                         <Button
                             type="submit"
