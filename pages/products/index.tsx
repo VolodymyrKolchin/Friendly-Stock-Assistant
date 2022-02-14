@@ -26,7 +26,7 @@ const Products = () => {
         name,
         price,
         stock,
-        ...variants,
+        variants,
     }));
 
     const dataProductVariants= [];
@@ -97,7 +97,7 @@ const Products = () => {
             <tbody>
             {tableItems.map((el)=>{
                 return(
-                <tr>
+                <>
                     <tr>
                         <th>
                             {el.name}
@@ -109,18 +109,22 @@ const Products = () => {
                             {el.price}
                         </th>
                     </tr>
-                    <tr>
-                        <th>
-                            'name'
-                        </th>
-                        <th>
-                            'stock'
-                        </th>
-                        <th>
-                            'price'
-                        </th>
-                    </tr>
-                </tr>
+                    {el.variants.map((element)=>{
+                        return (
+                            <tr>
+                                <th>
+                                   {element.sku}
+                                </th>
+                                <th>
+                                   {element.inventory_level}
+                                </th>
+                                <th>
+                                   'element.price'
+                                </th>
+                            </tr>
+                        )
+                    })}
+                </>
                 )
             })}
             </tbody>
