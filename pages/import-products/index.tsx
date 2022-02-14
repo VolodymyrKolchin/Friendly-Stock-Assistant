@@ -265,12 +265,14 @@ const importProducts = () => {
                     </p>
 
                 <FormGroup>
+                 <p>
                     <Checkbox
                         name="unsubscribe"
                         checked={form.unsubscribe}
                         onChange={handleCheckboxChange}
                         label="Unsubscribe from mailing list "
                     />
+                 </p>
 
                     <Flex justifyContent="flex-end">
                         <Button
