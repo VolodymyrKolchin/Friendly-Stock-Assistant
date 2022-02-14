@@ -5,6 +5,10 @@
     float: left;
     font-weight: normal;
 }
+.product-name-thead {
+    font-weight: bold;
+    padding: 0.75rem;
+}
 .tr-thead {
     font-weight: bold;
     background-color: rgb(246, 247, 252);
