@@ -76,6 +76,14 @@ const Products = () => {
         document.head.appendChild(aScript);
         aScript.onload = () => {
             console.log('load script page list products');
+            const bScript = document.createElement('script');
+            bScript.type = 'text/javascript';
+            bScript.src = "./accordion.js";
+
+            document.head.appendChild(bScript);
+            bScript.onload = () => {
+                console.log('load script accordion.js');
+            }
 
         };
     }, [])
