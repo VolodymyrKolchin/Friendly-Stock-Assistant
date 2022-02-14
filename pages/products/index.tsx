@@ -78,19 +78,19 @@ const Products = () => {
     return (
         <Panel>
             <table>
-            <thead class="styled__thead">
+            <thead className="styled__thead">
                 <tr>
-                    <th class="product-name">
-                        <div class="s">Product name</div>
+                    <th className="product-name">
+                        <div className="s">Product name</div>
                     </th>
-                    <th class="stock">
-                        <div class=" ">Stock</div>
+                    <th className="stock">
+                        <div className=" ">Stock</div>
                     </th>
-                    <th class="price">
-                        <div class="">Price</div>
+                    <th className="price">
+                        <div className="">Price</div>
                     </th>
-                    <th class="action">
-                        <div class="">Action</div>
+                    <th className="action">
+                        <div className="">Action</div>
                     </th>
                 </tr>
             </thead>
