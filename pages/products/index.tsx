@@ -121,7 +121,7 @@ const Products = () => {
                 return(
                 <>
                     <tr>
-                        <th>
+                        <th className="product-name">
                             {el.name}
                         </th>
                         <th>
@@ -134,7 +134,7 @@ const Products = () => {
                     {el.variants.map((element)=>{
                         return (
                             <tr>
-                                <th>
+                                <th className="product-name">
                                    SKU: {element.sku}
                                 </th>
                                 <th>
