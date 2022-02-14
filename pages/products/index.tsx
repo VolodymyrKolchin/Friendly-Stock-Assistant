@@ -21,12 +21,11 @@ const Products = () => {
       ...(columnHash && { direction: direction.toLowerCase() }),
     });
     const itemsPerPageOptions = [10, 20, 50, 100];
-    const tableItems: TableItem[] = list.map(({ id, inventory_level: stock, name, price, variants }) => ({
+    const tableItems: TableItem[] = list.map(({ id, inventory_level: stock, name, price }) => ({
         id,
         name,
         price,
         stock,
-        variants,
     }));
 
     const dataProductVariants= [];
