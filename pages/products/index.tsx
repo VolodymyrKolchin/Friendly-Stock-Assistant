@@ -119,7 +119,10 @@ const Products = () => {
                                    {element.inventory_level}
                                 </th>
                                 <th>
-                                   'element.price'
+                                    {element.price > 0
+                                        ? <div className='element_price'>{element.price}</div>
+                                        : <div className='el_price'>{el.price}</div>
+                                    }
                                 </th>
                             </tr>
                         )
