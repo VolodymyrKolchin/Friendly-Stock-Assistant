@@ -102,17 +102,17 @@ const Products = () => {
             }}
             stickyHeader
         />
-            <table>
+            <table className="table-list-products">
             <thead className="styled__thead">
                 <tr>
                     <th className="product-name">
-                        <div className="s">Product name</div>
+                        <div>Product name</div>
                     </th>
                     <th className="stock">
-                        <div className=" ">Stock</div>
+                        <div>Stock</div>
                     </th>
                     <th className="price">
-                        <div className="">Price</div>
+                        <div>Price</div>
                     </th>
                 </tr>
             </thead>

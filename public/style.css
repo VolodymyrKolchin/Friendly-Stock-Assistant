@@ -1,3 +1,6 @@
-#bd-table-* {
-    display: none;
+.table-list-products {
+    width: 100%;
+}
+.product-name {
+    float: left;
 }
