@@ -141,7 +141,7 @@ const Products = () => {
                 return(
                 <>
                     <button className="accordion">
-                        <tr className="accordion">
+                        <tr>
                             <td className="product-name">
                                 {el.name}
                             </td>
