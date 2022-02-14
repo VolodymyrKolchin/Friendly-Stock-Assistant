@@ -45,27 +45,27 @@ const Products = () => {
         setItemsPerPage(newRange);
     };
 
-    const onSort = (newColumnHash: string, newDirection: TableSortDirection) => {
+    const onSort = (newColumnHash, newDirection: TableSortDirection) => {
         setColumnHash(newColumnHash === 'stock' ? 'inventory_level' : newColumnHash);
         setDirection(newDirection);
     };
 
-    const renderName = (id: number, name: string): ReactElement => (
+    const renderName = (id, name): ReactElement => (
         <Link href={`/products/${id}`}>
             <StyledLink>{name}</StyledLink>
         </Link>
     );
 
-    const renderPrice = (price: number): string => (
+    const renderPrice = (price): string => (
         new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(price)
     );
 
-    const renderStock = (stock: number): ReactElement => (stock > 0
+    const renderStock = (stock): ReactElement => (stock > 0
         ? <Small>{stock}</Small>
         : <Small bold marginBottom="none" color="danger">0</Small>
     );
 
-    const renderAction = (id: number): ReactElement => (
+    const renderAction = (id): ReactElement => (
         <Dropdown
             items={[ { content: 'Edit product', onItemClick: () => router.push(`/products/${id}`), hash: 'edit' } ]}
             toggle={<Button iconOnly={<MoreHorizIcon color="secondary60" />} variant="subtle" />}
