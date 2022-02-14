@@ -41,7 +41,7 @@ const Products = () => {
         console.log('dataProductVariants2', dataProductVariants);
         console.log("tableItems", tableItems);
         <Script id="show-banner" strategy="lazyOnload">
-          {`document.getElementById('bd-table-*').classList.add('hidden')`}
+            {$('[id^="bd-table-"]').classList.add('hidden')}
         </Script>
 
     }
@@ -81,7 +81,9 @@ const Products = () => {
 
     if (isLoading) return <Loading />;
     if (error) return <ErrorMessage error={error} />;
-
+    <Script id="show-banner" strategy="lazyOnload">
+        {$('[id^="bd-table-"]').classList.add('hidden')}
+    </Script>
     return (
         <Panel>
         <Table
