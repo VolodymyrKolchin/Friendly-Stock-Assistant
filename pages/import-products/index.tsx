@@ -254,13 +254,16 @@ const importProducts = () => {
                         messages={[{ text: 'Email field is empty, please enter your email ' }]}
                         marginVertical="medium"
                     />}
-                <div id='example1-val'/>
-                <div id='my-custom-cron' className='cron-style'>Submit a report:&nbsp;</div>
-                <select
-                    name="timezone"
-                    className="form-control"
-                    onChange={onSelectFun}
-                />
+                    <p>
+                        <div id='example1-val'/>
+                        <div id='my-custom-cron' style={{ marginBottom: '10px' }} className='cron-style'>Submit a report:&nbsp;</div>
+                        <select
+                            name="timezone"
+                            className="form-control"
+                            onChange={onSelectFun}
+                        />
+                    </p>
+
                 <FormGroup>
                     <Checkbox
                         name="unsubscribe"
