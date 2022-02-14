@@ -78,6 +78,7 @@ const Products = () => {
     return (
         <Panel>
         {tableItems.map((el)=>{
+        console.log('elelel', el)
             return(
                 <div>
                     <div>{el.name}</div>
