@@ -11,6 +11,7 @@ export interface TableItem {
     name: string;
     price: number;
     stock: number;
+    variants: array;
 }
 
 export interface ListItem extends FormData {
