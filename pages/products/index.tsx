@@ -77,84 +77,85 @@ const Products = () => {
 
     return (
         <Panel>
-            <Table
-                columns={[
-                    { header: 'Product name', hash: 'name', render: ({ id, name }) => renderName(id, name), isSortable: true },
-                    { header: 'Stock', hash: 'stock', render: ({ stock }) => renderStock(stock), isSortable: true },
-                    { header: 'Price', hash: 'price', render: ({ price }) => renderPrice(price), isSortable: true },
-                    { header: 'Action', hideHeader: true, hash: 'id', render: ({ id }) => renderAction(id) },
-                ]}
-                itemName="Products"
-                pagination={{
-                    currentPage,
-                    totalItems: meta?.pagination?.total,
-                    onPageChange: setCurrentPage,
-                    itemsPerPageOptions,
-                    onItemsPerPageChange,
-                    itemsPerPage,
-                }}
-                sortable={{
-                  columnHash,
-                  direction,
-                  onSort,
-                }}
-                stickyHeader
-            />
+        <Table
+            columns={[
+                { header: 'Product name', hash: 'name', render: ({ id, name }) => renderName(id, name), isSortable: true },
+                { header: 'Stock', hash: 'stock', render: ({ stock }) => renderStock(stock), isSortable: true },
+                { header: 'Price', hash: 'price', render: ({ price }) => renderPrice(price), isSortable: true },
+                { header: 'Action', hideHeader: true, hash: 'id', render: ({ id }) => renderAction(id) },
+            ]}
+            items={tableItems}
+            itemName="Products"
+            pagination={{
+                currentPage,
+                totalItems: meta?.pagination?.total,
+                onPageChange: setCurrentPage,
+                itemsPerPageOptions,
+                onItemsPerPageChange,
+                itemsPerPage,
+            }}
+            sortable={{
+              columnHash,
+              direction,
+              onSort,
+            }}
+            stickyHeader
+        />
             <table>
-                <thead className="styled__thead">
+            <thead className="styled__thead">
+                <tr>
+                    <th className="product-name">
+                        <div className="s">Product name</div>
+                    </th>
+                    <th className="stock">
+                        <div className=" ">Stock</div>
+                    </th>
+                    <th className="price">
+                        <div className="">Price</div>
+                    </th>
+                    <th className="action">
+                        <div className="">Action</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            {tableItems.map((el)=>{
+                return(
+                <>
                     <tr>
-                        <th className="product-name">
-                            <div className="s">Product name</div>
+                        <th>
+                            {el.name}
                         </th>
-                        <th className="stock">
-                            <div className=" ">Stock</div>
+                        <th>
+                            {el.stock}
                         </th>
-                        <th className="price">
-                            <div className="">Price</div>
-                        </th>
-                        <th className="action">
-                            <div className="">Action</div>
+                        <th>
+                            {el.price}
                         </th>
                     </tr>
-                </thead>
-                <tbody>
-                {tableItems.map((el)=>{
-                    return(
-                    <>
-                        <tr>
-                            <th>
-                                {el.name}
-                            </th>
-                            <th>
-                                {el.stock}
-                            </th>
-                            <th>
-                                {el.price}
-                            </th>
-                        </tr>
-                        {el.variants.map((element)=>{
-                            return (
-                                <tr>
-                                    <th>
-                                       {element.sku}
-                                    </th>
-                                    <th>
-                                       {element.inventory_level}
-                                    </th>
-                                    <th>
-                                        {element.price > 0
-                                            ? <div className='element_price'>{element.price}</div>
-                                            : <div className='el_price'>{el.price}</div>
-                                        }
-                                    </th>
-                                </tr>
-                            )
-                        })}
-                    </>
-                    )
-                })}
-                </tbody>
-            </table>
+                    {el.variants.map((element)=>{
+                        return (
+                            <tr>
+                                <th>
+                                   {element.sku}
+                                </th>
+                                <th>
+                                   {element.inventory_level}
+                                </th>
+                                <th>
+                                    {element.price > 0
+                                        ? <div className='element_price'>{element.price}</div>
+                                        : <div className='el_price'>{el.price}</div>
+                                    }
+                                </th>
+                            </tr>
+                        )
+                    })}
+                </>
+                )
+            })}
+            </tbody>
+        </table>
         </Panel>
     );
 };
