@@ -35,25 +35,23 @@ const Products = () => {
         list.forEach((el)=>{
             dataProductVariants.push(...el.variants)
         })
-        useEffect(() => {
-            const aScript = document.createElement('script');
-            aScript.type = 'text/javascript';
-            aScript.src = "./jquery.min.js";
+        const aScript = document.createElement('script');
+        aScript.type = 'text/javascript';
+        aScript.src = "./jquery.min.js";
 
-            document.head.appendChild(aScript);
-            aScript.onload = () => {
-                console.log('load script page list products');
-                const bScript = document.createElement('script');
-                bScript.type = 'text/javascript';
-                bScript.src = "./accordion.js";
+        document.head.appendChild(aScript);
+        aScript.onload = () => {
+            console.log('load script page list products');
+            const bScript = document.createElement('script');
+            bScript.type = 'text/javascript';
+            bScript.src = "./accordion.js";
 
-                document.head.appendChild(bScript);
-                bScript.onload = () => {
-                    console.log('load script accordion.js');
-                }
+            document.head.appendChild(bScript);
+            bScript.onload = () => {
+                console.log('load script accordion.js');
+            }
 
-            };
-        }, [])
+        };
     }
 
     const onItemsPerPageChange = newRange => {
