@@ -77,65 +77,6 @@ const Products = () => {
 
     return (
         <Panel>
-            <table>
-            <thead className="styled__thead">
-                <tr>
-                    <th className="product-name">
-                        <div className="s">Product name</div>
-                    </th>
-                    <th className="stock">
-                        <div className=" ">Stock</div>
-                    </th>
-                    <th className="price">
-                        <div className="">Price</div>
-                    </th>
-                    <th className="action">
-                        <div className="">Action</div>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-            {tableItems.map((el)=>{
-                return(
-                <>
-                    <tr>
-                        <th>
-                            {el.name}
-                        </th>
-                        <th>
-                            {el.stock}
-                        </th>
-                        <th>
-                            {el.price}
-                        </th>
-                    </tr>
-                    {el.variants.map((element)=>{
-                        return (
-                            <tr>
-                                <th>
-                                   {element.sku}
-                                </th>
-                                <th>
-                                   {element.inventory_level}
-                                </th>
-                                <th>
-                                    {element.price > 0
-                                        ? <div className='element_price'>{element.price}</div>
-                                        : <div className='el_price'>{el.price}</div>
-                                    }
-                                </th>
-                            </tr>
-                        )
-                    })}
-                </>
-                )
-            })}
-            </tbody>
-
-        </table>
-
-
-
             <Table
                 columns={[
                     { header: 'Product name', hash: 'name', render: ({ id, name }) => renderName(id, name), isSortable: true },
@@ -143,7 +84,6 @@ const Products = () => {
                     { header: 'Price', hash: 'price', render: ({ price }) => renderPrice(price), isSortable: true },
                     { header: 'Action', hideHeader: true, hash: 'id', render: ({ id }) => renderAction(id) },
                 ]}
-                items={tableItems}
                 itemName="Products"
                 pagination={{
                     currentPage,
@@ -160,6 +100,61 @@ const Products = () => {
                 }}
                 stickyHeader
             />
+            <table>
+                <thead className="styled__thead">
+                    <tr>
+                        <th className="product-name">
+                            <div className="s">Product name</div>
+                        </th>
+                        <th className="stock">
+                            <div className=" ">Stock</div>
+                        </th>
+                        <th className="price">
+                            <div className="">Price</div>
+                        </th>
+                        <th className="action">
+                            <div className="">Action</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                {tableItems.map((el)=>{
+                    return(
+                    <>
+                        <tr>
+                            <th>
+                                {el.name}
+                            </th>
+                            <th>
+                                {el.stock}
+                            </th>
+                            <th>
+                                {el.price}
+                            </th>
+                        </tr>
+                        {el.variants.map((element)=>{
+                            return (
+                                <tr>
+                                    <th>
+                                       {element.sku}
+                                    </th>
+                                    <th>
+                                       {element.inventory_level}
+                                    </th>
+                                    <th>
+                                        {element.price > 0
+                                            ? <div className='element_price'>{element.price}</div>
+                                            : <div className='el_price'>{el.price}</div>
+                                        }
+                                    </th>
+                                </tr>
+                            )
+                        })}
+                    </>
+                    )
+                })}
+                </tbody>
+            </table>
         </Panel>
     );
 };
