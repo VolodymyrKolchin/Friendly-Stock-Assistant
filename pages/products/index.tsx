@@ -21,11 +21,12 @@ const Products = () => {
       ...(columnHash && { direction: direction.toLowerCase() }),
     });
     const itemsPerPageOptions = [10, 20, 50, 100];
-    const tableItems: TableItem[] = list.map(({ id, inventory_level: stock, name, price }) => ({
+    const tableItems: TableItem[] = list.map(({ id, inventory_level: stock, name, price, variants }) => ({
         id,
         name,
         price,
         stock,
+        variants,
     }));
 
     const dataProductVariants= [];
@@ -35,6 +36,7 @@ const Products = () => {
         })
         console.log("list", list);
         console.log('dataProductVariants2', dataProductVariants);
+        console.log("tableItems", tableItems);
     }
     console.log('dataProductVariants', dataProductVariants);
 
