@@ -77,6 +77,15 @@ const Products = () => {
 
     return (
         <Panel>
+        {tableItems.map((el)=>{
+            return(
+                <div>
+                    <div>{el.name}</div>
+                    <div>{el.stock}</div>
+                    <div>{el.variants}</div>
+                </div>
+                )
+        })}
             <Table
                 columns={[
                     { header: 'Product name', hash: 'name', render: ({ id, name }) => renderName(id, name), isSortable: true },
