@@ -255,7 +255,7 @@ const importProducts = () => {
                         marginVertical="medium"
                     />}
                     <p>
-                        <div id='example1-val'/>
+                        <div id='example1-val'></div>
                         <div id='my-custom-cron' style={{ marginBottom: '10px' }} className='cron-style'>Submit a report:&nbsp;</div>
                         <select
                             name="timezone"
@@ -264,15 +264,14 @@ const importProducts = () => {
                         />
                     </p>
 
-                <FormGroup>
-                 <p>
+                <FormGroup style={{ display: 'block' }}>
                     <Checkbox
+                        style={{ display: 'block' }}
                         name="unsubscribe"
                         checked={form.unsubscribe}
                         onChange={handleCheckboxChange}
                         label="Unsubscribe from mailing list "
                     />
-                 </p>
 
                     <Flex justifyContent="flex-end">
                         <Button
