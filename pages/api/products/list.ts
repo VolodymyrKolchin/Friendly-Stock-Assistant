@@ -9,7 +9,7 @@ export default async function list(req: NextApiRequest, res: NextApiResponse) {
         const { page, limit, sort, direction } = req.query;
         const params = new URLSearchParams({ page, limit, ...(sort && {sort, direction}) }).toString();
 
-        const response = await bigcommerce.get(`/catalog/products?${params}`);
+        const response = await bigcommerce.get(`/catalog/products?${params},variants`);
         res.status(200).json(response);
     } catch (error) {
         const { message, response } = error;
