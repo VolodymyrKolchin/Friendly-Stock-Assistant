@@ -33,6 +33,7 @@
 .product-stock, .product-price{
     color: #000;
 }
-.price_red {
-
+.product-name a{
+    color: rgb(60, 100, 244);
+    text-decoration: none;
 }
