@@ -62,7 +62,7 @@ const Header = () => {
     const items = [
         { id: TabIds.HOME, title: 'Home' },
         { id: TabIds.PRODUCTS, title: 'Products' },
-        { id: TabIds.IMPORT, title: 'Import' },
+        { id: TabIds.IMPORT, title: 'Inventory Report' },
     ];
 
     const handleTabClick = (tabId: string) => {
