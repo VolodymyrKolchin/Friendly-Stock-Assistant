@@ -33,6 +33,13 @@
 .product-stock, .product-price{
     color: #000;
 }
+.product-stock {
+    display: block;
+    width: 150px
+}
+.panel > .product-name {
+    width: 70%;
+}
 .product-name a{
     color: rgb(60, 100, 244);
     text-decoration: none;
