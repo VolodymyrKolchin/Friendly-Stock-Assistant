@@ -155,8 +155,8 @@ const Products = () => {
                                 </td>
                                 <td className="product-price">
                                     {element.price > 0
-                                        ? <div className='element_price'>{element.price}</div>
-                                        : <div className='el_price'>{el.price}</div>
+                                        ? <div className='element_price'>${element.price}</div>
+                                        : <div className='el_price'>${el.price}</div>
                                     }
                                 </td>
                             </tr>
