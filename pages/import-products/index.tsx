@@ -179,7 +179,7 @@ const importProducts = () => {
 
     return (
         <Panel>
-            <Panel header="Download products BigCommerce">
+            <Panel header="Download your Inventory Report">
                 <CSVLink
                     data={dataImportProduct}
                     className="btn btn-primary"
@@ -189,7 +189,7 @@ const importProducts = () => {
                 </CSVLink>
             </Panel>
             <StyledForm onSubmit={handleSubmit}>
-                <Panel header="Send BigCommerce product import file by Email">
+                <Panel header="Send your Inventory Report file by Email">
                     <FormGroup>
                         <Input
                             label="Enter Email"
@@ -223,8 +223,8 @@ const importProducts = () => {
                     </Flex>
                 </Panel>
             </StyledForm>
-            <Panel header="Subscribe to our newsletter">
-                <p>Get the latest updates on new products and stock level</p>
+            <Panel header="Subscribe to receive your Inventory Report by when you need, automatically!">
+                <p>Enter the desired frequency of your Inventory Report</p>
                 <FormGroup>
                     <Input
                         label="Enter Email"
@@ -270,7 +270,7 @@ const importProducts = () => {
                         name="unsubscribe"
                         checked={form.unsubscribe}
                         onChange={handleCheckboxChange}
-                        label="Unsubscribe from mailing list "
+                        label="Unsubscribe from automatic inventory reports"
                     />
                 </FormGroup>
                 <FormGroup>
