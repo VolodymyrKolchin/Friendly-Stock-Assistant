@@ -143,10 +143,10 @@ const Products = () => {
                             ${el.price}
                         </td>
                     </tr>
-                    <tr className="panel">
+                    <div className="panel">
                     {el.variants.map((element)=>{
                         return (
-                            <>
+                            <tr>
                                 <td className="product-name">
                                    SKU: {element.sku}
                                 </td>
@@ -159,10 +159,10 @@ const Products = () => {
                                         : <div className='el_price'>{el.price}</div>
                                     }
                                 </td>
-                            </>
+                            </tr>
                         )
                     })}
-                    </tr>
+                    </div>
                 </>
                 )
             })}
