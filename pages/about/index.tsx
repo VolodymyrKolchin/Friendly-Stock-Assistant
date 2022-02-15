@@ -5,12 +5,14 @@ const aboutPage = () => {
 
     return (
         <Panel header='About the app'>
-                <Panel>
-                  <p>Effective inventory management and inventory control are one and the same, and the definition is pretty simple to understand.</p>
-                  <p>Inventory management refers to the process by which you keep track of how many units of each item you have on your warehouse shelf, in your store, or with other retailers and distributors.</p>
-                  <p>This allows you to have the right products in the right quantity in the right place, at the right time and at the right price. By effectively tracking and controlling your inventory, you'll know how much of each item you have, when you may be short on items, and whether you need to restock to keep selling them.</p>
-                  <p>And as a busy business owner, you should be able to do all this at a glance. This makes it quick and easy to make good purchasing decisions. The right inventory management system is also important here, as we'll find out later.</p>
-                </Panel>
+        <div>
+
+            <img src='./FOC-logo.png'/>
+        </div>
+            <p>Effective inventory management and inventory control are one and the same, and the definition is pretty simple to understand.</p>
+            <p>Inventory management refers to the process by which you keep track of how many units of each item you have on your warehouse shelf, in your store, or with other retailers and distributors.</p>
+            <p>This allows you to have the right products in the right quantity in the right place, at the right time and at the right price. By effectively tracking and controlling your inventory, you'll know how much of each item you have, when you may be short on items, and whether you need to restock to keep selling them.</p>
+            <p>And as a busy business owner, you should be able to do all this at a glance. This makes it quick and easy to make good purchasing decisions. The right inventory management system is also important here, as we'll find out later.</p>
                 <Panel header="Unfortunately, there is no default way to view products and their variants in the BigCommerce admin. So this app is built for that purpose.">
                     <H4>BENEFITS</H4>
                     <ul>
