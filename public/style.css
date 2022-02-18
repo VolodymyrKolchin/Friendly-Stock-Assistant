@@ -91,6 +91,6 @@
     float: right;
     margin-left: 5px;
 }
-.add_icons_item > .product-name:after {
+.active:after {
     content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
