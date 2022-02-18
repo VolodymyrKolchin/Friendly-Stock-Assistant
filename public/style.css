@@ -75,6 +75,9 @@
     display: block;
     margin: 0 auto;
 }
+.background_stock {
+    margin: 3px;
+}
 .background_light_yellow {
     background: #FFFF66
 }
