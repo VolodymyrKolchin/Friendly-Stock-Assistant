@@ -130,9 +130,8 @@ const Products = () => {
             </thead>
             <tbody>
             {tableItems.map((el)=>{
-                console.log('return: document', document.querySelectorAll('.accordion'));
                 return(
-                <>
+                <div className="item">
                     <tr className="accordion">
                         <td className="product-name">
                             {el.name}
@@ -167,7 +166,7 @@ const Products = () => {
                         )
                     })}
                     </div>
-                </>
+                </div>
                 )
             })}
             </tbody>
