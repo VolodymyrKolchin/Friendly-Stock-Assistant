@@ -153,6 +153,10 @@ const Products = () => {
                                 </td>
                                 <td className="product-stock">
                                    Stock: {element.inventory_level}
+                                   {element.inventory_level < element.inventory_warning_level
+                                        ?<div>${element.inventory_warning_level}</div>
+                                        :<div>1111</div>
+                                   }
                                 </td>
                                 <td className="product-price">
                                     {element.price > 0
