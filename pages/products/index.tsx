@@ -52,7 +52,7 @@ const Products = () => {
             }
             tableItems.map((el)=>{
                 el.variants.map((index)=>{
-                    if(index.inventory_level < index.inventory_warning_level) {
+                    if(index.inventory_level < index.inventory_warning_level && index.inventory_level!==0) {
                         $(`#${el.id}`).addClass('background__yellow_item');
                     }
                     if(index.inventory_level===0) {
