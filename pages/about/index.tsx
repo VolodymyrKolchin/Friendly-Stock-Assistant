@@ -6,8 +6,9 @@ const aboutPage = () => {
     return (
         <Panel header='About the app'>
         <div>
-
-            <img src='./FOC-logo.png'/>
+            <div className='logo__about_page'>
+                <img src='./FOC-logo.png'/>
+            </div>
         </div>
             <p>Effective inventory management and inventory control are one and the same, and the definition is pretty simple to understand.</p>
             <p>Inventory management refers to the process by which you keep track of how many units of each item you have on your warehouse shelf, in your store, or with other retailers and distributors.</p>
