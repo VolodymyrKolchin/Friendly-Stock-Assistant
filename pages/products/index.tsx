@@ -52,7 +52,10 @@ const Products = () => {
             }
             console.log('document', document.querySelectorAll('.accordion'));
             tableItems.map((el)=>{
-                console.log('el', el);
+                console.log('el.variants', el.variants);
+                el.variants.map((index)=>{
+                    console.log('index', index);
+                })
             })
         };
     }
