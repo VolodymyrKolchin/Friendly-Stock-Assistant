@@ -152,10 +152,10 @@ const Products = () => {
                                    SKU: {element.sku}
                                 </td>
                                 <td className="product-stock">
-                                   Stock:
+
                                    {element.inventory_level < element.inventory_warning_level
-                                        ? <span className='background_light_yellow' >{element.inventory_level}</span>
-                                        : <span>{element.inventory_level==0 ? <div className='background_red'>0</div>:<div>{element.inventory_level}</div>}</span>
+                                        ? <span className='background_light_yellow' >Stock: {element.inventory_level}</span>
+                                        : <span>{element.inventory_level==0 ? <div className='background_red'>Stock: {element.inventory_level}</div>:<div>Stock: {element.inventory_level}</div>}</span>
                                    }
                                 </td>
                                 <td className="product-price">
