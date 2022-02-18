@@ -56,6 +56,7 @@ const Products = () => {
                         //console.log('el', el);
                         //console.log('el.id', el.id);
                         console.log('$("#el.id")[0]', $(`#${el.id}`)[0]);
+                        $(`#${el.id}`)[0].addClass('background__red_item')
                         //console.log('document.getElementById', document.getElementById(el.id));
                     }
                 })
