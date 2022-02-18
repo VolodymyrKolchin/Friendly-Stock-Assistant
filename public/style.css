@@ -79,11 +79,14 @@
     padding: 3px;
 }
 .background_light_yellow {
-    background: #FFFF66
+    background: #FFFF66;
 }
 .background_red {
     background: red;
 }
 .background__red_item {
     background: red;
+}
+.background__yellow_item {
+    background: #FFFF66;
 }
