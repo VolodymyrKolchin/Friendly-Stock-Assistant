@@ -154,8 +154,9 @@ const Products = () => {
                                 <td className="product-stock">
                                    Stock:
                                    {element.inventory_level < element.inventory_warning_level
-                                        ?<span className='background_light_yellow' >{element.inventory_level}</span>
-                                        :<span>{element.inventory_level}</span>
+                                        ? element.inventory_level==0 ? <div>0<div>
+                                        : <span className='background_light_yellow' >{element.inventory_level}</span>
+                                        : <span>{element.inventory_level}</span>
                                    }
                                 </td>
                                 <td className="product-price">
