@@ -130,6 +130,7 @@ const Products = () => {
             </thead>
             <tbody>
             {tableItems.map((el)=>{
+            console.log('tableItems', tableItems)
                 return(
                 <>
                     <tr className="accordion">
