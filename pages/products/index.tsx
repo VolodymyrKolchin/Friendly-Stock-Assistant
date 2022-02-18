@@ -52,12 +52,11 @@ const Products = () => {
             }
             tableItems.map((el)=>{
                 el.variants.map((index)=>{
+                    if(index.inventory_level < index.inventory_warning_level) {
+                        $(`#${el.id}`).addClass('background__yellow_item');
+                    }
                     if(index.inventory_level===0) {
-                        //console.log('el', el);
-                        //console.log('el.id', el.id);
-                        console.log('$("#el.id")[0]', $(`#${el.id}`)[0]);
-                        $(`#${el.id}`).addClass('background__red_item')
-                        //console.log('document.getElementById', document.getElementById(el.id));
+                        $(`#${el.id}`).addClass('background__red_item');
                     }
                 })
             })
