@@ -1,4 +1,4 @@
-import {Panel, H4, Flex, StyledBox, Box} from '@bigcommerce/big-design';
+import {Panel, H4, Flex, Box} from '@bigcommerce/big-design';
 
 const aboutPage = () => {
 
