@@ -52,11 +52,10 @@ const Products = () => {
             }
             console.log('document', document.querySelectorAll('.accordion'));
             tableItems.map((el)=>{
-//                 console.log('el.variants', el.variants);
                 el.variants.map((index)=>{
-//                     console.log('variants.inventory_level', index.inventory_level);
                     if(index.inventory_level===0) {
-                        console.log('el', el)
+                        console.log('el', el);
+                        console.log('el.id', el.id)
                     }
                 })
             })
@@ -141,7 +140,7 @@ const Products = () => {
             {tableItems.map((el)=>{
                 return(
                 <>
-                    <tr className="accordion">
+                    <tr className="accordion" id={el.id}>
                         <td className="product-name">
                             {el.name}
                         </td>
