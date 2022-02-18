@@ -51,8 +51,8 @@ const Products = () => {
                 console.log('load script accordion.js');
             }
             tableItems.map((el)=>{
-                console.log('el.variants', el.variants);
                 if(el.variants.length > 1) {
+                    console.log('el', el);
                     console.log('variants.length > 1', el.variants);
                 }
                 el.variants.map((index)=>{
