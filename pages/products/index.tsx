@@ -50,7 +50,7 @@ const Products = () => {
             bScript.onload = () => {
                 console.log('load script accordion.js');
             }
-
+        console.log('document', document.querySelectorAll('.accordion'));
         };
     }
 
@@ -130,7 +130,7 @@ const Products = () => {
             </thead>
             <tbody>
             {tableItems.map((el)=>{
-            console.log('tableItems', tableItems)
+                console.log('return: document', document.querySelectorAll('.accordion'));
                 return(
                 <>
                     <tr className="accordion">
