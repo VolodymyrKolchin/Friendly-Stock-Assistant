@@ -78,15 +78,9 @@
 .background_stock {
     padding: 3px;
 }
-.background_light_yellow {
-    background: #FFFF66;
+.background_light_yellow, .background__yellow_item {
+    background: #EBE8AE;
 }
-.background_red {
-    background: red;
-}
-.background__red_item {
-    background: red;
-}
-.background__yellow_item {
-    background: #FFFF66;
+.background__red_item, .background_red {
+    background: #D9ABAF;
 }
