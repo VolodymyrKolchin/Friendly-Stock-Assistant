@@ -55,7 +55,9 @@ const Products = () => {
                 el.variants.map((index)=>{
                     if(index.inventory_level===0) {
                         console.log('el', el);
-                        console.log('el.id', el.id)
+                        //console.log('el.id', el.id);
+                        console.log('$("#el.id")', $('#el.id'));
+                        console.log('$("#el.id")[0]', $('#el.id')[0]);
                     }
                 })
             })
