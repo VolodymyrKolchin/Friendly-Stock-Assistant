@@ -84,13 +84,13 @@
 .background__red_item, .background_red {
     background: #D9ABAF;
 }
-.accordion:after {
+.add_icons_item > .product-name:after {
     content: '\02795'; /* Unicode character for "plus" sign (+) */
     font-size: 13px;
     color: #777;
     float: right;
     margin-left: 5px;
 }
-.active:after {
+.add_icons_item > .product-name:after {
     content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
