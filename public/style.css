@@ -84,3 +84,13 @@
 .background__red_item, .background_red {
     background: #D9ABAF;
 }
+.add_icons_item:before {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+.add_icons_item:before {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
