@@ -51,6 +51,10 @@ const Products = () => {
                 console.log('load script accordion.js');
             }
             tableItems.map((el)=>{
+                console.log('el.variants', el.variants);
+                if(el.variants.length > 1) {
+                    console.log('variants.length > 1', el.variants);
+                }
                 el.variants.map((index)=>{
                     if(index.inventory_level < index.inventory_warning_level && index.inventory_level!==0) {
                         $(`#${el.id}`).addClass('background__yellow_item');
