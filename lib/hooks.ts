@@ -69,7 +69,6 @@ export function useProductListAll(query?: QueryParams) {
         error,
         mutateList,
         data: data,
-        dataEmail: dataEmail
     };
 }
 
