@@ -15,6 +15,7 @@ const importProducts = () => {
     const [form, setForm] = useState({ email: '', cronTime: '', timezone: '', unsubscribe: false });
     const [formTimeZone, setFormTimeZone] = useState({timezone: 'Africa/Blantyre'});
 
+    const dataEmail = [];
     const dataImportProduct = [];
     const { error, isLoading, list = [], meta = {}, mutateList=[], data } = useProductListAll();
 
@@ -34,8 +35,12 @@ const importProducts = () => {
             })
         })
         .then(response => response.json())
-        .then(data => console.log('data-data', data));
-        console.log('ssssssss')
+        .then(data => {
+            data.message[0].forEach((el)=>{
+                dataEmail.push(el.email);
+            })
+            console.log('dataEmail', dataEmail);
+        })
     }
 
     // if (isLoading) return <Loading />;
@@ -150,11 +155,16 @@ const importProducts = () => {
 //                 'Content-Type': 'application/json'
 //             },
 //             body: JSON.stringify({
-//                 storeHash: data?.storeHash,
+//                 storeHash: '5tumv5fpen',
 //             })
 //         })
 //         .then(response => response.json())
-//         .then(data => console.log('data-data', data));
+//         .then(data => {
+//             data.message[0].forEach((el)=>{
+//                 dataEmail.push(el.email);
+//             })
+//             console.log('dataEmail', dataEmail);
+//         })
         const aScript = document.createElement('script');
         aScript.type = 'text/javascript';
         aScript.src = "./jquery.min.js";
@@ -199,7 +209,7 @@ const importProducts = () => {
         };
     }, [])
     //stripe_load();
-
+    console.log('return: dataEmail', dataEmail);
     return (
         <Panel>
             <Panel header="Download your Inventory Report">
