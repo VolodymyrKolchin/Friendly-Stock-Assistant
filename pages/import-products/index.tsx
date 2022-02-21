@@ -107,7 +107,7 @@ const importProducts = () => {
             body: JSON.stringify({
                 form: form,
                 timeZone: formTimeZone.timezone,
-                cronTime: "$('#example1-val')[0].textContent",
+                cronTime: $('#example1-val')[0].textContent,
                 accessToken: data?.accessToken,
                 storeHash: data?.storeHash,
                 clientID: process.env.CLIENT_PUBLIC_ID
