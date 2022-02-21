@@ -17,13 +17,16 @@ const importProducts = () => {
 
     const dataEmail = [];
     const dataImportProduct = [];
-    const { error, isLoading, list = [], meta = {}, mutateList=[], data } = useProductListAll();
+    const { error, isLoading, list = [], meta = {}, mutateList=[], data, dataEmail } = useProductListAll();
 
     const clientData = [];
+
+        console.log('dataEmail6', dataEmail);
     if(!isLoading) {
         list.forEach((el)=>{
             dataImportProduct.push(...el.variants)
         })
+        console.log('dataEmail5', dataEmail);
         const aScript = document.createElement('script');
             aScript.type = 'text/javascript';
             aScript.src = "./jquery.min.js";
@@ -238,7 +241,8 @@ const importProducts = () => {
 //     }, [])
     //stripe_load();
 
-    console.log('123dataImportProduct', dataImportProduct);
+        console.log('dataEmail7', dataEmail);
+
     console.log('return: dataEmail', dataEmail);
     return (
         <Panel>

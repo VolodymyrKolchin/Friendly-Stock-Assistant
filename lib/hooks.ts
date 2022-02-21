@@ -86,7 +86,8 @@ export function useProductListAll(query?: QueryParams) {
         isLoading: !data?.data && !error,
         error,
         mutateList,
-        data: data
+        data: data,
+        dataEmail: dataEmail
     };
 }
 
