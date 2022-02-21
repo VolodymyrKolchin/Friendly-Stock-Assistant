@@ -50,25 +50,7 @@ export function useProductList(query?: QueryParams) {
 export function useProductListAll(query?: QueryParams) {
     const { context } = useSession();
     const params = new URLSearchParams({ ...query, context }).toString();
-    const dataEmail = [];
-    fetch('https://stock-assistant-friendsofcomme.herokuapp.com/email-list', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            //storeHash: data?.storeHash,
-            storeHash: 'u2ycf4bje7'
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        data.message[0].forEach((el)=>{
-            dataEmail.push(el.email);
-        })
-        console.log('1!dataEmail', dataEmail);
-    })
-    console.log('dataEmail2', dataEmail);
+
     // Use an array to send multiple arguments to fetcher
     const { data, error, mutate: mutateList } = useSWR(context ? ['/api/import-products', params] : null, fetcher);
 
