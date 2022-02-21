@@ -286,10 +286,12 @@ const importProducts = () => {
                         </Button>
                     </Flex>
                 </FormGroup>
-                {data?.dataEmail.map((el)=>{
-                console.log('element', el)
-                    return <div>{el}</div>
-                })}
+                <ul>
+                    {data?.dataEmail.map((el)=>{
+                        console.log('element', el)
+                        return <li>{el}</li>
+                    })}
+                </ul>
             </Panel>
         </Panel>
     );
