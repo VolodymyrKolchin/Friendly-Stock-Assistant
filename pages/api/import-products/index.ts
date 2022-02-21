@@ -5,6 +5,7 @@ export default async function importProducts(req: NextApiRequest, res: NextApiRe
     try {
 
         const bigcommerce = bigcommerceClient(accessToken, storeHash);
+        const { accessToken, storeHash } = await getSession(req);
         const dataEmail = [];
         fetch('https://stock-assistant-friendsofcomme.herokuapp.com/email-list', {
             method: 'POST',
@@ -25,7 +26,6 @@ export default async function importProducts(req: NextApiRequest, res: NextApiRe
         })
         console.log('dataEmail2', dataEmail);
 
-        const { accessToken, storeHash } = await getSession(req);
         const { data } = await bigcommerce.get('/catalog/products?include=variants');
         res.status(201).json({data, accessToken: accessToken, storeHash: storeHash, dataEmail:dataEmail});
     } catch (error) {
