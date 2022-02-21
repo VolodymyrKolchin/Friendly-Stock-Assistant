@@ -15,7 +15,7 @@ const importProducts = () => {
     const [form, setForm] = useState({ email: '', cronTime: '', timezone: '', unsubscribe: false });
     const [formTimeZone, setFormTimeZone] = useState({timezone: 'Africa/Blantyre'});
 
-    const dataEmail = [];
+//     const dataEmail = [];
     const dataImportProduct = [];
     const { error, isLoading, list = [], meta = {}, mutateList=[], data, dataEmail } = useProductListAll();
 
