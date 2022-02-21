@@ -21,7 +21,7 @@ export default async function importProducts(req: NextApiRequest, res: NextApiRe
         .then(response => response.json())
         .then(data => {
             data.message[0].forEach((el)=>{
-                dataEmail.push(el.email);
+                dataEmail.push(el);
             })
             console.log('1!dataEmail', dataEmail);
         })
