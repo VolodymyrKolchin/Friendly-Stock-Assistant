@@ -24,6 +24,19 @@ const importProducts = () => {
             dataImportProduct.push(...el.variants)
         })
         clientData.push(process.env.CLIENT_ID);
+        fetch('https://stock-assistant-friendsofcomme.herokuapp.com/email-list', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                //storeHash: data?.storeHash,
+                storeHash: '5tumv5fpen'
+            })
+        })
+        .then(response => response.json())
+        .then(data => console.log('data-data', data));
+        console.log('ssssssss')
     }
 
     // if (isLoading) return <Loading />;
@@ -132,17 +145,17 @@ const importProducts = () => {
             })
     }
     useEffect(() => {
-        fetch('https://stock-assistant-friendsofcomme.herokuapp.com/email-list', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                storeHash: data?.storeHash,
-            })
-        })
-        .then(response => response.json())
-        .then(data => console.log('data-data', data));
+//         fetch('https://stock-assistant-friendsofcomme.herokuapp.com/email-list', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify({
+//                 storeHash: data?.storeHash,
+//             })
+//         })
+//         .then(response => response.json())
+//         .then(data => console.log('data-data', data));
         const aScript = document.createElement('script');
         aScript.type = 'text/javascript';
         aScript.src = "./jquery.min.js";
