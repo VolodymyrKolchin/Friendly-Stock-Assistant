@@ -24,6 +24,7 @@ const importProducts = () => {
         list.forEach((el)=>{
             dataImportProduct.push(...el.variants)
         })
+        console.log('dataImportProduct', dataImportProduct);
         const aScript = document.createElement('script');
             aScript.type = 'text/javascript';
             aScript.src = "./jquery.min.js";
@@ -237,6 +238,8 @@ const importProducts = () => {
 //         };
 //     }, [])
     //stripe_load();
+
+    console.log('123dataImportProduct', dataImportProduct);
     console.log('return: dataEmail', dataEmail);
     return (
         <Panel>
