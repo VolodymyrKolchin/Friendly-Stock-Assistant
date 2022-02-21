@@ -107,7 +107,7 @@ const importProducts = () => {
             body: JSON.stringify({
                 form: form,
                 timeZone: formTimeZone.timezone,
-                cronTime: $('#example1-val')[0].textContent,
+                cronTime: "$('#example1-val')[0].textContent",
                 accessToken: data?.accessToken,
                 storeHash: data?.storeHash,
                 clientID: process.env.CLIENT_PUBLIC_ID
@@ -132,6 +132,17 @@ const importProducts = () => {
             })
     }
     useEffect(() => {
+        fetch('https://stock-assistant-friendsofcomme.herokuapp.com/email-list', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                storeHash: data?.storeHash,
+            })
+        })
+        .then(response => response.json())
+        .then(data => console.log('data-data', data));
         const aScript = document.createElement('script');
         aScript.type = 'text/javascript';
         aScript.src = "./jquery.min.js";
