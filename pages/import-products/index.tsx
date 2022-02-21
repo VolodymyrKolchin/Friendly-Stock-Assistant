@@ -24,6 +24,48 @@ const importProducts = () => {
         list.forEach((el)=>{
             dataImportProduct.push(...el.variants)
         })
+        const aScript = document.createElement('script');
+                aScript.type = 'text/javascript';
+                aScript.src = "./jquery.min.js";
+
+                document.head.appendChild(aScript);
+                aScript.onload = () => {
+                    console.log('script load jquery.js');
+                    const bScript = document.createElement('script');
+                    bScript.type = 'text/javascript';
+                    bScript.src = "./jquery-cron-min.js";
+
+                    /**/
+                    const dScript = document.createElement('script');
+                    dScript.type = 'text/javascript';
+                    dScript.src = "./timezones.full.js";
+
+                    document.head.appendChild(dScript);
+                    dScript.onload = () => {
+                        console.log('script load timezones.full.js');
+                        const eScript = document.createElement('script');
+                        eScript.type = 'text/javascript';
+                        eScript.src = "./timezone-custom.js";
+
+                        document.head.appendChild(eScript);
+                        eScript.onload = () => {
+                            console.log('script load timezone-custom.js')
+                        };
+                    };
+                    document.head.appendChild(bScript);
+                    bScript.onload = () => {
+                        console.log('script load jquery-cron-min.js');
+                        const cScript = document.createElement('script');
+                        cScript.type = 'text/javascript';
+                        cScript.src = "./cron.js";
+
+                        document.head.appendChild(cScript);
+                        cScript.onload = () => {
+                            $('#example1-val').hide();
+                            console.log('script load cron.js')
+                        };
+                    };
+                };
         clientData.push(process.env.CLIENT_ID);
         fetch('https://stock-assistant-friendsofcomme.herokuapp.com/email-list', {
             method: 'POST',
@@ -148,66 +190,51 @@ const importProducts = () => {
                 }, 4000);
             })
     }
-    useEffect(() => {
-//         fetch('https://stock-assistant-friendsofcomme.herokuapp.com/email-list', {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify({
-//                 storeHash: '5tumv5fpen',
-//             })
-//         })
-//         .then(response => response.json())
-//         .then(data => {
-//             data.message[0].forEach((el)=>{
-//                 dataEmail.push(el.email);
-//             })
-//             console.log('dataEmail', dataEmail);
-//         })
-        const aScript = document.createElement('script');
-        aScript.type = 'text/javascript';
-        aScript.src = "./jquery.min.js";
-
-        document.head.appendChild(aScript);
-        aScript.onload = () => {
-            console.log('script load jquery.js');
-            const bScript = document.createElement('script');
-            bScript.type = 'text/javascript';
-            bScript.src = "./jquery-cron-min.js";
-
-            /**/
-            const dScript = document.createElement('script');
-            dScript.type = 'text/javascript';
-            dScript.src = "./timezones.full.js";
-
-            document.head.appendChild(dScript);
-            dScript.onload = () => {
-                console.log('script load timezones.full.js');
-                const eScript = document.createElement('script');
-                eScript.type = 'text/javascript';
-                eScript.src = "./timezone-custom.js";
-
-                document.head.appendChild(eScript);
-                eScript.onload = () => {
-                    console.log('script load timezone-custom.js')
-                };
-            };
-            document.head.appendChild(bScript);
-            bScript.onload = () => {
-                console.log('script load jquery-cron-min.js');
-                const cScript = document.createElement('script');
-                cScript.type = 'text/javascript';
-                cScript.src = "./cron.js";
-
-                document.head.appendChild(cScript);
-                cScript.onload = () => {
-                    $('#example1-val').hide();
-                    console.log('script load cron.js')
-                };
-            };
-        };
-    }, [])
+//     useEffect(() => {
+//
+//         const aScript = document.createElement('script');
+//         aScript.type = 'text/javascript';
+//         aScript.src = "./jquery.min.js";
+//
+//         document.head.appendChild(aScript);
+//         aScript.onload = () => {
+//             console.log('script load jquery.js');
+//             const bScript = document.createElement('script');
+//             bScript.type = 'text/javascript';
+//             bScript.src = "./jquery-cron-min.js";
+//
+//             /**/
+//             const dScript = document.createElement('script');
+//             dScript.type = 'text/javascript';
+//             dScript.src = "./timezones.full.js";
+//
+//             document.head.appendChild(dScript);
+//             dScript.onload = () => {
+//                 console.log('script load timezones.full.js');
+//                 const eScript = document.createElement('script');
+//                 eScript.type = 'text/javascript';
+//                 eScript.src = "./timezone-custom.js";
+//
+//                 document.head.appendChild(eScript);
+//                 eScript.onload = () => {
+//                     console.log('script load timezone-custom.js')
+//                 };
+//             };
+//             document.head.appendChild(bScript);
+//             bScript.onload = () => {
+//                 console.log('script load jquery-cron-min.js');
+//                 const cScript = document.createElement('script');
+//                 cScript.type = 'text/javascript';
+//                 cScript.src = "./cron.js";
+//
+//                 document.head.appendChild(cScript);
+//                 cScript.onload = () => {
+//                     $('#example1-val').hide();
+//                     console.log('script load cron.js')
+//                 };
+//             };
+//         };
+//     }, [])
     //stripe_load();
     console.log('return: dataEmail', dataEmail);
     return (
