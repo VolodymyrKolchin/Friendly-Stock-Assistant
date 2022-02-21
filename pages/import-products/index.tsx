@@ -30,8 +30,7 @@ const importProducts = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                //storeHash: data?.storeHash,
-                storeHash: '5tumv5fpen'
+                storeHash: data?.storeHash,
             })
         })
         .then(response => response.json())
