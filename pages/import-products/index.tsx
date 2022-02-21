@@ -289,7 +289,7 @@ const importProducts = () => {
                 <ul>
                     {data?.dataEmail.map((el)=>{
                         console.log('element', el)
-                        return <li>{el}</li>
+                        return <li>{el.email}</li>
                     })}
                 </ul>
             </Panel>
