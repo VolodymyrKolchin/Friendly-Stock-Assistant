@@ -25,47 +25,47 @@ const importProducts = () => {
             dataImportProduct.push(...el.variants)
         })
         const aScript = document.createElement('script');
-                aScript.type = 'text/javascript';
-                aScript.src = "./jquery.min.js";
+            aScript.type = 'text/javascript';
+            aScript.src = "./jquery.min.js";
 
-                document.head.appendChild(aScript);
-                aScript.onload = () => {
-                    console.log('script load jquery.js');
-                    const bScript = document.createElement('script');
-                    bScript.type = 'text/javascript';
-                    bScript.src = "./jquery-cron-min.js";
+            document.head.appendChild(aScript);
+            aScript.onload = () => {
+                console.log('script load jquery.js');
+                const bScript = document.createElement('script');
+                bScript.type = 'text/javascript';
+                bScript.src = "./jquery-cron-min.js";
 
-                    /**/
-                    const dScript = document.createElement('script');
-                    dScript.type = 'text/javascript';
-                    dScript.src = "./timezones.full.js";
+                /**/
+                const dScript = document.createElement('script');
+                dScript.type = 'text/javascript';
+                dScript.src = "./timezones.full.js";
 
-                    document.head.appendChild(dScript);
-                    dScript.onload = () => {
-                        console.log('script load timezones.full.js');
-                        const eScript = document.createElement('script');
-                        eScript.type = 'text/javascript';
-                        eScript.src = "./timezone-custom.js";
+                document.head.appendChild(dScript);
+                dScript.onload = () => {
+                    console.log('script load timezones.full.js');
+                    const eScript = document.createElement('script');
+                    eScript.type = 'text/javascript';
+                    eScript.src = "./timezone-custom.js";
 
-                        document.head.appendChild(eScript);
-                        eScript.onload = () => {
-                            console.log('script load timezone-custom.js')
-                        };
-                    };
-                    document.head.appendChild(bScript);
-                    bScript.onload = () => {
-                        console.log('script load jquery-cron-min.js');
-                        const cScript = document.createElement('script');
-                        cScript.type = 'text/javascript';
-                        cScript.src = "./cron.js";
-
-                        document.head.appendChild(cScript);
-                        cScript.onload = () => {
-                            $('#example1-val').hide();
-                            console.log('script load cron.js')
-                        };
+                    document.head.appendChild(eScript);
+                    eScript.onload = () => {
+                        console.log('script load timezone-custom.js')
                     };
                 };
+                document.head.appendChild(bScript);
+                bScript.onload = () => {
+                    console.log('script load jquery-cron-min.js');
+                    const cScript = document.createElement('script');
+                    cScript.type = 'text/javascript';
+                    cScript.src = "./cron.js";
+
+                    document.head.appendChild(cScript);
+                    cScript.onload = () => {
+                        $('#example1-val').hide();
+                        console.log('script load cron.js')
+                    };
+                };
+            };
         clientData.push(process.env.CLIENT_ID);
         fetch('https://stock-assistant-friendsofcomme.herokuapp.com/email-list', {
             method: 'POST',
@@ -83,6 +83,7 @@ const importProducts = () => {
             })
             console.log('dataEmail', dataEmail);
         })
+        console.log('dataEmail2222', dataEmail);
     }
     console.log('111dataEmail', dataEmail);
     if (isLoading) return <Loading />;
