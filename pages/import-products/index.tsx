@@ -4,6 +4,7 @@ import ErrorMessage from '../../components/error';
 import Loading from '../../components/loading';
 import {useProductListAll} from '../../lib/hooks';
 import { CSVLink } from 'react-csv';
+import cronstrue from 'cronstrue';
 
 const importProducts = () => {
     const [isShownSuccess, setIsShownSuccess] = useState(false);
@@ -289,6 +290,7 @@ const importProducts = () => {
                 <ul>
                     {data?.dataEmail.map((el)=>{
                         console.log('element cronTime', el.cronTime);
+                        console.log('cronstrue.toString("***")', cronstrue.toString(el.cronTime))
                         return <>
                             <li>{el.email}</li>
                             <li>{el.cronTime}</li>
