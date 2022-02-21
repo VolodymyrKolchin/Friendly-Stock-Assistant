@@ -288,8 +288,11 @@ const importProducts = () => {
                 </FormGroup>
                 <ul>
                     {data?.dataEmail.map((el)=>{
-                        console.log('element', el)
-                        return <li>{el.email}</li>
+                        console.log('element cronTime', el.cronTime);
+                        return <>
+                            <li>{el.email}</li>
+                            <li>{el.cronTime}</li>
+                        </>
                     })}
                 </ul>
             </Panel>
