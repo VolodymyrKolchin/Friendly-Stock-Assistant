@@ -84,8 +84,8 @@ const importProducts = () => {
             console.log('dataEmail', dataEmail);
         })
     }
-
-    // if (isLoading) return <Loading />;
+    console.log('111dataEmail', dataEmail);
+    if (isLoading) return <Loading />;
     if (error) return <ErrorMessage error={error} />;
 
     const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
