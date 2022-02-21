@@ -15,13 +15,12 @@ const importProducts = () => {
     const [form, setForm] = useState({ email: '', cronTime: '', timezone: '', unsubscribe: false });
     const [formTimeZone, setFormTimeZone] = useState({timezone: 'Africa/Blantyre'});
 
-//     const dataEmail = [];
     const dataImportProduct = [];
     const { error, isLoading, list = [], meta = {}, mutateList=[], data } = useProductListAll();
 
     const clientData = [];
 
-        console.log('data 6', data);
+    console.log('data 6', data);
     if(!isLoading) {
         list.forEach((el)=>{
             dataImportProduct.push(...el.variants)
@@ -181,9 +180,6 @@ const importProducts = () => {
     }, [])
     //stripe_load();
 
-//         console.log('dataEmail7', dataEmail);
-
-//     console.log('return: dataEmail', dataEmail);
     return (
         <Panel>
             <Panel header="Download your Inventory Report">
@@ -290,7 +286,7 @@ const importProducts = () => {
                         </Button>
                     </Flex>
                 </FormGroup>
-                {data.dataEmail.map((el)=>{
+                {data?.dataEmail.map((el)=>{
                 console.log('element', el)
                     return <div>{el}</div>
                 })}
