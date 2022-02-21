@@ -24,7 +24,6 @@ const importProducts = () => {
         list.forEach((el)=>{
             dataImportProduct.push(...el.variants)
         })
-        console.log('dataImportProduct', dataImportProduct);
         const aScript = document.createElement('script');
             aScript.type = 'text/javascript';
             aScript.src = "./jquery.min.js";
@@ -68,25 +67,25 @@ const importProducts = () => {
                 };
             };
         clientData.push(process.env.CLIENT_ID);
-        fetch('https://stock-assistant-friendsofcomme.herokuapp.com/email-list', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                storeHash: data?.storeHash,
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            data.message[0].forEach((el)=>{
-                dataEmail.push(el.email);
-            })
-            console.log('dataEmail', dataEmail);
-        })
-        console.log('dataEmail2222', dataEmail);
+//         fetch('https://stock-assistant-friendsofcomme.herokuapp.com/email-list', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify({
+//                 storeHash: data?.storeHash,
+//             })
+//         })
+//         .then(response => response.json())
+//         .then(data => {
+//             data.message[0].forEach((el)=>{
+//                 dataEmail.push(el.email);
+//             })
+//             console.log('dataEmail', dataEmail);
+//         })
+//         console.log('dataEmail2222', dataEmail);
     }
-    console.log('111dataEmail', dataEmail);
+
     if (isLoading) return <Loading />;
     if (error) return <ErrorMessage error={error} />;
 
