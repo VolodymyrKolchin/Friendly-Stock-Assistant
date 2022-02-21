@@ -293,7 +293,7 @@ const importProducts = () => {
                         console.log('cronstrue.toString("***")', cronstrue.toString(el.cronTime))
                         return <>
                             <li>{el.email}</li>
-                            <li>{el.cronTime}</li>
+                            <li>{cronstrue.toString(el.cronTime)}</li>
                         </>
                     })}
                 </ul>
