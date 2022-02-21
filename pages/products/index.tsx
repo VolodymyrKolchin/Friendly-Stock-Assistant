@@ -52,9 +52,7 @@ const Products = () => {
             }
             tableItems.map((el)=>{
                 if(el.variants.length > 1) {
-                    console.log('el', el.id);
                     $(`#${el.id}`).addClass('add_icons_item');
-                    console.log('variants.length > 1', el.variants);
                 }
                 el.variants.map((index)=>{
                     if(index.inventory_level < index.inventory_warning_level && index.inventory_level!==0) {
