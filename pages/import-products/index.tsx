@@ -296,7 +296,7 @@ const importProducts = () => {
                             <li>
                                 <Button
                                     onClick={deleteEmailItem(el._id)}
-                                />
+                                />delete ---</Button>
                                 {el.email} ({cronstrue.toString(el.cronTime)}, Time zone {el.timeZone})
                             </li>
                         </>
