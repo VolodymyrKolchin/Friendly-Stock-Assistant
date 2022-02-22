@@ -295,6 +295,7 @@ const importProducts = () => {
                         return <>
                             <li>
                                 <Button
+                                    type="submit"
                                     onClick={deleteEmailItem(el._id)}
                                 >Delete ---
                                 </Button>
