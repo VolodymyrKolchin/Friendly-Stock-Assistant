@@ -1,4 +1,4 @@
-import {Button, Flex, FormGroup, Input, Panel, Form as StyledForm, Message, Checkbox} from '@bigcommerce/big-design';
+import {Button, Flex, FormGroup, Input, Panel, Form as StyledForm, Message} from '@bigcommerce/big-design';
 import {useState, ChangeEvent, useEffect} from 'react';
 import ErrorMessage from '../../components/error';
 import Loading from '../../components/loading';
@@ -80,12 +80,6 @@ const importProducts = () => {
         const { name: formName, value } = event?.target;
         setForm(prevForm => ({ ...prevForm, [formName]: value }));
         setIsLoadingSubscribeShowEmail(false);
-    };
-
-    const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
-        const { checked, name: formName } = event?.target;
-        setForm({ email:form.email, cronTime: form.cronTime, timezone: form.timezone, unsubscribe: false });
-        setForm(prevForm => ({ ...prevForm, [formName]: checked }));
     };
 
     const onSelectFun = (event) => {
@@ -281,14 +275,6 @@ const importProducts = () => {
                             />
                         </p>
                     </FormGroup>
-                <FormGroup>
-                    <Checkbox
-                        name="unsubscribe"
-                        checked={form.unsubscribe}
-                        onChange={handleCheckboxChange}
-                        label="Unsubscribe from automatic inventory reports"
-                    />
-                </FormGroup>
                 <FormGroup>
                     <Flex justifyContent="flex-end">
                         <Button
