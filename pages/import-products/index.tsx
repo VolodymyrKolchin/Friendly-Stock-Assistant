@@ -1,4 +1,4 @@
-import {Button, Flex, FormGroup, Input, Panel, Form as StyledForm, Message, Checkbox, AddIcon} from '@bigcommerce/big-design';
+import {Button, Flex, FormGroup, Input, Panel, Form as StyledForm, Message, Checkbox} from '@bigcommerce/big-design';
 import {useState, ChangeEvent, useEffect} from 'react';
 import ErrorMessage from '../../components/error';
 import Loading from '../../components/loading';
@@ -295,7 +295,6 @@ const importProducts = () => {
                         return <>
                             <li>
                                 <Button
-                                    iconOnly={<AddIcon title="add" />}
                                     onClick={deleteEmailItem(el._id)}
                                 />
                                 {el.email} ({cronstrue.toString(el.cronTime)}, Time zone {el.timeZone})
