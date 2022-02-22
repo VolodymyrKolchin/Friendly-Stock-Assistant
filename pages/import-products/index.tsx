@@ -180,8 +180,8 @@ const importProducts = () => {
             console.log('e.target.nodeName == BUTTON target.id', e.target.id);
         }
         if (e.target.parentElement.nodeName == 'BUTTON') {
-            console.log('e.target.parentElement.nodeName == BUTTON target.id', e.target.id);
             console.log('e.target.parentElement == BUTTON target.id', e.target.parentElement);
+            console.log('e.target.parentElement.id', e.target.parentElement.id)
             console.log('e.target.parentElement.nodeName == BUTTON target.id', e.target.parentElement.nodeName);
         }
         if (e.target.nodeName || e.target.parentElement.nodeName == 'BUTTON') {
