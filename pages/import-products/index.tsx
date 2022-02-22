@@ -182,6 +182,7 @@ const importProducts = () => {
     //stripe_load();
     const deleteEmailItem = (e) => {
         console.log('e', e);
+        console.log('e.target', e.target);
     }
 
     return (
@@ -298,7 +299,7 @@ const importProducts = () => {
                                     id={el._id}
                                     type="submit"
                                     onClick={deleteEmailItem}
-                                >Delete ---
+                                >-
                                 </Button>
                                 {el.email} ({cronstrue.toString(el.cronTime)}, Time zone {el.timeZone})
                             </li>
