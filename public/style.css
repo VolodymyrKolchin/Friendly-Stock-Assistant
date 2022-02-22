@@ -101,7 +101,7 @@ ul {
     margin-left: 0; /* Left padding in IE and Opera */
     padding-left: 0; /* Left margin in Firefox, Safari, Chrome */
 }
-.form-control-delete {
+.form-control-delete > button{
     height: 25px;
     width: 25px;
     margin-bottom: 10px;
