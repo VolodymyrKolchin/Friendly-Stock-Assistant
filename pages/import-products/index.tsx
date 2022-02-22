@@ -176,20 +176,15 @@ const importProducts = () => {
     //stripe_load();
     const deleteEmailItem = (e) => {
         let ID = '';
-
         if (e.target.nodeName == 'BUTTON') {
-            console.log('e.target.nodeName == BUTTON target.id', e.target.id);
             ID = e.target.id;
         }
         if (e.target.parentElement.nodeName == 'BUTTON') {
-            console.log('e.target.parentElement == BUTTON target.id', e.target.parentElement);
-            console.log('e.target.parentElement.id', e.target.parentElement.id)
-            console.log('e.target.parentElement.nodeName == BUTTON target.id', e.target.parentElement.nodeName);
             ID = e.target.parentElement.id;
         }
         console.log('ID', ID);
 
-        fetch(`https://stock-assistant-friendsofcomme.herokuapp.com/delete/${e.target.id}`, {
+        fetch(`https://stock-assistant-friendsofcomme.herokuapp.com/delete/${ID}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
