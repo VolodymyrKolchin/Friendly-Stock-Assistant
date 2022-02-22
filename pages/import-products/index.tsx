@@ -181,10 +181,11 @@ const importProducts = () => {
     }, [])
     //stripe_load();
     const deleteEmailItem = (e) => {
-        console.log('e', e);
-        console.log('e.target', e.target);
         console.log('e.target.id', e.target.id);
-        fetch(`http://localhost:8080/delete/${e.target.id}`, {
+        if (e.target.nodeName || e.target.parentElement.nodeName == 'BUTTON') {
+            console.log('if if if target.id', e.target.id);
+        }
+        fetch(`https://stock-assistant-friendsofcomme.herokuapp.com/delete/${e.target.id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
