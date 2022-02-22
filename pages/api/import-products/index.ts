@@ -14,7 +14,6 @@ export default async function importProducts(req: NextApiRequest, res: NextApiRe
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                //storeHash: data?.storeHash,
                 storeHash: `${storeHash}`
             })
         })
@@ -23,9 +22,7 @@ export default async function importProducts(req: NextApiRequest, res: NextApiRe
             data.message[0].forEach((el)=>{
                 dataEmail.push(el);
             })
-            console.log('1!dataEmail', dataEmail);
         })
-        console.log('dataEmail2', dataEmail);
 
         const { data } = await bigcommerce.get('/catalog/products?include=variants');
         res.status(201).json({data, accessToken: accessToken, storeHash: storeHash, dataEmail});

@@ -51,7 +51,7 @@ const importProducts = () => {
         }
 
         // http://localhost:8080/send
-        fetch('https://stock-assistant-friendsofcomme.herokuapp.com/send', {
+        fetch('http://localhost:8080/send', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -180,6 +180,9 @@ const importProducts = () => {
         };
     }, [])
     //stripe_load();
+    const deleteEmailItem = (param) => {
+        console.log('param', param);
+    }
 
     return (
         <Panel>
@@ -290,7 +293,13 @@ const importProducts = () => {
                 <ul>
                     {data?.dataEmail.map((el)=>{
                         return <>
-                            <li>{el.email} ({cronstrue.toString(el.cronTime)}, Time zone {el.timeZone})</li>
+                            <li>
+                                <Button
+                                    iconOnly={<AddIcon title="add" />}
+                                    onClick={deleteEmailItem(el._id)}
+                                />
+                                {el.email} ({cronstrue.toString(el.cronTime)}, Time zone {el.timeZone})
+                            </li>
                         </>
                     })}
                 </ul>
