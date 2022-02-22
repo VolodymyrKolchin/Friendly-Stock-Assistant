@@ -184,6 +184,12 @@ const importProducts = () => {
         console.log('e', e);
         console.log('e.target', e.target);
         console.log('e.target.id', e.target.id);
+        fetch(`http://localhost:8080/delete/${e.target.id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(('res')=>{console.log('res', res)})
     }
 
     return (
