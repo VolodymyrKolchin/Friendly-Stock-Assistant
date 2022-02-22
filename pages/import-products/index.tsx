@@ -189,7 +189,7 @@ const importProducts = () => {
         }
         console.log('ID', ID);
 
-        fetch(`https://stock-assistant-friendsofcomme.herokuapp.com/delete/${ID}`, {
+        fetch(`https://stock-assistant-friendsofcomme.herokuapp.com/delete/${e.target.id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
