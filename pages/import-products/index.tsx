@@ -297,6 +297,7 @@ const importProducts = () => {
                                 <Button
                                     id={el._id}
                                     type="submit"
+                                    className="form-control-delete"
                                     onClick={deleteEmailItem}
                                 >-
                                 </Button>
