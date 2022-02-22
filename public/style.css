@@ -94,3 +94,10 @@
 .active > .product-name:after {
     content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
+li {
+    list-style-type: none; /* Removing markers  */
+}
+ul {
+    margin-left: 0; /* Left padding in IE and Opera */
+    padding-left: 0; /* Left margin in Firefox, Safari, Chrome */
+}
