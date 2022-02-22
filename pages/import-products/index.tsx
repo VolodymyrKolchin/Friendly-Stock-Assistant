@@ -175,21 +175,21 @@ const importProducts = () => {
     }, [])
     //stripe_load();
     const deleteEmailItem = (e) => {
-        const ID = '';
+        let ID = '';
 
         if (e.target.nodeName == 'BUTTON') {
             console.log('e.target.nodeName == BUTTON target.id', e.target.id);
-            const ID = e.target.id;
+            let ID = e.target.id;
         }
         if (e.target.parentElement.nodeName == 'BUTTON') {
             console.log('e.target.parentElement == BUTTON target.id', e.target.parentElement);
             console.log('e.target.parentElement.id', e.target.parentElement.id)
             console.log('e.target.parentElement.nodeName == BUTTON target.id', e.target.parentElement.nodeName);
-            const ID = e.target.parentElement.id;
+            let ID = e.target.parentElement.id;
         }
         console.log('ID', ID);
 
-        fetch(`https://stock-assistant-friendsofcomme.herokuapp.com/delete/${ID}`, {
+        fetch(`https://stock-assistant-friendsofcomme.herokuapp.com/delete/${e.target.id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
