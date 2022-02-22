@@ -293,11 +293,10 @@ const importProducts = () => {
                 <ul>
                     {data?.dataEmail.map((el)=>{
                         return <>
-                            <li>
+                            <li className="form-control-delete">
                                 <Button
                                     id={el._id}
                                     type="submit"
-                                    className="form-control-delete"
                                     onClick={deleteEmailItem}
                                 >-
                                 </Button>
