@@ -176,6 +176,12 @@ const importProducts = () => {
     //stripe_load();
     const deleteEmailItem = (e) => {
         console.log('e.target.id', e.target.id);
+        if (e.target.nodeName == 'BUTTON') {
+            console.log('e.target.nodeName == BUTTON target.id', e.target.id);
+        }
+        if (e.target.nodeName == 'BUTTON') {
+            console.log('e.target.parentElement.nodeName == BUTTON target.id', e.target.id);
+        }
         if (e.target.nodeName || e.target.parentElement.nodeName == 'BUTTON') {
             console.log('if if if target.id', e.target.id);
         }
