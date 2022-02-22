@@ -289,11 +289,8 @@ const importProducts = () => {
                 </FormGroup>
                 <ul>
                     {data?.dataEmail.map((el)=>{
-                        console.log('element cronTime', el.cronTime);
-                        console.log('cronstrue.toString("***")', cronstrue.toString(el.cronTime))
                         return <>
-                            <li>{el.email}</li>
-                            <li>{cronstrue.toString(el.cronTime)}</li>
+                            <li>{el.email} ({cronstrue.toString(el.cronTime)}, Time zone {el.timeZone})</li>
                         </>
                     })}
                 </ul>
