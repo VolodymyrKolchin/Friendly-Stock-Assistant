@@ -180,8 +180,8 @@ const importProducts = () => {
         };
     }, [])
     //stripe_load();
-    const deleteEmailItem = (param) => {
-        console.log('param', param);
+    const deleteEmailItem = (e) => {
+        console.log('e', e);
     }
 
     return (
@@ -295,8 +295,9 @@ const importProducts = () => {
                         return <>
                             <li>
                                 <Button
+                                    id={el._id}
                                     type="submit"
-                                    onClick={deleteEmailItem(el._id)}
+                                    onClick={deleteEmailItem}
                                 >Delete ---
                                 </Button>
                                 {el.email} ({cronstrue.toString(el.cronTime)}, Time zone {el.timeZone})
