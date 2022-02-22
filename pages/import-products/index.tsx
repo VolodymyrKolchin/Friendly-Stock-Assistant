@@ -179,7 +179,7 @@ const importProducts = () => {
         if (e.target.nodeName == 'BUTTON') {
             console.log('e.target.nodeName == BUTTON target.id', e.target.id);
         }
-        if (e.target.nodeName == 'BUTTON') {
+        if (e.target.parentElement.nodeName == 'BUTTON') {
             console.log('e.target.parentElement.nodeName == BUTTON target.id', e.target.id);
         }
         if (e.target.nodeName || e.target.parentElement.nodeName == 'BUTTON') {
