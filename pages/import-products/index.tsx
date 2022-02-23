@@ -187,10 +187,12 @@ const importProducts = () => {
         if (e.target.parentElement.parentElement.nodeName == 'LI') {
             e.target.parentElement.parentElement.classList.add("hide");
             console.log('e', e);
-            console.log('e.target', e.target);
-            console.log('e.target.parentElement', e.target.parentElement);
-            console.log('e.target.parentElement.parentElement', e.target.parentElement.parentElement);
-            console.log('e.target.querySelectorAll', e.target.parentElement.parentElement.querySelectorAll("div"));
+            // console.log('e.target', e.target);
+            // console.log('e.target.parentElement', e.target.parentElement);
+            // console.log('e.target.parentElement.parentElement', e.target.parentElement.parentElement);
+            console.log('e.target.querySelectorAll', e.target.parentElement.parentElement.querySelectorAll("div.hide-message"));
+            console.log('e.target.querySelectorAll', e.target.parentElement.parentElement.querySelectorAll("div.hide-message")[0]);
+
         }
         if (e.target.nodeName || e.target.parentElement.nodeName == 'BUTTON') {
             e.target.setAttribute('disabled', 'true');
