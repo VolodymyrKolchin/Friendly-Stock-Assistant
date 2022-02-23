@@ -196,7 +196,7 @@ const importProducts = () => {
 //             console.log('el._id', el._id);
 //         });
         console.log('111state', state)
-        console.log('state.filter(el => el.id !== id)', state.filter(el => el.id !== id));
+        console.log('state.filter(el => el.id !== id)', state.filter(el => el._id !== ID));
         fetch(`https://stock-assistant-friendsofcomme.herokuapp.com/delete/${ID}`, {
             method: 'DELETE',
             headers: {
