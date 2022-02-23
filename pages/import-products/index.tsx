@@ -184,9 +184,11 @@ const importProducts = () => {
         if (e.target.parentElement.nodeName == 'BUTTON') {
             ID = e.target.parentElement.id;
         }
-
         if (e.target.parentElement.parentElement.nodeName == 'LI') {
             e.target.parentElement.parentElement.classList.add("hide");
+            console.log('e.target', e.target);
+            console.log('e.target.parentElement', e.target.parentElement);
+            console.log('e.target.parentElement.parentElement', e.target.parentElement.parentElement);
         }
         if (e.target.nodeName || e.target.parentElement.nodeName == 'BUTTON') {
             e.target.setAttribute('disabled', 'true');
@@ -199,11 +201,6 @@ const importProducts = () => {
                 'Content-Type': 'application/json'
             }
         }).then((res)=>{console.log('res', res)})
-          .finally(()=>{
-              setTimeout(() => {
-                  setIsShownUnsubscribe(false);
-              }, 3000)
-          })
     }
 
     return (
@@ -315,13 +312,14 @@ const importProducts = () => {
                                 >Unsubscribe
                                 </Button>
                                 {el.email} ({cronstrue.toString(el.cronTime, { verbose: true })}, Time zone {el.timeZone})
+                                <div className='hide'>
+                                    <Message
+                                        type="warning"
+                                        messages={[{ text: `${el.email} has unsubscribed` }]}
+                                        marginVertical="medium"
+                                    />
+                                </div>
                             </li>
-                            {isShownUnsubscribe &&
-                                <Message
-                                    type="warning"
-                                    messages={[{ text: `${el.email} has unsubscribed` }]}
-                                    marginVertical="medium"
-                                />}
                         </>
                     })}
                 </ul>
