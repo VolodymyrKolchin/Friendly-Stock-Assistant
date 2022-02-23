@@ -192,7 +192,7 @@ const importProducts = () => {
                 'Content-Type': 'application/json'
             }
         }).then((res)=>{console.log('res', res)})
-        router.push('/products')
+        router.push('/import-products')
     }
 
     return (
