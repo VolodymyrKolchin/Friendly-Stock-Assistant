@@ -113,7 +113,7 @@ ul {
 .hide-message {
     display: none;
 }
-.hide ~ div {
-    color: red;
-    display: block;
-}
+/*.hide ~ div {*/
+/*    color: red;*/
+/*    display: block;*/
+/*}*/
