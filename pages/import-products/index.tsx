@@ -190,7 +190,7 @@ const importProducts = () => {
             ID = e.target.parentElement.id;
         }
         console.log('ID', ID);
-        setState(prevState => {
+        setState((prevState) => {
             prevState.filter(el => el.id !== id)
             console.log('el', el);
             console.log('el._id', el._id);
