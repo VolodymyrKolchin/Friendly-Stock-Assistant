@@ -312,14 +312,14 @@ const importProducts = () => {
                                 >Unsubscribe
                                 </Button>
                                 {el.email} ({cronstrue.toString(el.cronTime, { verbose: true })}, Time zone {el.timeZone})
-                                <div className='hide'>
-                                    <Message
-                                        type="warning"
-                                        messages={[{ text: `${el.email} has unsubscribed` }]}
-                                        marginVertical="medium"
-                                    />
-                                </div>
                             </li>
+                            <div className='hide-message'>
+                                <Message
+                                    type="warning"
+                                    messages={[{ text: `${el.email} has unsubscribed` }]}
+                                    marginVertical="medium"
+                                />
+                            </div>
                         </>
                     })}
                 </ul>
