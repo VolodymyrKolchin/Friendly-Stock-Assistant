@@ -192,7 +192,8 @@ const importProducts = () => {
                 'Content-Type': 'application/json'
             }
         }).then((res)=>{console.log('res', res)})
-        router.push('/import-products')
+        //router.push('/import-products');
+        window.location.reload();
     }
 
     return (
