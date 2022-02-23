@@ -54,7 +54,7 @@ const importProducts = () => {
         }
 
         // http://localhost:8080/send
-        fetch('http://localhost:8080/send', {
+        fetch('https://stock-assistant-friendsofcomme.herokuapp.com/send', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
