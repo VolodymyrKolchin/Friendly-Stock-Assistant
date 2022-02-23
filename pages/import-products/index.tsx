@@ -177,6 +177,10 @@ const importProducts = () => {
         };
     }, [])
     //stripe_load();
+    const hideEmailItem = (e) => {
+        console.log('e', e);
+        console.log('e.target', e.target)
+    }
     const deleteEmailItem = (e) => {
         let ID = '';
         if (e.target.nodeName == 'BUTTON') {
@@ -186,10 +190,7 @@ const importProducts = () => {
             ID = e.target.parentElement.id;
         }
         console.log('ID', ID);
-        //let dataID = data?.dataEmail.filter(el => el._id !== ID);
-        //console.log('dataID', dataID);
-        console.log('e', e);
-        console.log('e---target', e.target);
+
         if (e.target.nodeName || e.target.parentElement.nodeName == 'BUTTON') {
             e.target.setAttribute('disabled', 'true');
             e.target.parentElement.setAttribute('disabled', 'true');
@@ -307,7 +308,7 @@ const importProducts = () => {
                 <ul>
                     {data?.dataEmail.map((el)=>{
                         return <>
-                            <li className="form-control-delete">
+                            <li className="form-control-delete" onClick={hideEmailItem}>
                                 <Button
                                     id={el._id}
                                     type="submit"
