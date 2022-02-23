@@ -192,7 +192,7 @@ const importProducts = () => {
             // console.log('e.target.parentElement.parentElement', e.target.parentElement.parentElement);
             console.log('e.target.querySelectorAll', e.target.parentElement.parentElement.querySelectorAll("div.hide-message"));
             console.log('e.target.querySelectorAll', e.target.parentElement.parentElement.querySelectorAll("div.hide-message")[0]);
-
+            e.target.parentElement.parentElement.querySelectorAll("div.hide-message")[0].add("visible-message");
         }
         if (e.target.nodeName || e.target.parentElement.nodeName == 'BUTTON') {
             e.target.setAttribute('disabled', 'true');
