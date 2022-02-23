@@ -110,3 +110,10 @@ ul {
 .hide {
     display: none;
 }
+.hide-message {
+    display: none;
+}
+.hide ~ div {
+    color: red;
+    display: block;
+}
