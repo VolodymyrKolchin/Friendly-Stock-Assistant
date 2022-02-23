@@ -192,7 +192,7 @@ const importProducts = () => {
                 'Content-Type': 'application/json'
             }
         }).then((res)=>{console.log('res', res)})
-        router.prefetch('/products')
+        router.push('/products')
     }
 
     return (
