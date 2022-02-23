@@ -62,8 +62,8 @@ const Header = () => {
     });
 
     const items = [
-        { id: TabIds.HOME, title: 'Home' },
-        { id: TabIds.PRODUCTS, title: 'Products' },
+        { id: TabIds.HOME, title: 'Dashboard' },
+        { id: TabIds.PRODUCTS, title: 'Inventory View' },
         { id: TabIds.IMPORT, title: 'Inventory Report' },
         { id: TabIds.ABOUT, title: 'About' },
     ];

@@ -243,7 +243,7 @@ const importProducts = () => {
                     </Flex>
                 </Panel>
             </StyledForm>
-            <Panel header="Subscribe to receive your Inventory Report by when you need, automatically!">
+            <Panel header="Set up or remove an inventory report subscription">
                 <p>Enter the desired frequency of your Inventory Report</p>
                 <FormGroup>
                     <Input
@@ -303,7 +303,7 @@ const importProducts = () => {
                                     id={el._id}
                                     type="submit"
                                     onClick={deleteEmailItem}
-                                >-
+                                >Unsubscribe
                                 </Button>
                                 {el.email} ({cronstrue.toString(el.cronTime)}, Time zone {el.timeZone})
                             </li>
