@@ -16,7 +16,7 @@ const importProducts = () => {
     const [isLoadingSubscribeShowEmail, setIsLoadingSubscribeShowEmail] = useState(false);
     const [form, setForm] = useState({ email: '', cronTime: '', timezone: '', unsubscribe: false });
     const [formTimeZone, setFormTimeZone] = useState({timezone: 'Africa/Blantyre'});
-    const [state, setState] = useState([]);
+
     const router = useRouter();
 
     const dataImportProduct = [];
@@ -30,7 +30,6 @@ const importProducts = () => {
             dataImportProduct.push(...el.variants)
         })
         clientData.push(process.env.CLIENT_ID);
-        setState(data.dataEmail);
     }
 
     //if (isLoading) return <Loading />;
@@ -189,8 +188,11 @@ const importProducts = () => {
         console.log('ID', ID);
         let dataID = data?.dataEmail.filter(el => el._id !== ID);
         console.log('dataID', dataID);
-        console.log('state', state);
-        //console.log('data?.dataEmail.filter(el => el.id !== id)', data?.dataEmail.filter(el => el._id !== ID));
+        if (e.target.nodeName || e.target.parentElement.nodeName == 'BUTTON') {
+            e.target.setAttribute('disabled', 'true');
+            e.target.parentElement.setAttribute('disabled', 'true');
+            console.log('e.target', e.target);
+        }
         fetch(`https://stock-assistant-friendsofcomme.herokuapp.com/delete/${ID}`, {
             method: 'DELETE',
             headers: {
