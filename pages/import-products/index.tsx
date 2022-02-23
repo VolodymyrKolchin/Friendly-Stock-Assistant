@@ -193,7 +193,8 @@ const importProducts = () => {
             }
         }).then((res)=>{console.log('res', res)})
         //router.push('/import-products');
-        window.location.reload();
+        //window.location.reload();
+        router.reload();
     }
 
     return (
