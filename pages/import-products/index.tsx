@@ -194,7 +194,7 @@ const importProducts = () => {
         }).then((res)=>{console.log('res', res)})
         //router.push('/import-products');
         //window.location.reload();
-        router.reload();
+        //router.reload();
     }
 
     return (
@@ -257,7 +257,7 @@ const importProducts = () => {
                 {isShownSuccessSubscribe &&
                     <Message
                         type="success"
-                        messages={[{ text: 'Email sent successfully ' }]}
+                        messages={[{ text: 'Subscription Created ' }]}
                         marginVertical="medium"
                     />
                 }
