@@ -177,10 +177,7 @@ const importProducts = () => {
         };
     }, [])
     //stripe_load();
-    const hideEmailItem = (e) => {
-        console.log('e', e);
-        console.log('e.target', e.target)
-    }
+
     const deleteEmailItem = (e) => {
         let ID = '';
         if (e.target.nodeName == 'BUTTON') {
@@ -310,7 +307,7 @@ const importProducts = () => {
                 <ul>
                     {data?.dataEmail.map((el)=>{
                         return <>
-                            <li className="form-control-delete" onClick={hideEmailItem}>
+                            <li className="form-control-delete">
                                 <Button
                                     id={el._id}
                                     type="submit"
