@@ -190,6 +190,9 @@ const importProducts = () => {
                 'Content-Type': 'application/json'
             }
         }).then((res)=>{console.log('res', res)})
+        setTimeout(function(){
+        	location.reload();
+        }, 300);
     }
 
     return (
