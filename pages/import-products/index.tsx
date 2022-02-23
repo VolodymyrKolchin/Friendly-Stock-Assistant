@@ -188,6 +188,7 @@ const importProducts = () => {
         console.log('ID', ID);
         //let dataID = data?.dataEmail.filter(el => el._id !== ID);
         //console.log('dataID', dataID);
+        console.log('e', e);
         console.log('e---target', e.target);
         if (e.target.nodeName || e.target.parentElement.nodeName == 'BUTTON') {
             e.target.setAttribute('disabled', 'true');
