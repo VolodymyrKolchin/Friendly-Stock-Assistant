@@ -190,12 +190,13 @@ const importProducts = () => {
             ID = e.target.parentElement.id;
         }
         console.log('ID', ID);
-        setState((prevState) => {
-            prevState.filter(el => el.id !== id)
-            console.log('el', el);
-            console.log('el._id', el._id);
-        });
+//         setState((prevState) => {
+//             prevState.filter(el => el.id !== id)
+//             console.log('el', el);
+//             console.log('el._id', el._id);
+//         });
         console.log('111state', state)
+        console.log('state.filter(el => el.id !== id)', state.filter(el => el.id !== id));
         fetch(`https://stock-assistant-friendsofcomme.herokuapp.com/delete/${ID}`, {
             method: 'DELETE',
             headers: {
