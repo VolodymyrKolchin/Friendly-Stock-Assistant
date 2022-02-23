@@ -186,9 +186,11 @@ const importProducts = () => {
         }
         if (e.target.parentElement.parentElement.nodeName == 'LI') {
             e.target.parentElement.parentElement.classList.add("hide");
+            console.log('e', e);
             console.log('e.target', e.target);
             console.log('e.target.parentElement', e.target.parentElement);
             console.log('e.target.parentElement.parentElement', e.target.parentElement.parentElement);
+            console.log('e.target.querySelectorAll', e.target.parentElement.parentElement.querySelectorAll("div"));
         }
         if (e.target.nodeName || e.target.parentElement.nodeName == 'BUTTON') {
             e.target.setAttribute('disabled', 'true');
@@ -312,6 +314,13 @@ const importProducts = () => {
                                 >Unsubscribe
                                 </Button>
                                 {el.email} ({cronstrue.toString(el.cronTime, { verbose: true })}, Time zone {el.timeZone})
+                                <div className='hide-message'>
+                                    <Message
+                                        type="warning"
+                                        messages={[{ text: `${el.email} has unsubscribed` }]}
+                                        marginVertical="medium"
+                                    />
+                                </div>
                             </li>
                             <div className='hide-message'>
                                 <Message
