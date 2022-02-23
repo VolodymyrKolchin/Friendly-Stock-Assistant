@@ -15,6 +15,7 @@ const importProducts = () => {
     const [isLoadingSubscribeShowEmail, setIsLoadingSubscribeShowEmail] = useState(false);
     const [form, setForm] = useState({ email: '', cronTime: '', timezone: '', unsubscribe: false });
     const [formTimeZone, setFormTimeZone] = useState({timezone: 'Africa/Blantyre'});
+    const router = useRouter();
 
     const dataImportProduct = [];
     const { error, isLoading, list = [], meta = {}, mutateList=[], data } = useProductListAll();
@@ -190,9 +191,7 @@ const importProducts = () => {
                 'Content-Type': 'application/json'
             }
         }).then((res)=>{console.log('res', res)})
-        setTimeout(function(){
-        	location.reload();
-        }, 300);
+        router.prefetch('/products')
     }
 
     return (
