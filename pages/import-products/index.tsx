@@ -313,7 +313,7 @@ const importProducts = () => {
                                     onClick={deleteEmailItem}
                                 >Unsubscribe
                                 </Button>
-                                {el.email} ({cronstrue.toString(el.cronTime), { verbose: true }}, Time zone {el.timeZone})
+                                {el.email} ({cronstrue.toString(el.cronTime, { verbose: true })}, Time zone {el.timeZone})
                             </li>
                         </>
                     })}
