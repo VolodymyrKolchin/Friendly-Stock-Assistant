@@ -5,7 +5,6 @@ import Loading from '../../components/loading';
 import {useProductListAll} from '../../lib/hooks';
 import { CSVLink } from 'react-csv';
 import cronstrue from 'cronstrue';
-import { useRouter } from 'next/router';
 
 const importProducts = () => {
     const [isShownSuccess, setIsShownSuccess] = useState(false);
@@ -13,11 +12,10 @@ const importProducts = () => {
     const [formEmail, setFormEmail] = useState({ email: '' });
     const [isShownSuccessSubscribe, setIsShownSuccessSubscribe] = useState(false);
     const [isShownErrorSubscribe, setIsShownErrorSubscribe] = useState(false);
+    const [isShownUnsubscribe, setIsShownUnsubscribe] = useState(false);
     const [isLoadingSubscribeShowEmail, setIsLoadingSubscribeShowEmail] = useState(false);
     const [form, setForm] = useState({ email: '', cronTime: '', timezone: '', unsubscribe: false });
     const [formTimeZone, setFormTimeZone] = useState({timezone: 'Africa/Blantyre'});
-
-    const router = useRouter();
 
     const dataImportProduct = [];
     const { error, isLoading, list = [], meta = {}, mutateList=[], data } = useProductListAll();
@@ -194,15 +192,18 @@ const importProducts = () => {
             e.target.setAttribute('disabled', 'true');
             e.target.parentElement.setAttribute('disabled', 'true');
         }
+        setIsShownUnsubscribe(true);
         fetch(`https://stock-assistant-friendsofcomme.herokuapp.com/delete/${ID}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
             }
         }).then((res)=>{console.log('res', res)})
-        //router.push('/import-products');
-        //window.location.reload();
-        //router.reload();
+          .finally(()=>{
+              setTimeout(() => {
+                  setIsShownUnsubscribe(false);
+              }, 3000)
+          })
     }
 
     return (
@@ -315,6 +316,12 @@ const importProducts = () => {
                                 </Button>
                                 {el.email} ({cronstrue.toString(el.cronTime, { verbose: true })}, Time zone {el.timeZone})
                             </li>
+                            {isShownUnsubscribe &&
+                                <Message
+                                    type="warning"
+                                    messages={[{ text: `${el.email} has unsubscribed` }]}
+                                    marginVertical="medium"
+                                />}
                         </>
                     })}
                 </ul>
