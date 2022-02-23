@@ -190,7 +190,7 @@ const importProducts = () => {
         if (e.target.parentElement.parentElement.nodeName == 'LI') {
             console.log('LI e.target', e.target);
             console.log('LI e.target.parentElement.parentElement',  e.target.parentElement.parentElement);
-            e.target.classList.add("my-class");
+            e.target.parentElement.parentElement.classList.add("hide");
         }
         if (e.target.nodeName || e.target.parentElement.nodeName == 'BUTTON') {
             e.target.setAttribute('disabled', 'true');
