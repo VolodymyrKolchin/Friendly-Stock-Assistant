@@ -190,11 +190,13 @@ const importProducts = () => {
             ID = e.target.parentElement.id;
         }
         console.log('ID', ID);
-
+        if (e.target.nodeName || e.target.parentElement.nodeName || e.target.parentElement.parentElement.nodeName == 'LI') {
+            console.log('LI e', e);
+            console.log('LI e.target',  e.target)''
+        }
         if (e.target.nodeName || e.target.parentElement.nodeName == 'BUTTON') {
             e.target.setAttribute('disabled', 'true');
             e.target.parentElement.setAttribute('disabled', 'true');
-            console.log('e.target', e.target);
         }
         fetch(`https://stock-assistant-friendsofcomme.herokuapp.com/delete/${ID}`, {
             method: 'DELETE',
