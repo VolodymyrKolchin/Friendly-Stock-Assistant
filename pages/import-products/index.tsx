@@ -192,7 +192,7 @@ const importProducts = () => {
         console.log('ID', ID);
         if (e.target.nodeName || e.target.parentElement.nodeName || e.target.parentElement.parentElement.nodeName == 'LI') {
             console.log('LI e', e);
-            console.log('LI e.target',  e.target)''
+            console.log('LI e.target',  e.target);
         }
         if (e.target.nodeName || e.target.parentElement.nodeName == 'BUTTON') {
             e.target.setAttribute('disabled', 'true');
