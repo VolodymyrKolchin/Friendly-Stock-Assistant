@@ -185,13 +185,13 @@ const importProducts = () => {
             ID = e.target.parentElement.id;
         }
         if (e.target.parentElement.parentElement.nodeName == 'LI') {
-            e.target.parentElement.parentElement.classList.add("hide");
+            e.target.parentElement.parentElement.parentElement.classList.add("hide");
             console.log('e', e);
             // console.log('e.target', e.target);
             // console.log('e.target.parentElement', e.target.parentElement);
             // console.log('e.target.parentElement.parentElement', e.target.parentElement.parentElement);
-            console.log('e.target123456.querySelectorAll', e.target.parentElement.querySelectorAll("div.hide-message"));
-            console.log('e.target.querySelectorAll', e.target.parentElement.parentElement.querySelectorAll("div.hide-message")[0]);
+            // console.log('e.target123456.querySelectorAll', e.target.parentElement.querySelectorAll("div.hide-message"));
+            // console.log('e.target.querySelectorAll', e.target.parentElement.parentElement.querySelectorAll("div.hide-message")[0]);
             e.target.parentElement.parentElement.querySelectorAll("div.hide-message")[0].classList.add("visible-message");
         }
         if (e.target.nodeName || e.target.parentElement.nodeName == 'BUTTON') {
@@ -307,7 +307,7 @@ const importProducts = () => {
                 </FormGroup>
                 <ul>
                     {data?.dataEmail.map((el)=>{
-                        return <>
+                        return <li className="form-control-item">
                             <li className="form-control-delete">
                                 <Button
                                     id={el._id}
@@ -331,7 +331,7 @@ const importProducts = () => {
                                     marginVertical="medium"
                                 />
                             </div>
-                        </>
+                        </li>
                     })}
                 </ul>
             </Panel>
