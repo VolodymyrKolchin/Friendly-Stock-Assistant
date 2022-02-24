@@ -116,7 +116,7 @@ ul {
 .visible-message {
     display: block;
 }
-/*.hide ~ div {*/
-/*    color: red;*/
-/*    display: block;*/
-/*}*/
+.hide ~ div {
+    color: red;
+    display: block;
+}
