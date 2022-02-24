@@ -185,7 +185,8 @@ const importProducts = () => {
             ID = e.target.parentElement.id;
         }
         if (e.target.parentElement.parentElement.nodeName == 'LI') {
-            e.target.parentElement.parentElement.parentElement.classList.add("hide");
+            console.log('e.target.parentElement.parentElement', e.target.parentElement.parentElement);
+            e.target.parentElement.parentElement.classList.add("hide");
             console.log('e', e);
             // console.log('e.target', e.target);
             // console.log('e.target.parentElement', e.target.parentElement);
