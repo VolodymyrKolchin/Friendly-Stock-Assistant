@@ -97,6 +97,7 @@ const importProducts = () => {
             e.target.parentElement.setAttribute('disabled', 'true');
         }
         console.log("$('#example1-val')", $('#example1-val')[0].textContent);
+        console.log("$('#example1-val').split(' ')", $('#example1-val')[0].textContent.split(' '));
         //http://localhost:8080/subscribe
         fetch('https://stock-assistant-friendsofcomme.herokuapp.com/subscribe', {
             method: 'POST',
