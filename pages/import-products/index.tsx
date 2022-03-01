@@ -96,6 +96,7 @@ const importProducts = () => {
             e.target.setAttribute('disabled', 'true');
             e.target.parentElement.setAttribute('disabled', 'true');
         }
+        console.log("$('#example1-val')", $('#example1-val')[0].textContent);
         //http://localhost:8080/subscribe
         fetch('https://stock-assistant-friendsofcomme.herokuapp.com/subscribe', {
             method: 'POST',
@@ -185,14 +186,7 @@ const importProducts = () => {
             ID = e.target.parentElement.id;
         }
         if (e.target.parentElement.parentElement.nodeName == 'LI') {
-            console.log('e.target.parentElement.parentElement', e.target.parentElement.parentElement);
             e.target.parentElement.parentElement.classList.add("hide");
-            console.log('e', e);
-            // console.log('e.target', e.target);
-            // console.log('e.target.parentElement', e.target.parentElement);
-            // console.log('e.target.parentElement.parentElement', e.target.parentElement.parentElement);
-            // console.log('e.target123456.querySelectorAll', e.target.parentElement.querySelectorAll("div.hide-message"));
-            // console.log('e.target.querySelectorAll', e.target.parentElement.parentElement.querySelectorAll("div.hide-message")[0]);
             e.target.parentElement.parentElement.querySelectorAll("div.hide-message")[0].classList.add("visible-message");
         }
         if (e.target.nodeName || e.target.parentElement.nodeName == 'BUTTON') {
