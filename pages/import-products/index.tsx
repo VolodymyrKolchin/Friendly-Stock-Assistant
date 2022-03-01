@@ -98,7 +98,7 @@ const importProducts = () => {
         }
         console.log("$('#example1-val')", $('#example1-val')[0].textContent);
         console.log("$('#example1-val').split(' ')", $('#example1-val')[0].textContent.split(' '));
-        $('#example1-val')[0].textContent.split(' ').map((el)=>{
+        $('#example1-val')[0].textContent.split(' ').forEach((el)=>{
             console.log('element', el);
             console.log('el[2]', el[2]);
             if(el[2]=='*' && el[3]=='*') {
