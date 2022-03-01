@@ -102,7 +102,7 @@ const importProducts = () => {
         if(cronArr[2]=='*' && cronArr[3]=='*' && cronArr[4]=='*') {
             console.log('day');
         }
-        if(cronArr[2]=='*' && cronArr[3]=='*') {
+        if(cronArr[2]=='*' && cronArr[3]=='*' && cronArr[4]!=='*') {
             console.log('week');
         }
         if(cronArr[3]=='*' && cronArr[4]=='*') {
