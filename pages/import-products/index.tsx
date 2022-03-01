@@ -88,6 +88,7 @@ const importProducts = () => {
         setFormTimeZone(prevForm => ({ ...prevForm, [formName]: value }));
     }
     const onClickBtnSubscribe = (e) => {
+        let crontTimeType = '';
         if(form.email === '' ) {
             setIsLoadingSubscribeShowEmail(true);
             return;
@@ -101,13 +102,18 @@ const importProducts = () => {
         const cronArr = $('#example1-val')[0].textContent.split(' ');
         if(cronArr[2]=='*' && cronArr[3]=='*' && cronArr[4]=='*') {
             console.log('day');
+            crontTimeType = 'day'
         }
         if(cronArr[2]=='*' && cronArr[3]=='*' && cronArr[4]!=='*') {
             console.log('week');
+            crontTimeType = 'week'
         }
-        if(cronArr[3]=='*' && cronArr[4]=='*') {
+        if(cronArr[3]=='*' && cronArr[4]=='*' && cronArr[4]!=='*') {
             console.log('month');
+            crontTimeType = 'month'
         }
+        console.log('crontTimeType', crontTimeType);
+        
         //http://localhost:8080/subscribe
         fetch('https://stock-assistant-friendsofcomme.herokuapp.com/subscribe', {
             method: 'POST',
