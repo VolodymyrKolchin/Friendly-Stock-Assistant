@@ -98,6 +98,9 @@ const importProducts = () => {
         }
         console.log("$('#example1-val')", $('#example1-val')[0].textContent);
         console.log("$('#example1-val').split(' ')", $('#example1-val')[0].textContent.split(' '));
+        $('#example1-val')[0].textContent.split(' ').map((el)=>{
+            console.log('element', el);
+        })
         //http://localhost:8080/subscribe
         fetch('https://stock-assistant-friendsofcomme.herokuapp.com/subscribe', {
             method: 'POST',
