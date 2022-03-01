@@ -113,9 +113,9 @@ const importProducts = () => {
             crontTimeType = 'month'
         }
         console.log('crontTimeType', crontTimeType);
-        
+
         //http://localhost:8080/subscribe
-        fetch('https://stock-assistant-friendsofcomme.herokuapp.com/subscribe', {
+        fetch('http://localhost:8080/subscribe', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -124,6 +124,7 @@ const importProducts = () => {
                 form: form,
                 timeZone: formTimeZone.timezone,
                 cronTime: $('#example1-val')[0].textContent,
+                crontTimeType: 'crontTimeType',
                 accessToken: data?.accessToken,
                 storeHash: data?.storeHash,
                 clientID: process.env.CLIENT_PUBLIC_ID
