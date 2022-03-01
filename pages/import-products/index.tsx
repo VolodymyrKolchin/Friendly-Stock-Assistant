@@ -98,14 +98,15 @@ const importProducts = () => {
         }
         console.log("$('#example1-val')", $('#example1-val')[0].textContent);
         console.log("$('#example1-val').split(' ')", $('#example1-val')[0].textContent.split(' '));
-        $('#example1-val')[0].textContent.split(' ').forEach((el)=>{
+        const cronArr = $('#example1-val')[0].textContent.split(' ');
+        if(cronArr[2]=='*'){
+            console.log('cronArr[2]', cronArr[2]);
+        }
+        if(cronArr[2]=='*' && cronArr[3]=='*') {
+            console.log('week')
+        }
+        cronArr.forEach((el)=>{
             console.log('element', el);
-            console.log('el[2]', el[2]);
-            if(el[2]=='*' && el[3]=='*') {
-                console.log('week');
-            } else {
-                console.log('sdsdsds')
-            }
         })
         //http://localhost:8080/subscribe
         fetch('https://stock-assistant-friendsofcomme.herokuapp.com/subscribe', {
