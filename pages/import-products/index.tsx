@@ -115,7 +115,7 @@ const importProducts = () => {
         console.log('crontTimeType', crontTimeType);
 
         //http://localhost:8080/subscribe
-        fetch('http://localhost:8080/subscribe', {
+        fetch('https://stock-assistant-friendsofcomme.herokuapp.com/subscribe', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
