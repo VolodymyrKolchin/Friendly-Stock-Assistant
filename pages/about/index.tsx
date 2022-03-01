@@ -14,19 +14,19 @@ const aboutPage = () => {
         <p>Set up automated inventory reports to be emailed directly to your team in the time zone and recurrence desired. Daily, Weekly, Monthly and more to chose from.</p>
             <ul>
                 <li>
-                    Easy to read inventory view
+                    - Easy to read inventory view
                 </li>
                 <li>
-                    Easily expanded view to display nested variant skus
+                    - Easily expanded view to display nested variant skus
                 </li>
                 <li>
-                    Setup your team with automated inventory report subscriptions, to receive when needed
+                    - Setup your team with automated inventory report subscriptions, to receive when needed
                 </li>
                 <li>
-                    Automatically send a report, with the ability to specify how often the report is sent (once a day, once a week, once a month, etc.).
+                    - Automatically send a report, with the ability to specify how often the report is sent (once a day, once a week, once a month, etc.).
                 </li>
                 <li>
-                    Friendly and Easy to use
+                    - Friendly and Easy to use
                 </li>
             </ul>
         </Panel>
