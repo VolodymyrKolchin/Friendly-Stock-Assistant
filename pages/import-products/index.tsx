@@ -87,8 +87,8 @@ const importProducts = () => {
         const { name: formName, value } = event?.target;
         setFormTimeZone(prevForm => ({ ...prevForm, [formName]: value }));
     }
+    let crontTimeType = '';
     const onClickBtnSubscribe = (e) => {
-        let crontTimeType = '';
         if(form.email === '' ) {
             setIsLoadingSubscribeShowEmail(true);
             return;
@@ -124,7 +124,7 @@ const importProducts = () => {
                 form: form,
                 timeZone: formTimeZone.timezone,
                 cronTime: $('#example1-val')[0].textContent,
-                crontTimeType: 'crontTimeType',
+                crontTimeType: crontTimeType,
                 accessToken: data?.accessToken,
                 storeHash: data?.storeHash,
                 clientID: process.env.CLIENT_PUBLIC_ID
