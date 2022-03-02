@@ -96,7 +96,7 @@ const importProducts = () => {
         console.log('window.location', window.location);
         console.log('window.location.pathname', window.location.pathname);
         //router.reload(); //пропадает спимок, когда страница перезагружается
-        window.location.reload() // window.location.reload()
+        //window.location.reload() // window.location.reload()
         if(form.email === '' ) {
             setIsLoadingSubscribeShowEmail(true);
             return;
