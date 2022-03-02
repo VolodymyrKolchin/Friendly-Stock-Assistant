@@ -318,6 +318,10 @@ const importProducts = () => {
                         </Button>
                     </Flex>
                 </FormGroup>
+                {data?.dataEmail.map((el)=>{
+                    <div>{el.crontTimeType =="week" ? <div>week-week-week</div>: <></>}</div>
+                })    
+                }
                 <ul>
                     {data?.dataEmail.map((el)=>{
                         return <li className="form-control-item">
