@@ -313,19 +313,28 @@ const importProducts = () => {
                         </Button>
                     </Flex>
                 </FormGroup>
-                <div>
-                    <div className='title-cron-time'>DAY</div>
-                {data?.dataEmail.map((el)=>{
-                    return  <div>{el.crontTimeType =="day" ? 
-                    <li className="form-control-item">
-                        <li className="form-control-delete">
-                            <Button
-                                id={el._id}
-                                type="submit"
-                                onClick={deleteEmailItem}
-                            >Unsubscribe
-                            </Button>
-                            {el.email} ({cronstrue.toString(el.cronTime, { verbose: true })}, Time zone {el.timeZone})
+                
+                    <div className='border-item-crontime'>
+                        <div className='title-cron-time'>DAY</div>
+                    {data?.dataEmail.map((el)=>{
+                        return  <div>{el.crontTimeType =="day" ? 
+                        <li className="form-control-item">
+                            <li className="form-control-delete">
+                                <Button
+                                    id={el._id}
+                                    type="submit"
+                                    onClick={deleteEmailItem}
+                                >Unsubscribe
+                                </Button>
+                                {el.email} ({cronstrue.toString(el.cronTime, { verbose: true })}, Time zone {el.timeZone})
+                                <div className='hide-message'>
+                                    <Message
+                                        type="warning"
+                                        messages={[{ text: `${el.email} has unsubscribed` }]}
+                                        marginVertical="medium"
+                                    />
+                                </div>
+                            </li>
                             <div className='hide-message'>
                                 <Message
                                     type="warning"
@@ -333,22 +342,14 @@ const importProducts = () => {
                                     marginVertical="medium"
                                 />
                             </div>
-                        </li>
-                        <div className='hide-message'>
-                            <Message
-                                type="warning"
-                                messages={[{ text: `${el.email} has unsubscribed` }]}
-                                marginVertical="medium"
-                            />
+                        </li>  : <></>}
+                        
                         </div>
-                    </li>  : <></>}
-                    
+                    })    
+                    }
                     </div>
-                })    
-                }
-                </div>
-                
-                <div>
+                    
+                <div className='border-item-crontime'>
                 <div className='title-cron-time'>WEEK</div>
                 {data?.dataEmail.map((el)=>{
                     return  <div>{el.crontTimeType =="week" ? 
@@ -383,7 +384,7 @@ const importProducts = () => {
                 }
                 </div>
                 
-                <div>
+                <div className='border-item-crontime'>
                 <div className='title-cron-time'>MONTH</div>
                 {data?.dataEmail.map((el)=>{
                     return  <div>{el.crontTimeType =="month" ? 
