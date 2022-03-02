@@ -93,7 +93,7 @@ const importProducts = () => {
         console.log('window', window);
         console.log('window.location', window.location);
         console.log('window.location.pathname', window.location.pathname);
-         router.reload(`${window.location.pathname}`);
+         router.reload();
         if(form.email === '' ) {
             setIsLoadingSubscribeShowEmail(true);
             return;
