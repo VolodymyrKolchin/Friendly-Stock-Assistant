@@ -31,9 +31,10 @@ const importProducts = () => {
         clientData.push(process.env.CLIENT_ID);
         console.log("document.getElementById('month')", document.getElementById('month'));
         console.log("$('#month')[0]", $('#month')[0]);
+        console.log("$('#month')[0].length", $('#month')[0].getElementsByTagName('li').length)
         console.log("$('#month')", $('#month'));
         console.log("document.getElementById('month').getElementsByTagName('li')", document.getElementById('month').getElementsByTagName('li'));
-        console.log("document.getElementById('month')[0].getElementsByTagName('li')", document.getElementById('month')[0].getElementsByTagName('li'));
+        //console.log("document.getElementById('month')[0].getElementsByTagName('li')", document.getElementById('month')[0].getElementsByTagName('li'));
         console.log("document.getElementById('month').getElementsByTagName('li').length", document.getElementById('month').getElementsByTagName('li').length);
         if(document.getElementById('month').getElementsByTagName('li').length == 0) {
             console.log('month');
