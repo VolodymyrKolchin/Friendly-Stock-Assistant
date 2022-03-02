@@ -29,7 +29,9 @@ const importProducts = () => {
             dataImportProduct.push(...el.variants)
         })
         clientData.push(process.env.CLIENT_ID);
-        document.getElementById('month').getElementsByTagName('div');
+        if(document.getElementById('month').getElementsByTagName('div').length == 0) {
+            console.log('month');
+        }
         console.log("document.getElementById('month').getElementsByTagName('div').length", document.getElementById('month').getElementsByTagName('div').length)
     }
 
