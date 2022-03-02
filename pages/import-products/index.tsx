@@ -5,8 +5,10 @@ import Loading from '../../components/loading';
 import {useProductListAll} from '../../lib/hooks';
 import { CSVLink } from 'react-csv';
 import cronstrue from 'cronstrue';
+import { useRouter } from 'next/router';
 
 const importProducts = () => {
+    const router = useRouter();
     const [isShownSuccess, setIsShownSuccess] = useState(false);
     const [isShownError, setIsShownError] = useState(false);
     const [formEmail, setFormEmail] = useState({ email: '' });
@@ -88,6 +90,7 @@ const importProducts = () => {
     }
     let crontTimeType = '';
     const onClickBtnSubscribe = (e) => {
+        router.reload(window.location.pathname);
         if(form.email === '' ) {
             setIsLoadingSubscribeShowEmail(true);
             return;
