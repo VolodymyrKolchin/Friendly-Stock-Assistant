@@ -396,7 +396,7 @@ const importProducts = () => {
                 <div className='border-item-crontime'>
                 <div className='title-cron-time' id='month'>MONTH</div>
                 {data?.dataEmail.map((el)=>{
-                    return  <div>{el.crontTimeType =="month" ? 
+                    return  <>{el.crontTimeType =="month" ? 
                     <li className="form-control-item">
                         <li className="form-control-delete">
                             <Button
@@ -423,7 +423,7 @@ const importProducts = () => {
                         </div>
                     </li>  : <></>}
                     
-                    </div>
+                    </>
                 })    
                 }
                 </div>
