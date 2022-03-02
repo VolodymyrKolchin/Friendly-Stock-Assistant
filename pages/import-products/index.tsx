@@ -313,7 +313,8 @@ const importProducts = () => {
                         </Button>
                     </Flex>
                 </FormGroup>
-                <div>DAY
+                <div>
+                    <div className='title-cron-time'>DAY</div>
                 {data?.dataEmail.map((el)=>{
                     return  <div>{el.crontTimeType =="day" ? 
                     <li className="form-control-item">
@@ -347,7 +348,8 @@ const importProducts = () => {
                 }
                 </div>
                 
-                <div>WEEK
+                <div>
+                <div className='title-cron-time'>WEEK</div>
                 {data?.dataEmail.map((el)=>{
                     return  <div>{el.crontTimeType =="week" ? 
                                 <li className="form-control-item">
@@ -381,7 +383,8 @@ const importProducts = () => {
                 }
                 </div>
                 
-                <div>MONTH
+                <div>
+                <div className='title-cron-time'>MONTH</div>
                 {data?.dataEmail.map((el)=>{
                     return  <div>{el.crontTimeType =="month" ? 
                     <li className="form-control-item">
