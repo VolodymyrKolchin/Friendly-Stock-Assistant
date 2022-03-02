@@ -318,6 +318,40 @@ const importProducts = () => {
                         </Button>
                     </Flex>
                 </FormGroup>
+                <div>DAY
+                {data?.dataEmail.map((el)=>{
+                    return  <div>{el.crontTimeType =="day" ? 
+                    <li className="form-control-item">
+                        <li className="form-control-delete">
+                            <Button
+                                id={el._id}
+                                type="submit"
+                                onClick={deleteEmailItem}
+                            >Unsubscribe
+                            </Button>
+                            {el.email} ({cronstrue.toString(el.cronTime, { verbose: true })}, Time zone {el.timeZone})
+                            <div className='hide-message'>
+                                <Message
+                                    type="warning"
+                                    messages={[{ text: `${el.email} has unsubscribed` }]}
+                                    marginVertical="medium"
+                                />
+                            </div>
+                        </li>
+                        <div className='hide-message'>
+                            <Message
+                                type="warning"
+                                messages={[{ text: `${el.email} has unsubscribed` }]}
+                                marginVertical="medium"
+                            />
+                        </div>
+                    </li>  : <></>}
+                    
+                    </div>
+                })    
+                }
+                </div>
+                
                 <div>WEEK
                 {data?.dataEmail.map((el)=>{
                     return  <div>{el.crontTimeType =="week" ? 
@@ -351,9 +385,10 @@ const importProducts = () => {
                 })    
                 }
                 </div>
-                <div>DAY
+                
+                <div>MONTH
                 {data?.dataEmail.map((el)=>{
-                    return  <div>{el.crontTimeType =="day" ? 
+                    return  <div>{el.crontTimeType =="month" ? 
                     <li className="form-control-item">
                         <li className="form-control-delete">
                             <Button
