@@ -30,7 +30,7 @@ const importProducts = () => {
         })
         clientData.push(process.env.CLIENT_ID);
         document.getElementById('month').getElementsByTagName('div');
-        console.log("document.getElementById('month').getElementsByTagName('div')", document.getElementById('month').getElementsByTagName('div'))
+        console.log("document.getElementById('month').getElementsByTagName('div').length", document.getElementById('month').getElementsByTagName('div').length)
     }
 
     //if (isLoading) return <Loading />;
