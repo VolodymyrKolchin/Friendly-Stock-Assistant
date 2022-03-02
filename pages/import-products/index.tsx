@@ -29,7 +29,7 @@ const importProducts = () => {
             dataImportProduct.push(...el.variants)
         })
         clientData.push(process.env.CLIENT_ID);
-        if(document.getElementById('month').getElementsByTagName('div').length == 0) {
+        if(document.getElementById('month').getElementsByTagName('div').length > 1) {
             console.log('month');
             document.getElementById('month').classList.add("hide");
         }
