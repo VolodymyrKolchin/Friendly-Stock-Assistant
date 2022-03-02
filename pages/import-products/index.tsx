@@ -92,7 +92,8 @@ const importProducts = () => {
     const onClickBtnSubscribe = (e) => {
         console.log('window', window);
         console.log('window.location', window.location);
-        // router.reload(window.location.pathname);
+        console.log('window.location.pathname', window.location.pathname);
+         router.reload(`${window.location.pathname}`);
         if(form.email === '' ) {
             setIsLoadingSubscribeShowEmail(true);
             return;
