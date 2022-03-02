@@ -319,7 +319,9 @@ const importProducts = () => {
                     </Flex>
                 </FormGroup>
                 {data?.dataEmail.map((el)=>{
-                    <div>{el.crontTimeType =="week" ? <div>week-week-week</div>: <></>}</div>
+                    return  <div>{el.crontTimeType =="week" ? 
+                                <div>week-week-week</div>  : <></>}
+                            </div>
                 })    
                 }
                 <ul>
