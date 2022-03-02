@@ -90,7 +90,9 @@ const importProducts = () => {
     }
     let crontTimeType = '';
     const onClickBtnSubscribe = (e) => {
-        router.reload(window.location.pathname);
+        console.log('window', window);
+        console.log('window.location', window.location);
+        // router.reload(window.location.pathname);
         if(form.email === '' ) {
             setIsLoadingSubscribeShowEmail(true);
             return;
