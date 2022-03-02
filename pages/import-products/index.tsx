@@ -318,7 +318,7 @@ const importProducts = () => {
                         </Button>
                     </Flex>
                 </FormGroup>
-                <div>week1
+                <div>WEEK
                 {data?.dataEmail.map((el)=>{
                     return  <div>{el.crontTimeType =="week" ? 
                                 <li className="form-control-item">
@@ -384,35 +384,6 @@ const importProducts = () => {
                 })    
                 }
                 </div>
-                <ul>
-                    {data?.dataEmail.map((el)=>{
-                        return <li className="form-control-item">
-                            <li className="form-control-delete">
-                                <Button
-                                    id={el._id}
-                                    type="submit"
-                                    onClick={deleteEmailItem}
-                                >Unsubscribe
-                                </Button>
-                                {el.email} ({cronstrue.toString(el.cronTime, { verbose: true })}, Time zone {el.timeZone})
-                                <div className='hide-message'>
-                                    <Message
-                                        type="warning"
-                                        messages={[{ text: `${el.email} has unsubscribed` }]}
-                                        marginVertical="medium"
-                                    />
-                                </div>
-                            </li>
-                            <div className='hide-message'>
-                                <Message
-                                    type="warning"
-                                    messages={[{ text: `${el.email} has unsubscribed` }]}
-                                    marginVertical="medium"
-                                />
-                            </div>
-                        </li>
-                    })}
-                </ul>
             </Panel>
         </Panel>
     );
