@@ -38,8 +38,9 @@ const importProducts = () => {
         console.log("document.getElementById('month').getElementsByTagName('li').length", document.getElementById('month').getElementsByTagName('li').length);
         let aty = document.getElementById('month').getElementsByTagName('li');
         console.log('aty', aty);
+        console.log('aty', aty[0]);
         console.log('aty.length', aty.length);
-        
+
         if(document.getElementById('month').getElementsByTagName('li').length == 0) {
             console.log('month');
             document.getElementById('month').classList.add("hide");
