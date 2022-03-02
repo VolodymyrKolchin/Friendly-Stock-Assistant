@@ -29,23 +29,25 @@ const importProducts = () => {
             dataImportProduct.push(...el.variants)
         })
         clientData.push(process.env.CLIENT_ID);
-        console.log("document.getElementById('month')", document.getElementById('month'));
-        console.log("$('#month')[0]", $('#month')[0]);
-        console.log("$('#month')[0].length", $('#month')[0].getElementsByTagName('li').length)
-        console.log("$('#month')", $('#month'));
-        console.log("document.getElementById('month').getElementsByTagName('li')", document.getElementById('month').getElementsByTagName('li'));
-        //console.log("document.getElementById('month')[0].getElementsByTagName('li')", document.getElementById('month')[0].getElementsByTagName('li'));
-        console.log("document.getElementById('month').getElementsByTagName('li').length", document.getElementById('month').getElementsByTagName('li').length);
-        let aty = document.getElementById('month').getElementsByTagName('li');
-        console.log('aty', aty);
-        console.log('aty', aty[0]);
-        console.log('aty.length', aty.length);
+        console.log('getElementsByClassName', document.getElementsByClassName('month-li'));
 
-        if(document.getElementById('month').getElementsByTagName('li').length == 0) {
-            console.log('month');
-            document.getElementById('month').classList.add("hide");
-        }
-        console.log("document.getElementById('month').getElementsByTagName('li').length", document.getElementById('month').getElementsByTagName('li').length)
+        // console.log("document.getElementById('month')", document.getElementById('month'));
+        // console.log("$('#month')[0]", $('#month')[0]);
+        // console.log("$('#month')[0].length", $('#month')[0].getElementsByTagName('li').length)
+        // console.log("$('#month')", $('#month'));
+        // console.log("document.getElementById('month').getElementsByTagName('li')", document.getElementById('month').getElementsByTagName('li'));
+        // //console.log("document.getElementById('month')[0].getElementsByTagName('li')", document.getElementById('month')[0].getElementsByTagName('li'));
+        // console.log("document.getElementById('month').getElementsByTagName('li').length", document.getElementById('month').getElementsByTagName('li').length);
+        // let aty = document.getElementById('month').getElementsByTagName('li');
+        // console.log('aty', aty);
+        // console.log('aty', aty[0]);
+        // console.log('aty.length', aty.length);
+
+        // if(document.getElementById('month').getElementsByTagName('li').length == 0) {
+        //     console.log('month');
+        //     document.getElementById('month').classList.add("hide");
+        // }
+        // console.log("document.getElementById('month').getElementsByTagName('li').length", document.getElementById('month').getElementsByTagName('li').length)
     }
 
     //if (isLoading) return <Loading />;
@@ -412,7 +414,7 @@ const importProducts = () => {
                 <div className='title-cron-time'>MONTH</div>
                 {data?.dataEmail.map((el)=>{
                     return  <>{el.crontTimeType =="month" ? 
-                    <li className="form-control-item">
+                    <li className="form-control-item month-li">
                         <li className="form-control-delete">
                             <Button
                                 id={el._id}
