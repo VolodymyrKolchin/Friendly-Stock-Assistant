@@ -33,7 +33,7 @@ const importProducts = () => {
         console.log("document.getElementById('month').getElementsByTagName('li')", document.getElementById('month').getElementsByTagName('li'));
         if(document.getElementById('month').getElementsByTagName('li').length == 0) {
             console.log('month');
-            document.getElementById('month-hide').classList.add("hide");
+            document.getElementById('month').classList.add("hide");
         }
         console.log("document.getElementById('month').getElementsByTagName('li').length", document.getElementById('month').getElementsByTagName('li').length)
     }
