@@ -31,6 +31,9 @@ const importProducts = () => {
         clientData.push(process.env.CLIENT_ID);
         if(document.getElementById('month').getElementsByTagName('div').length == 0) {
             console.log('month');
+            document.getElementById('month').classList.add("hide");
+            //e.target.parentElement.parentElement.querySelectorAll("div.hide-message")[0].classList.add("visible-message");
+       
         }
         console.log("document.getElementById('month').getElementsByTagName('div').length", document.getElementById('month').getElementsByTagName('div').length)
     }
