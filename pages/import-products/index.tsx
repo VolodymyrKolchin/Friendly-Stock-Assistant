@@ -22,7 +22,6 @@ const importProducts = () => {
 
     const clientData = [];
 
-    console.log('data 6', data);
     if(!isLoading) {
         list.forEach((el)=>{
             dataImportProduct.push(...el.variants)
@@ -97,20 +96,16 @@ const importProducts = () => {
             e.target.setAttribute('disabled', 'true');
             e.target.parentElement.setAttribute('disabled', 'true');
         }
-        console.log("$('#example1-val')", $('#example1-val')[0].textContent);
-        console.log("$('#example1-val').split(' ')", $('#example1-val')[0].textContent.split(' '));
+       
         const cronArr = $('#example1-val')[0].textContent.split(' ');
         if(cronArr[2]=='*' && cronArr[3]=='*' && cronArr[4]=='*') {
-            console.log('day');
-            crontTimeType = 'day'
+            crontTimeType = 'day';
         }
         if(cronArr[2]=='*' && cronArr[3]=='*' && cronArr[4]!=='*') {
-            console.log('week');
-            crontTimeType = 'week'
+            crontTimeType = 'week';
         }
         if(cronArr[3]=='*' && cronArr[4]=='*' && cronArr[2]!=='*') {
-            console.log('month');
-            crontTimeType = 'month'
+            crontTimeType = 'month';
         }
         console.log('crontTimeType', crontTimeType);
 
