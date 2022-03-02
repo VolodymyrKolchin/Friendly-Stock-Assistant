@@ -32,8 +32,6 @@ const importProducts = () => {
         if(document.getElementById('month').getElementsByTagName('div').length == 0) {
             console.log('month');
             document.getElementById('month').classList.add("hide");
-            //e.target.parentElement.parentElement.querySelectorAll("div.hide-message")[0].classList.add("visible-message");
-       
         }
         console.log("document.getElementById('month').getElementsByTagName('div').length", document.getElementById('month').getElementsByTagName('div').length)
     }
@@ -398,8 +396,8 @@ const importProducts = () => {
                 }
                 </div>
                 
-                <div className='border-item-crontime'>
-                <div className='title-cron-time' id='month'>MONTH</div>
+                <div>
+                <div className='title-cron-time border-item-crontime' id='month'>MONTH</div>
                 {data?.dataEmail.map((el)=>{
                     return  <>{el.crontTimeType =="month" ? 
                     <li className="form-control-item">
