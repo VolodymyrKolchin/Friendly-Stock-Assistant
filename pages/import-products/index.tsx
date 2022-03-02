@@ -29,11 +29,11 @@ const importProducts = () => {
             dataImportProduct.push(...el.variants)
         })
         clientData.push(process.env.CLIENT_ID);
-        if(document.getElementById('month').getElementsByTagName('div').length <= 1) {
+        if(document.getElementById('month').getElementsByTagName('li').length <= 1) {
             console.log('month');
             document.getElementById('month').classList.add("hide");
         }
-        console.log("document.getElementById('month').getElementsByTagName('div').length", document.getElementById('month').getElementsByTagName('div').length)
+        console.log("document.getElementById('month').getElementsByTagName('li').length", document.getElementById('month').getElementsByTagName('li').length)
     }
 
     //if (isLoading) return <Loading />;
