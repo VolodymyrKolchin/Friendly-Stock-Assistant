@@ -108,7 +108,7 @@ const importProducts = () => {
             console.log('week');
             crontTimeType = 'week'
         }
-        if(cronArr[3]=='*' && cronArr[4]=='*' && cronArr[4]!=='*') {
+        if(cronArr[3]=='*' && cronArr[4]=='*' && cronArr[2]!=='*') {
             console.log('month');
             crontTimeType = 'month'
         }
