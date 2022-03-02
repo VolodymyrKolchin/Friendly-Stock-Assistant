@@ -33,7 +33,7 @@ const importProducts = () => {
         console.log("document.getElementById('month').getElementsByTagName('li')", document.getElementById('month').getElementsByTagName('li'));
         if(document.getElementById('month').getElementsByTagName('li').length == 0) {
             console.log('month');
-            document.getElementById('month').classList.add("hide");
+            document.getElementById('month-hide').classList.add("hide");
         }
         console.log("document.getElementById('month').getElementsByTagName('li').length", document.getElementById('month').getElementsByTagName('li').length)
     }
@@ -398,10 +398,10 @@ const importProducts = () => {
                 }
                 </div>
                 
-                <div className='border-item-crontime' id='month'>
+                <div className='border-item-crontime' id='month-hide'>
                 <div className='title-cron-time'>MONTH</div>
                 {data?.dataEmail.map((el)=>{
-                    return  <>{el.crontTimeType =="month" ? 
+                    return  <div id='month'>{el.crontTimeType =="month" ? 
                     <li className="form-control-item">
                         <li className="form-control-delete">
                             <Button
@@ -428,7 +428,7 @@ const importProducts = () => {
                         </div>
                     </li>  : <></>}
                     
-                    </>
+                    </div>
                 })    
                 }
                 </div>
