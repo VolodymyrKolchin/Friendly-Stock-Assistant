@@ -29,6 +29,8 @@ const importProducts = () => {
             dataImportProduct.push(...el.variants)
         })
         clientData.push(process.env.CLIENT_ID);
+        document.getElementById('month').getElementsByTagName('div');
+        console.log("document.getElementById('month').getElementsByTagName('div')", document.getElementById('month').getElementsByTagName('div'))
     }
 
     //if (isLoading) return <Loading />;
@@ -392,7 +394,7 @@ const importProducts = () => {
                 </div>
                 
                 <div className='border-item-crontime'>
-                <div className='title-cron-time'>MONTH</div>
+                <div className='title-cron-time' id='month'>MONTH</div>
                 {data?.dataEmail.map((el)=>{
                     return  <div>{el.crontTimeType =="month" ? 
                     <li className="form-control-item">
