@@ -217,9 +217,9 @@ const importProducts = () => {
                     console.log('script load cron.js');
                     console.log('$(.month-li)', $('.month-li'));
                     console.log('$(.month-li).length)', $('.month-li').length);
-                    if($('.month-li').length > 0) {
+                    if($('.month-li').length == 0) {
                         document.getElementById('month').classList.add("hide");
-                        console.log('.length > 0');
+                        console.log('.length == 0');
                     }
                 };
             };
