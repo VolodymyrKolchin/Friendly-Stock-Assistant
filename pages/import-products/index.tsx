@@ -29,30 +29,6 @@ const importProducts = () => {
             dataImportProduct.push(...el.variants)
         })
         clientData.push(process.env.CLIENT_ID);
-
-        console.log("$('.month-li')", $('.month-li'));
-        console.log("$('.month-li')[0]", $('.month-li')[0]);
-
-        console.log('getElementsByClassName', document.getElementsByClassName('month-li'));
-        console.log('getElementsByClassName2222', document.getElementsByClassName('month-li')[0]);
-        console.log('getElementsByClassName.length', document.getElementsByClassName('month-li').length);
-        // console.log("document.getElementById('month')", document.getElementById('month'));
-        // console.log("$('#month')[0]", $('#month')[0]);
-        // console.log("$('#month')[0].length", $('#month')[0].getElementsByTagName('li').length)
-        // console.log("$('#month')", $('#month'));
-        // console.log("document.getElementById('month').getElementsByTagName('li')", document.getElementById('month').getElementsByTagName('li'));
-        // //console.log("document.getElementById('month')[0].getElementsByTagName('li')", document.getElementById('month')[0].getElementsByTagName('li'));
-        // console.log("document.getElementById('month').getElementsByTagName('li').length", document.getElementById('month').getElementsByTagName('li').length);
-        // let aty = document.getElementById('month').getElementsByTagName('li');
-        // console.log('aty', aty);
-        // console.log('aty', aty[0]);
-        // console.log('aty.length', aty.length);
-
-        // if(document.getElementById('month').getElementsByTagName('li').length == 0) {
-        //     console.log('month');
-        //     document.getElementById('month').classList.add("hide");
-        // }
-        // console.log("document.getElementById('month').getElementsByTagName('li').length", document.getElementById('month').getElementsByTagName('li').length)
     }
 
     //if (isLoading) return <Loading />;
@@ -215,10 +191,16 @@ const importProducts = () => {
                 cScript.onload = () => {
                     $('#example1-val').hide();
                     console.log('script load cron.js');
-                    console.log('$(.month-li)', $('.month-li'));
-                    console.log('$(.month-li).length)', $('.month-li').length);
                     if($('.month-li').length == 0) {
                         document.getElementById('month').classList.add("hide");
+                        console.log('.length == 0');
+                    }
+                    if($('.day-li').length == 0) {
+                        document.getElementById('day').classList.add("hide");
+                        console.log('.length == 0');
+                    }
+                    if($('.week-li').length == 0) {
+                        document.getElementById('week').classList.add("hide");
                         console.log('.length == 0');
                     }
                 };
@@ -351,11 +333,11 @@ const importProducts = () => {
                     </Flex>
                 </FormGroup>
                 
-                    <div className='border-item-crontime'>
+                    <div className='border-item-crontime' id='day'>
                         <div className='title-cron-time'>DAY</div>
                     {data?.dataEmail.map((el)=>{
                         return  <div>{el.crontTimeType =="day" ? 
-                        <li className="form-control-item">
+                        <li className="form-control-item day-li">
                             <li className="form-control-delete">
                                 <Button
                                     id={el._id}
@@ -386,11 +368,11 @@ const importProducts = () => {
                     }
                     </div>
                     
-                <div className='border-item-crontime'>
+                <div className='border-item-crontime' id='week'>
                 <div className='title-cron-time'>WEEK</div>
                 {data?.dataEmail.map((el)=>{
                     return  <div>{el.crontTimeType =="week" ? 
-                                <li className="form-control-item">
+                                <li className="form-control-item week-li">
                                     <li className="form-control-delete">
                                         <Button
                                             id={el._id}
