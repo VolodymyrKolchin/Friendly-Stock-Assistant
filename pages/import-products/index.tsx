@@ -193,15 +193,15 @@ const importProducts = () => {
                     console.log('script load cron.js');
                     if($('.month-li').length == 0) {
                         document.getElementById('month').classList.add("hide-block");
-                        console.log('.length == 0');
+                        console.log('month.length == 0');
                     }
                     if($('.day-li').length == 0) {
                         document.getElementById('day').classList.add("hide-block");
-                        console.log('.length == 0');
+                        console.log('day.length == 0');
                     }
                     if($('.week-li').length == 0) {
                         document.getElementById('week').classList.add("hide-block");
-                        console.log('.length == 0');
+                        console.log('week.length == 0');
                     }
                 };
             };
