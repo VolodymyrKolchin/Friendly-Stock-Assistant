@@ -90,9 +90,9 @@ const importProducts = () => {
     }
     let crontTimeType = '';
     const onClickBtnSubscribe = (e) => {
-        console.log('window', window);
-        console.log('window.location', window.location);
-        console.log('window.location.pathname', window.location.pathname);
+        //console.log('window', window);
+        //console.log('window.location', window.location);
+        //console.log('window.location.pathname', window.location.pathname);
         //router.reload(); //пропадает спимок, когда страница перезагружается
         //window.location.reload() // window.location.reload()
         if(form.email === '' ) {

@@ -7,13 +7,15 @@ export const TabIds = {
     HOME: 'home',
     PRODUCTS: 'products',
     IMPORT: 'import-products',
-    ABOUT: 'about'
+    SUBSCRIPTIONS: 'subscriptions',
+    ABOUT: 'about',
 };
 
 export const TabRoutes = {
     [TabIds.HOME]: '/',
     [TabIds.PRODUCTS]: '/products',
     [TabIds.IMPORT]: '/import-products',
+    [TabIds.SUBSCRIPTIONS]: '/subscriptions',
     [TabIds.ABOUT]: '/about',
 };
 
@@ -65,6 +67,7 @@ const Header = () => {
         { id: TabIds.HOME, title: 'Dashboard' },
         { id: TabIds.PRODUCTS, title: 'Inventory View' },
         { id: TabIds.IMPORT, title: 'Inventory Report' },
+        { id: TabIds.SUBSCRIPTIONS, title: 'Subscriptions' },
         { id: TabIds.ABOUT, title: 'About' },
     ];
 
