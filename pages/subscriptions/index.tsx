@@ -97,33 +97,21 @@ const subscriptionsPage = () => {
     }, [])
     //stripe_load();
     return (
-        <Panel header='Subscriptions page'>
-        <div>
-            <div className='logo__about_page'>
-                <img src='./FOC-logo.png'/>
-            </div>
-        </div>
+        <Panel header='List of all subscriptions'>
+
         <div className='border-item-crontime' id='day'>
-                        <div className='title-cron-time'>DAY</div>
-                    {data?.dataEmail.map((el)=>{
-                        return  <>{el.crontTimeType =="day" ? 
-                        <li className="form-control-item day-li">
-                            <li className="form-control-delete">
-                                <Button
-                                    id={el._id}
-                                    type="submit"
-                                    onClick={deleteEmailItem}
-                                >Unsubscribe
-                                </Button>
-                                {el.email} ({cronstrue.toString(el.cronTime, { verbose: true })}, Time zone {el.timeZone})
-                                <div className='hide-message'>
-                                    <Message
-                                        type="warning"
-                                        messages={[{ text: `${el.email} has unsubscribed` }]}
-                                        marginVertical="medium"
-                                    />
-                                </div>
-                            </li>
+            <div className='title-cron-time'>DAY</div>
+                {data?.dataEmail.map((el)=>{
+                    return  <>{el.crontTimeType =="day" ? 
+                    <li className="form-control-item day-li">
+                        <li className="form-control-delete">
+                            <Button
+                                id={el._id}
+                                type="submit"
+                                onClick={deleteEmailItem}
+                            >Unsubscribe
+                            </Button>
+                            {el.email} ({cronstrue.toString(el.cronTime, { verbose: true })}, Time zone {el.timeZone})
                             <div className='hide-message'>
                                 <Message
                                     type="warning"
@@ -131,12 +119,20 @@ const subscriptionsPage = () => {
                                     marginVertical="medium"
                                 />
                             </div>
-                        </li>  : <></>}
-                        
-                        </>
-                    })    
-                    }
-                    </div>
+                        </li>
+                        <div className='hide-message'>
+                            <Message
+                                type="warning"
+                                messages={[{ text: `${el.email} has unsubscribed` }]}
+                                marginVertical="medium"
+                            />
+                        </div>
+                    </li>  : <></>}
+                    
+                    </>
+                })    
+                }
+                </div>
                     
                 <div className='border-item-crontime' id='week'>
                 <div className='title-cron-time'>WEEK</div>
