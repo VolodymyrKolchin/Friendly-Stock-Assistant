@@ -4,7 +4,6 @@ import ErrorMessage from '../../components/error';
 import Loading from '../../components/loading';
 import {useProductListAll} from '../../lib/hooks';
 import { CSVLink } from 'react-csv';
-import cronstrue from 'cronstrue';
 import { useRouter } from 'next/router';
 
 const importProducts = () => {
@@ -139,6 +138,7 @@ const importProducts = () => {
                 e.target.parentElement.removeAttribute('disabled');
                 setIsLoadingSubscribeShowEmail(false);
                 setTimeout(() => {
+                    router.push('/subscriptions');
                     setIsShownSuccessSubscribe(false);
                     setIsShownErrorSubscribe(false);
                     setForm({ email:'', cronTime: '', timezone: '', unsubscribe: false });
@@ -186,48 +186,11 @@ const importProducts = () => {
                 cScript.onload = () => {
                     $('#example1-val').hide();
                     console.log('script load cron.js');
-                    if($('.month-li').length == 0) {
-                        document.getElementById('month').classList.add("hide-block");
-                        console.log('month.length == 0');
-                    }
-                    if($('.day-li').length == 0) {
-                        document.getElementById('day').classList.add("hide-block");
-                        console.log('day.length == 0');
-                    }
-                    if($('.week-li').length == 0) {
-                        document.getElementById('week').classList.add("hide-block");
-                        console.log('week.length == 0');
-                    }
                 };
             };
         };
     }, [])
     //stripe_load();
-
-    // const deleteEmailItem = (e) => {
-    //     let ID = '';
-    //     if (e.target.nodeName == 'BUTTON') {
-    //         ID = e.target.id;
-    //     }
-    //     if (e.target.parentElement.nodeName == 'BUTTON') {
-    //         ID = e.target.parentElement.id;
-    //     }
-    //     if (e.target.parentElement.parentElement.nodeName == 'LI') {
-    //         e.target.parentElement.parentElement.classList.add("hide");
-    //         e.target.parentElement.parentElement.querySelectorAll("div.hide-message")[0].classList.add("visible-message");
-    //     }
-    //     if (e.target.nodeName || e.target.parentElement.nodeName == 'BUTTON') {
-    //         e.target.setAttribute('disabled', 'true');
-    //         e.target.parentElement.setAttribute('disabled', 'true');
-    //     }
-    //     setIsShownUnsubscribe(true);
-    //     fetch(`https://stock-assistant-friendsofcomme.herokuapp.com/delete/${ID}`, {
-    //         method: 'DELETE',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         }
-    //     }).then((res)=>{console.log('res', res)})
-    // }
 
     return (
         <Panel>
