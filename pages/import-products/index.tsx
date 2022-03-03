@@ -204,30 +204,30 @@ const importProducts = () => {
     }, [])
     //stripe_load();
 
-    const deleteEmailItem = (e) => {
-        let ID = '';
-        if (e.target.nodeName == 'BUTTON') {
-            ID = e.target.id;
-        }
-        if (e.target.parentElement.nodeName == 'BUTTON') {
-            ID = e.target.parentElement.id;
-        }
-        if (e.target.parentElement.parentElement.nodeName == 'LI') {
-            e.target.parentElement.parentElement.classList.add("hide");
-            e.target.parentElement.parentElement.querySelectorAll("div.hide-message")[0].classList.add("visible-message");
-        }
-        if (e.target.nodeName || e.target.parentElement.nodeName == 'BUTTON') {
-            e.target.setAttribute('disabled', 'true');
-            e.target.parentElement.setAttribute('disabled', 'true');
-        }
-        setIsShownUnsubscribe(true);
-        fetch(`https://stock-assistant-friendsofcomme.herokuapp.com/delete/${ID}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then((res)=>{console.log('res', res)})
-    }
+    // const deleteEmailItem = (e) => {
+    //     let ID = '';
+    //     if (e.target.nodeName == 'BUTTON') {
+    //         ID = e.target.id;
+    //     }
+    //     if (e.target.parentElement.nodeName == 'BUTTON') {
+    //         ID = e.target.parentElement.id;
+    //     }
+    //     if (e.target.parentElement.parentElement.nodeName == 'LI') {
+    //         e.target.parentElement.parentElement.classList.add("hide");
+    //         e.target.parentElement.parentElement.querySelectorAll("div.hide-message")[0].classList.add("visible-message");
+    //     }
+    //     if (e.target.nodeName || e.target.parentElement.nodeName == 'BUTTON') {
+    //         e.target.setAttribute('disabled', 'true');
+    //         e.target.parentElement.setAttribute('disabled', 'true');
+    //     }
+    //     setIsShownUnsubscribe(true);
+    //     fetch(`https://stock-assistant-friendsofcomme.herokuapp.com/delete/${ID}`, {
+    //         method: 'DELETE',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         }
+    //     }).then((res)=>{console.log('res', res)})
+    // }
 
     return (
         <Panel>
@@ -327,111 +327,6 @@ const importProducts = () => {
                         </Button>
                     </Flex>
                 </FormGroup>
-                
-                    <div className='border-item-crontime' id='day'>
-                        <div className='title-cron-time'>DAY</div>
-                    {data?.dataEmail.map((el)=>{
-                        return  <>{el.crontTimeType =="day" ? 
-                        <li className="form-control-item day-li">
-                            <li className="form-control-delete">
-                                <Button
-                                    id={el._id}
-                                    type="submit"
-                                    onClick={deleteEmailItem}
-                                >Unsubscribe
-                                </Button>
-                                {el.email} ({cronstrue.toString(el.cronTime, { verbose: true })}, Time zone {el.timeZone})
-                                <div className='hide-message'>
-                                    <Message
-                                        type="warning"
-                                        messages={[{ text: `${el.email} has unsubscribed` }]}
-                                        marginVertical="medium"
-                                    />
-                                </div>
-                            </li>
-                            <div className='hide-message'>
-                                <Message
-                                    type="warning"
-                                    messages={[{ text: `${el.email} has unsubscribed` }]}
-                                    marginVertical="medium"
-                                />
-                            </div>
-                        </li>  : <></>}
-                        
-                        </>
-                    })    
-                    }
-                    </div>
-                    
-                <div className='border-item-crontime' id='week'>
-                <div className='title-cron-time'>WEEK</div>
-                {data?.dataEmail.map((el)=>{
-                    return  <>{el.crontTimeType =="week" ? 
-                                <li className="form-control-item week-li">
-                                    <li className="form-control-delete">
-                                        <Button
-                                            id={el._id}
-                                            type="submit"
-                                            onClick={deleteEmailItem}
-                                        >Unsubscribe
-                                        </Button>
-                                        {el.email} ({cronstrue.toString(el.cronTime, { verbose: true })}, Time zone {el.timeZone})
-                                        <div className='hide-message'>
-                                            <Message
-                                                type="warning"
-                                                messages={[{ text: `${el.email} has unsubscribed` }]}
-                                                marginVertical="medium"
-                                            />
-                                        </div>
-                                    </li>
-                                    <div className='hide-message'>
-                                        <Message
-                                            type="warning"
-                                            messages={[{ text: `${el.email} has unsubscribed` }]}
-                                            marginVertical="medium"
-                                        />
-                                    </div>
-                                </li>
-                                : <></>}
-                            </>
-                })    
-                }
-                </div>
-                
-                <div className='border-item-crontime' id='month'>
-                <div className='title-cron-time'>MONTH</div>
-                {data?.dataEmail.map((el)=>{
-                    return  <>{el.crontTimeType =="month" ? 
-                    <li className="form-control-item month-li">
-                        <li className="form-control-delete">
-                            <Button
-                                id={el._id}
-                                type="submit"
-                                onClick={deleteEmailItem}
-                            >Unsubscribe
-                            </Button>
-                            {el.email} ({cronstrue.toString(el.cronTime, { verbose: true })}, Time zone {el.timeZone})
-                            <div className='hide-message'>
-                                <Message
-                                    type="warning"
-                                    messages={[{ text: `${el.email} has unsubscribed` }]}
-                                    marginVertical="medium"
-                                />
-                            </div>
-                        </li>
-                        <div className='hide-message'>
-                            <Message
-                                type="warning"
-                                messages={[{ text: `${el.email} has unsubscribed` }]}
-                                marginVertical="medium"
-                            />
-                        </div>
-                    </li>  : <></>}
-                    
-                    </>
-                })    
-                }
-                </div>
             </Panel>
         </Panel>
     );
