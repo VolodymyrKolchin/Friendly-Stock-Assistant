@@ -120,6 +120,9 @@ ul {
     color: red;
     display: block;
 }
+.hide-block {
+    display: none;
+}
 .title-cron-time {
     font-weight: bold;
     font-size: 18px;
