@@ -336,7 +336,7 @@ const importProducts = () => {
                     <div className='border-item-crontime' id='day'>
                         <div className='title-cron-time'>DAY</div>
                     {data?.dataEmail.map((el)=>{
-                        return  <div>{el.crontTimeType =="day" ? 
+                        return  <>{el.crontTimeType =="day" ? 
                         <li className="form-control-item day-li">
                             <li className="form-control-delete">
                                 <Button
@@ -363,7 +363,7 @@ const importProducts = () => {
                             </div>
                         </li>  : <></>}
                         
-                        </div>
+                        </>
                     })    
                     }
                     </div>
@@ -371,7 +371,7 @@ const importProducts = () => {
                 <div className='border-item-crontime' id='week'>
                 <div className='title-cron-time'>WEEK</div>
                 {data?.dataEmail.map((el)=>{
-                    return  <div>{el.crontTimeType =="week" ? 
+                    return  <>{el.crontTimeType =="week" ? 
                                 <li className="form-control-item week-li">
                                     <li className="form-control-delete">
                                         <Button
@@ -398,7 +398,7 @@ const importProducts = () => {
                                     </div>
                                 </li>
                                 : <></>}
-                            </div>
+                            </>
                 })    
                 }
                 </div>
