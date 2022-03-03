@@ -29,6 +29,10 @@ const importProducts = () => {
             dataImportProduct.push(...el.variants)
         })
         clientData.push(process.env.CLIENT_ID);
+
+        console.log("$('.month-li')", $('.month-li'));
+        console.log("$('.month-li')[0]", $('.month-li')[0]);
+        
         console.log('getElementsByClassName', document.getElementsByClassName('month-li'));
         console.log('getElementsByClassName2222', document.getElementsByClassName('month-li')[0]);
         console.log('getElementsByClassName.length', document.getElementsByClassName('month-li').length);
