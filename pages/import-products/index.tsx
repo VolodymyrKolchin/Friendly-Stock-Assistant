@@ -290,6 +290,9 @@ const importProducts = () => {
                         </Button>
                     </Flex>
                 </FormGroup>
+                <Button type="button" onClick={() => router.push('/subscriptions')}>
+                    Subscribe list
+                </Button>
             </Panel>
         </Panel>
     );
