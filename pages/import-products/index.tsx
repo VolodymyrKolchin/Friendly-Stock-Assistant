@@ -216,6 +216,7 @@ const importProducts = () => {
                     $('#example1-val').hide();
                     console.log('script load cron.js');
                     console.log('$(.month-li)', $('.month-li'));
+                    console.log('$(.month-li).length)', $('.month-li').length);
                 };
             };
         };
