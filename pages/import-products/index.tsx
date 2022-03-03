@@ -32,7 +32,7 @@ const importProducts = () => {
 
         console.log("$('.month-li')", $('.month-li'));
         console.log("$('.month-li')[0]", $('.month-li')[0]);
-        
+
         console.log('getElementsByClassName', document.getElementsByClassName('month-li'));
         console.log('getElementsByClassName2222', document.getElementsByClassName('month-li')[0]);
         console.log('getElementsByClassName.length', document.getElementsByClassName('month-li').length);
@@ -214,7 +214,8 @@ const importProducts = () => {
                 document.head.appendChild(cScript);
                 cScript.onload = () => {
                     $('#example1-val').hide();
-                    console.log('script load cron.js')
+                    console.log('script load cron.js');
+                    console.log('$(.month-li)', $('.month-li'));
                 };
             };
         };
