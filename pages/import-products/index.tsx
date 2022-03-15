@@ -194,7 +194,7 @@ const importProducts = () => {
 
     return (
         <Panel>
-            <Panel header="Download your Inventory Report">
+            <Panel header="Download your current Inventory Report">
                 <CSVLink
                     data={dataImportProduct}
                     className="btn btn-primary"
@@ -238,7 +238,7 @@ const importProducts = () => {
                     </Flex>
                 </Panel>
             </StyledForm>
-            <Panel header="Set up or remove an inventory report subscription">
+            <Panel header="Create an Inventory Report Subscription">
                 <p>Enter the desired frequency of your Inventory Report</p>
                 <FormGroup>
                     <Input

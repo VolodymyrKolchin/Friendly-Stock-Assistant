@@ -97,10 +97,10 @@ const subscriptionsPage = () => {
     }, [])
     //stripe_load();
     return (
-        <Panel header='List of all subscriptions'>
+        <Panel header='Current Subscriptions'>
 
         <div className='border-item-crontime' id='day'>
-            <div className='title-cron-time'>DAY</div>
+            <div className='title-cron-time'>Daily</div>
                 {data?.dataEmail.map((el)=>{
                     return  <>{el.crontTimeType =="day" ? 
                     <li className="form-control-item day-li">
@@ -135,7 +135,7 @@ const subscriptionsPage = () => {
                 </div>
                     
                 <div className='border-item-crontime' id='week'>
-                <div className='title-cron-time'>WEEK</div>
+                <div className='title-cron-time'>Weekly</div>
                 {data?.dataEmail.map((el)=>{
                     return  <>{el.crontTimeType =="week" ? 
                                 <li className="form-control-item week-li">
