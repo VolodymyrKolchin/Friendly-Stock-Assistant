@@ -65,6 +65,8 @@ const Products = () => {
             })
         };
     }
+    console.log('qwerty', $('.product-name-thead'));
+    // addEventListener(type, listener);
 
     const onItemsPerPageChange = newRange => {
         setCurrentPage(1);
