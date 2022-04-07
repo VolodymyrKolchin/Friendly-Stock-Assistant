@@ -44,7 +44,7 @@ const Products = () => {
             console.log('$[0]', $('.product-name-thead')[0]);
             $('.product-name-thead')[0].addEventListener('click', (event)=>{
                 console.log('click');
-                console.log('event', event);
+                console.log('event', event.target);
             })
             console.log('load script page list products');
             const bScript = document.createElement('script');
