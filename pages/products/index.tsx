@@ -48,6 +48,9 @@ const Products = () => {
                 {tableItems.map((el)=>{
                     console.log('element', el);
                 })}
+                {tableItems.reverse().map((el)=>{
+                    console.log('reverse element', el);
+                })}
             })
             console.log('load script page list products');
             const bScript = document.createElement('script');
