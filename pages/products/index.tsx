@@ -45,6 +45,9 @@ const Products = () => {
             $('.product-name-thead')[0].addEventListener('click', (event)=>{
                 console.log('click');
                 console.log('event', event.target);
+                {tableItems.map((el)=>{
+                    console.log('element', el);
+                })}
             })
             console.log('load script page list products');
             const bScript = document.createElement('script');
@@ -70,9 +73,6 @@ const Products = () => {
             })
         };
     }
-    // console.log('document', document);
-    // console.log('qwerty', $('.product-name-thead'));
-    // addEventListener(type, listener);
 
     const onItemsPerPageChange = newRange => {
         setCurrentPage(1);
