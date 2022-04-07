@@ -41,6 +41,7 @@ const Products = () => {
 
         document.head.appendChild(aScript);
         aScript.onload = () => {
+            console.log('$', $('.product-name-thead'))
             console.log('load script page list products');
             const bScript = document.createElement('script');
             bScript.type = 'text/javascript';
@@ -65,7 +66,7 @@ const Products = () => {
             })
         };
     }
-    console.log('document', document);
+    // console.log('document', document);
     // console.log('qwerty', $('.product-name-thead'));
     // addEventListener(type, listener);
 
