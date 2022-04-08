@@ -141,4 +141,5 @@ table > tbody, .styled__thead {
 }
 .table-list-products, .table-list-products > tbody {
     display: table!important;
+    width: 100%;
 }
