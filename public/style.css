@@ -140,5 +140,5 @@ ul {
     display: none;
 }
 .table-list-products {
-    display: block!important;
+    display: table!important;
 }
