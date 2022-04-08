@@ -136,3 +136,6 @@ ul {
     border: 1px solid rgb(217, 220, 233);
     border-radius: 0.25rem;
 }
+#bd-table-14 {
+    display: none;
+}
