@@ -41,17 +41,6 @@ const Products = () => {
 
         document.head.appendChild(aScript);
         aScript.onload = () => {
-            console.log('$[0]', $('.product-name-thead')[0]);
-            $('.product-name-thead')[0].addEventListener('click', (event)=>{
-                console.log('click');
-                console.log('event', event.target);
-                {tableItems.map((el)=>{
-                    console.log('element', el);
-                })}
-                {tableItems.reverse().map((el)=>{
-                    console.log('reverse element', el);
-                })}
-            })
             console.log('load script page list products');
             const bScript = document.createElement('script');
             bScript.type = 'text/javascript';
@@ -61,6 +50,7 @@ const Products = () => {
             bScript.onload = () => {
                 console.log('load script accordion.js');
             }
+            console.log('tableItems', tableItems);
             tableItems.map((el)=>{
                 if(el.variants.length > 1) {
                     $(`#${el.id}`).addClass('add_icons_item');
