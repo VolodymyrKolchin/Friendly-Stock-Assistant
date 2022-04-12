@@ -137,10 +137,10 @@ ul {
     border-radius: 0.25rem;
 }
 table > thead > tr > th:nth-child(1) {
-    width: 67%;
+    width: 52%;
 }
 table > thead > tr > th:nth-child(2) {
-    width: 21%;
+    width: 17%;
 }
 table > tbody, .styled__thead {
     display: none;
