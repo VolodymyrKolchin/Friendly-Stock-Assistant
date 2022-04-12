@@ -148,7 +148,10 @@ const Products = () => {
             </thead>
             <tbody>
             {tableItems.map((el)=>{
+                let itemNumber = el.cost_price/el.price;
                 console.log('el.cost_price/el.price', el.cost_price/el.price);
+                console.log('itemNumber', itemNumber);
+                console.log('itemNumber', itemNumber.toFixed(1));
                 return(
                 <>
                     <tr className="accordion" id={el.id}>
