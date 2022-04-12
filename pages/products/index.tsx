@@ -165,7 +165,7 @@ const Products = () => {
                             ${el.price}
                         </td>
                         <td className="product-cost-price">
-                            {cost*100}%
+                            {cost}%
                         </td>
                     </tr>
                     <div className="panel">
