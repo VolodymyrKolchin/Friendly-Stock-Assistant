@@ -161,7 +161,7 @@ const Products = () => {
                             ${el.price}
                         </td>
                         <td className="product-cost-price">
-                            {(el.cost_price/el.price)*100}.toFixed(1)%
+                            {((el.cost_price/el.price).toFixed(1))*100}%
                         </td>
                     </tr>
                     <div className="panel">
