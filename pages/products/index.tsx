@@ -110,6 +110,7 @@ const Products = () => {
                 { header: 'Product name', hash: 'name', render: ({ id, name }) => renderName(id, name), isSortable: true},
                 { header: 'Stock', hash: 'stock', render: ({ stock }) => renderStock(stock), isSortable: true},
                 { header: 'Price', hash: 'price', render: ({ price }) => renderPrice(price), isSortable: true},
+                { header: 'Cost', hash: 'cost_price', render: ({ cost_price }) => renderPrice(cost_price), isSortable: true},
             ]}
             items={tableItems}
             itemName="Products"
