@@ -148,7 +148,7 @@ const Products = () => {
             </thead>
             <tbody>
             {tableItems.map((el)=>{
-                let cost = (el.cost_price/el.price).toFixed(2);
+                let cost = ((el.cost_price/el.price)*100).toFixed(2);
                 console.log('el.cost_price/el.price', el.cost_price/el.price);
                 console.log('cost', cost);
                 // console.log('cost', cost.toFixed(2));
