@@ -110,7 +110,7 @@ const Products = () => {
                 { header: 'Product name', hash: 'name', render: ({ id, name }) => renderName(id, name), isSortable: true},
                 { header: 'Stock', hash: 'stock', render: ({ stock }) => renderStock(stock), isSortable: true},
                 { header: 'Price', hash: 'price', render: ({ price }) => renderPrice(price), isSortable: true},
-                { header: 'Cost', hash: 'cost_price', render: ({ cost_price }) => renderPrice(cost_price), isSortable: true},
+                { header: 'Cost, %', hash: 'cost_price', render: ({ cost_price }) => renderPrice(cost_price), isSortable: true},
             ]}
             items={tableItems}
             itemName="Products"
@@ -149,9 +149,6 @@ const Products = () => {
             <tbody>
             {tableItems.map((el)=>{
                 let cost = ((el.cost_price/el.price)*100).toFixed(2);
-                console.log('el.cost_price/el.price', el.cost_price/el.price);
-                console.log('cost', cost);
-                // console.log('cost', cost.toFixed(2));
                 return(
                 <>
                     <tr className="accordion" id={el.id}>
