@@ -142,6 +142,9 @@ table > thead > tr > th:nth-child(1) {
 table > thead > tr > th:nth-child(2) {
     width: 20%;
 }
+table > thead > tr > th:nth-child(2) {
+    width: 10%;
+}
 table > tbody, .styled__thead {
     display: none;
 }
