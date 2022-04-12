@@ -110,7 +110,7 @@ const Products = () => {
                 { header: 'Product name', hash: 'name', render: ({ id, name }) => renderName(id, name), isSortable: true},
                 { header: 'Stock', hash: 'stock', render: ({ stock }) => renderStock(stock), isSortable: true},
                 { header: 'Price', hash: 'price', render: ({ price }) => renderPrice(price), isSortable: true},
-                { header: 'Cost, %', hash: 'cost_price', render: ({ cost_price }) => renderPrice(cost_price), isSortable: true},
+                { header: 'Profit, %', hash: 'cost_price', render: ({ cost_price }) => renderPrice(cost_price), isSortable: true},
             ]}
             items={tableItems}
             itemName="Products"
@@ -138,11 +138,11 @@ const Products = () => {
                     <th className="stock product-stock-thead">
                         Stock
                     </th>
-                    <th className="price .product-price-thead">
+                    <th className="price product-price-thead">
                         Price
                     </th>
-                    <th className="price .product-price-thead">
-                        Coast price
+                    <th className="price product-price-thead">
+                        Profit
                     </th>
                 </tr>
             </thead>
