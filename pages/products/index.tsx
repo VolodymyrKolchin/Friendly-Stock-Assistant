@@ -140,6 +140,9 @@ const Products = () => {
                     <th className="price .product-price-thead">
                         Price
                     </th>
+                    <th className="price .product-price-thead">
+                        Coast price
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -155,6 +158,9 @@ const Products = () => {
                         </td>
                         <td className="product-price">
                             ${el.price}
+                        </td>
+                        <td className="product-cost-price">
+                            ${el.cost_price}
                         </td>
                     </tr>
                     <div className="panel">
