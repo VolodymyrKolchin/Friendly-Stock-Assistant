@@ -160,7 +160,7 @@ const Products = () => {
                             ${el.price}
                         </td>
                         <td className="product-cost-price">
-                            ${el.cost_price}/${el.price}
+                            ${el.cost_price/el.price}
                         </td>
                     </tr>
                     <div className="panel">
