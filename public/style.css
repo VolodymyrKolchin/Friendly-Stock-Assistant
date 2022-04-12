@@ -30,7 +30,7 @@
     font-weight: 400;
     text-decoration: none;
 }
-.product-stock, .product-price{
+.product-stock, .product-price, .product-cost-price{
     color: #000;
 }
 .product-stock {
