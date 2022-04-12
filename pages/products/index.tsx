@@ -148,10 +148,10 @@ const Products = () => {
             </thead>
             <tbody>
             {tableItems.map((el)=>{
-                let itemNumber = el.cost_price/el.price;
+                let cost = (el.cost_price/el.price).toFixed(2);
                 console.log('el.cost_price/el.price', el.cost_price/el.price);
-                console.log('itemNumber', itemNumber);
-                console.log('itemNumber', itemNumber.toFixed(1));
+                console.log('cost', cost);
+                // console.log('cost', cost.toFixed(2));
                 return(
                 <>
                     <tr className="accordion" id={el.id}>
@@ -165,7 +165,7 @@ const Products = () => {
                             ${el.price}
                         </td>
                         <td className="product-cost-price">
-                            {(el.cost_price/el.price.toFixed(1))*100}%
+                            {cost*100}%
                         </td>
                     </tr>
                     <div className="panel">
