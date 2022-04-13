@@ -34,8 +34,8 @@
     color: #000;
 }
 .product-stock {
-    display: block;
-    width: 16%
+    /* display: block; */
+    width: 10%
 }
 .panel > .product-name {
     width: 70%;
@@ -138,6 +138,10 @@ ul {
 }
 .product-name {
     width: 50%;
+}
+.product-price {
+    width: 11%;
+    color: #000;
 }
 table > thead > tr > th:nth-child(1) {
     width: 50%;
