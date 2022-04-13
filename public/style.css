@@ -143,10 +143,13 @@ table > thead > tr > th:nth-child(1) {
     width: 50%;
 }
 table > thead > tr > th:nth-child(2) {
-    width: 16%;
+    width: 10%;
 }
 table > thead > tr > th:nth-child(3) {
-    width: 10%;
+    width: 16%;
+} 
+table > thead > tr > th:nth-child(3) {
+    width: 11%;
 } 
 table > tbody, .styled__thead {
     display: none;
