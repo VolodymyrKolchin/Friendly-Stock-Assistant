@@ -30,11 +30,16 @@
     font-weight: 400;
     text-decoration: none;
 }
-.product-stock, .product-price, .product-cost-price{
+.product-stock, .product-price, .product-cost-price, .product-cost {
     color: #000;
 }
+.product-cost {
+    padding: .75rem;
+}
+.product-stock-block {
+    width: 16%;
+}
 .product-stock {
-    /* display: block; */
     width: 10%
 }
 .panel > .product-name {
