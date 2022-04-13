@@ -165,7 +165,7 @@ const Products = () => {
                         <td className="product-price">
                             ${el.price}
                         </td>
-                        <td className="product-price">
+                        <td className="product-cost">
                             ${el.cost_price}
                         </td>
                         <td className="product-cost-price">
