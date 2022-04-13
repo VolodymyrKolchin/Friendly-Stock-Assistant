@@ -37,7 +37,7 @@
     padding: .75rem;
 }
 .product-stock-block {
-    width: 16%;
+    width: 16%!important;
 }
 .product-stock {
     width: 10%
