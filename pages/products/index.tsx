@@ -22,6 +22,7 @@ const Products = () => {
       ...(columnHash && { direction: direction.toLowerCase() }),
     });
     const itemsPerPageOptions = [10, 20, 50, 100];
+    console.log('list', list);
     const tableItems = list.map(({ id, inventory_level: stock, name, price, cost_price, variants, primary_image, images }) => ({
         id,
         name,
@@ -154,6 +155,7 @@ const Products = () => {
             </thead>
             <tbody>
             {tableItems.map((el)=>{
+                console.log('el.variant[0]', el.variant[0]);
                 let cost = ((el.cost_price/el.price)*100).toFixed(2);
                 return(
                 <>
