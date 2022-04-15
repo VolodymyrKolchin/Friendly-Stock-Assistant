@@ -54,6 +54,14 @@ const Products = () => {
             document.head.appendChild(cScript);
             cScript.onload = () => {
                 console.log('load script tablesorter.js');
+                const dScript = document.createElement('script');
+                dScript.type = 'text/javascript';
+                dScript.src = "./custom-tablesorter.js";
+
+                document.head.appendChild(dScript);
+                dScript.onload = () => {
+                    console.log('load script custom-tablesorter.js');
+                }
             }
             console.log('load script page list products');
             const bScript = document.createElement('script');
