@@ -170,4 +170,10 @@ table > tbody, .styled__thead {
 .product-name img {
     width: 26px;
     margin-right: 7px;
+    position: absolute;
+}
+.product-name p {
+    display: inline;
+    margin: 0px;
+    margin-left: 35px;
 }
