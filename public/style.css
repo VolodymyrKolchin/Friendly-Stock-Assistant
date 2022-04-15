@@ -40,7 +40,8 @@
     width: 16%!important;
 }
 .product-stock {
-    width: 10%
+    width: 10%;
+    text-align: center;
 }
 .panel > .product-name {
     width: 70%;
