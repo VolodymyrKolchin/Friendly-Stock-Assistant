@@ -127,15 +127,15 @@ const Products = () => {
         <Panel>
             <Table
             columns={[
-                { header: 'Product name', hash: 'name', render: ({ id, name }) => renderName(id, name), isSortable: true},
-                { header: 'Stock', hash: 'stock', render: ({ stock }) => renderStock(stock), isSortable: true},
-                { header: 'Sale Price', hash: 'price', render: ({ price }) => renderPrice(price), isSortable: true},
-                { header: 'Cost', hash: 'cost_price', render: ({ cost_price }) => renderPrice(cost_price), isSortable: true},
-                { header: 'Profit, %', hash: 'price', render: ({ price }) => renderPrice(price), isSortable: true},
+                { header: 'Product name', hash: 'name', render: ({ id, name }) => renderName(id, name), isSortable: true, hideHeader: true},
+                { header: 'Stock', hash: 'stock', render: ({ stock }) => renderStock(stock), isSortable: true, hideHeader: true},
+                { header: 'Sale Price', hash: 'price', render: ({ price }) => renderPrice(price), isSortable: true, hideHeader: true},
+                { header: 'Cost', hash: 'cost_price', render: ({ cost_price }) => renderPrice(cost_price), isSortable: true, hideHeader: true},
+                { header: 'Profit, %', hash: 'price', render: ({ price }) => renderPrice(price), isSortable: true, hideHeader: true},
             ]}
             items={tableItems}
             itemName="Products"
-            pagination={{
+            pagination={{ 
                 currentPage,
                 totalItems: meta?.pagination?.total,
                 onPageChange: setCurrentPage,
