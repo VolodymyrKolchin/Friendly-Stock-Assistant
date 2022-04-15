@@ -222,46 +222,76 @@ const Products = () => {
             </tbody>
         </table>
         <table id="myTable" className="tablesorter">
-  <thead>
-    <tr>
-      <th>Last Name</th>
-      <th>First Name</th>
-      <th>Email</th>
-      <th>Due</th>
-      <th>Web Site</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Smith</td>
-      <td>John</td>
-      <td>jsmith@gmail.com</td>
-      <td>$50.00</td>
-      <td>http://www.jsmith.com</td>
-    </tr>
-    <tr>
-      <td>Bach</td>
-      <td>Frank</td>
-      <td>fbach@yahoo.com</td>
-      <td>$50.00</td>
-      <td>http://www.frank.com</td>
-    </tr>
-    <tr>
-      <td>Doe</td>
-      <td>Jason</td>
-      <td>jdoe@hotmail.com</td>
-      <td>$100.00</td>
-      <td>http://www.jdoe.com</td>
-    </tr>
-    <tr>
-      <td>Conway</td>
-      <td>Tim</td>
-      <td>tconway@earthlink.net</td>
-      <td>$50.00</td>
-      <td>http://www.timconway.com</td>
-    </tr>
-  </tbody>
-</table>
+        <thead className="styled__thead">
+                <tr className="tr-thead">
+                    <th className="product-name product-name-thead">
+                        Product name
+                    </th>
+                    <th className="stock product-stock-thead">
+                        Stock
+                    </th>
+                    <th className="price product-price-thead">
+                        Sale Price
+                    </th>
+                    <th className="price product-price-thead">
+                        Cost
+                    </th>
+                    <th className="price product-price-thead">
+                        Profit, %
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            {tableItems.map((el)=>{
+                let cost = ((el.cost_price/el.price)*100).toFixed(2);
+                return(
+                <>
+                    <tr className="accordion" id={el.id}>
+                        <td className="product-name">
+                            <img src={el.images[0].url_thumbnail} alt="" />
+                            <p>{el.name}</p>
+                        </td>
+                        <td className="product-stock">
+                            {el.stock}
+                        </td>
+                        <td className="product-price">
+                            ${el.price}
+                        </td>
+                        <td className="product-cost">
+                            ${el.cost_price}
+                        </td>
+                        <td className="product-cost-price">
+                            {cost}%
+                        </td>
+                    </tr>
+                    <div className="panel">
+                    {el.variants.map((element)=>{
+                        return (
+                            <tr>
+                                <td className="product-name">
+                                   SKU: {element.sku}
+                                </td>
+                                <td className="product-stock product-stock-block">
+                                   {element.inventory_level < element.inventory_warning_level && element.inventory_level !==0
+                                        ? <span className='background_light_yellow background_stock' >Stock: {element.inventory_level}</span>
+                                        : <span>{element.inventory_level==0 ? <span className='background_red background_stock'>Stock: {element.inventory_level}</span>:<span>Stock: {element.inventory_level}</span>}</span>
+                                   }
+                                </td>
+                                <td className="product-price">
+                                    {element.price > 0
+                                        ? <div className='element_price'>${element.price}</div>
+                                        : <div className='el_price'>${el.price}</div>
+                                    }
+                                </td>
+                            </tr>
+                        )
+                    })}
+                    </div>
+                </>
+                )
+            })}
+            </tbody>
+        </table>
         </Panel>
     );
 };
