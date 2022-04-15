@@ -127,7 +127,7 @@ const Products = () => {
         <Panel>
             <Table
             columns={[
-                { header: 'Product name', hash: 'name', render: ({ id, name }) => renderName(id, name), isSortable: true, display:true},
+                { header: 'Product name', hash: 'name', render: ({ id, name }) => renderName(id, name), isSortable: true},
                 { header: 'Stock', hash: 'stock', render: ({ stock }) => renderStock(stock), isSortable: true},
                 { header: 'Sale Price', hash: 'price', render: ({ price }) => renderPrice(price), isSortable: true},
                 { header: 'Cost', hash: 'cost_price', render: ({ cost_price }) => renderPrice(cost_price), isSortable: true},
