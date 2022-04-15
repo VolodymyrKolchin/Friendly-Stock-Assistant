@@ -54,9 +54,6 @@ const Products = () => {
             document.head.appendChild(cScript);
             cScript.onload = () => {
                 console.log('load script tablesorter.js');
-                $(function() {
-                    $("#myTable").tablesorter();
-                  });
             }
             console.log('load script page list products');
             const bScript = document.createElement('script');
