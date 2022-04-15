@@ -180,3 +180,6 @@ table > tbody, .styled__thead {
     margin: 0px;
     margin-left: 35px;
 }
+#myTable .tbody{
+    display: contents;
+}
