@@ -162,7 +162,7 @@ const Products = () => {
                     <tr className="accordion" id={el.id}>
                         <td className="product-name">
                             <img src={el.images[0].url_thumbnail} alt="" />
-                            {el.name}
+                            <p>{el.name}</p>
                         </td>
                         <td className="product-stock">
                             {el.stock}
