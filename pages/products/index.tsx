@@ -155,7 +155,7 @@ const Products = () => {
             </thead>
             <tbody>
             {tableItems.map((el)=>{
-                console.log('el', el);
+                console.log('el.images[0].url_thumbnail', el.images[0].url_thumbnail);
                 let cost = ((el.cost_price/el.price)*100).toFixed(2);
                 return(
                 <>
