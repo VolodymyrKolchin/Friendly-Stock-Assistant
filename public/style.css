@@ -169,4 +169,5 @@ table > tbody, .styled__thead {
 }
 .product-name img {
     width: 26px;
+    margin-right: 7px;
 }
