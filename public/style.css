@@ -167,3 +167,6 @@ table > tbody, .styled__thead {
     display: table!important;
     width: 100%;
 }
+.product-name img {
+    width: 26px;
+}
