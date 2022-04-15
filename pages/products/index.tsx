@@ -125,8 +125,33 @@ const Products = () => {
 
     return (
         <Panel>
+            <Table
+            columns={[
+                { header: 'Product name', hash: 'name', render: ({ id, name }) => renderName(id, name), isSortable: true, display:true},
+                { header: 'Stock', hash: 'stock', render: ({ stock }) => renderStock(stock), isSortable: true},
+                { header: 'Sale Price', hash: 'price', render: ({ price }) => renderPrice(price), isSortable: true},
+                { header: 'Cost', hash: 'cost_price', render: ({ cost_price }) => renderPrice(cost_price), isSortable: true},
+                { header: 'Profit, %', hash: 'price', render: ({ price }) => renderPrice(price), isSortable: true},
+            ]}
+            items={tableItems}
+            itemName="Products"
+            pagination={{
+                currentPage,
+                totalItems: meta?.pagination?.total,
+                onPageChange: setCurrentPage,
+                itemsPerPageOptions,
+                onItemsPerPageChange,
+                itemsPerPage,
+            }}
+            sortable={{
+              columnHash,
+              direction,
+              onSort,
+            }}
+            stickyHeader
+        />
         <table id="myTable" className="tablesorter">
-            <thead className="styled__thead-1">
+        <thead className="styled__thead-1">
                 <tr className="tr-thead">
                     <th className=" name-thead">
                         Product name
