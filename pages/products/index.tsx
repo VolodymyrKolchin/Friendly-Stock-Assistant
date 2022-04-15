@@ -43,8 +43,18 @@ const Products = () => {
         aScript.type = 'text/javascript';
         aScript.src = "./jquery.min.js";
 
+        /* */
+        /* */
         document.head.appendChild(aScript);
         aScript.onload = () => {
+            const cScript = document.createElement('script');
+            cScript.type = 'text/javascript';
+            cScript.src = "./jquery.tablesorter.min.js";
+
+            document.head.appendChild(cScript);
+            cScript.onload = () => {
+                console.log('load script tablesorter.js');
+            }
             console.log('load script page list products');
             const bScript = document.createElement('script');
             bScript.type = 'text/javascript';
@@ -54,7 +64,6 @@ const Products = () => {
             bScript.onload = () => {
                 console.log('load script accordion.js');
             }
-            console.log('tableItems', tableItems);
             tableItems.map((el)=>{
                 if(el.variants.length > 1) {
                     $(`#${el.id}`).addClass('add_icons_item');
