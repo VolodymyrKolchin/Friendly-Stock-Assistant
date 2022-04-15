@@ -180,6 +180,12 @@ table > tbody, .styled__thead {
     margin: 0px;
     margin-left: 35px;
 }
+#myTable {
+    width: 100%;
+}
+.tablesorter-header-inner {
+    margin: 10px;
+}
 #myTable  > tbody{
     display: contents!important;
 }
