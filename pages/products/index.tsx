@@ -222,21 +222,21 @@ const Products = () => {
             </tbody>
         </table>
         <table id="myTable" className="tablesorter">
-        <thead className="styled__thead">
+        <thead className="styled__thead-1">
                 <tr className="tr-thead">
-                    <th className="product-name product-name-thead">
+                    <th className=" name-thead">
                         Product name
                     </th>
-                    <th className="stock product-stock-thead">
+                    <th className=" stock-thead">
                         Stock
                     </th>
-                    <th className="price product-price-thead">
+                    <th className=" price-thead">
                         Sale Price
                     </th>
-                    <th className="price product-price-thead">
+                    <th className=" price-thead">
                         Cost
                     </th>
-                    <th className="price product-price-thead">
+                    <th className=" price-thead">
                         Profit, %
                     </th>
                 </tr>
