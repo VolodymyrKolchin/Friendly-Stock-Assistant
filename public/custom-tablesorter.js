@@ -6,5 +6,4 @@ $(function() {
           $(table).find('thead .tablesorter-header-inner').append('<i class="tablesorter-icon"></i>');
         }
       });
-      
 });
