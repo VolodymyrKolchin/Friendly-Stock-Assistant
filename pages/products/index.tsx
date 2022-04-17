@@ -152,23 +152,23 @@ const Products = () => {
         />
         <table id="myTable" className="tablesorter">
         <thead className="styled__thead-1">
-                <tr className="tr-thead">
-                    <th className=" name-thead">
-                        Product name
-                    </th>
-                    <th className=" stock-thead">
-                        Stock
-                    </th>
-                    <th className=" price-thead">
-                        Sale Price
-                    </th>
-                    <th className=" price-thead">
-                        Cost
-                    </th>
-                    <th className=" price-thead">
-                        Profit, %
-                    </th>
-                </tr>
+            <tr className="tr-thead">
+                <th className=" name-thead">
+                    Product name
+                </th>
+                <th className=" stock-thead">
+                    Stock
+                </th>
+                <th className=" price-thead">
+                    Sale Price
+                </th>
+                <th className=" price-thead">
+                    Cost
+                </th>
+                <th className=" price-thead">
+                    Profit, %
+                </th>
+            </tr>
             </thead>
             <tbody>
             {tableItems.map((el)=>{
