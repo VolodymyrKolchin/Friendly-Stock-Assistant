@@ -1,4 +1,3 @@
-
 $(function() {
     $("#myTable").tablesorter({
         theme : 'dropbox',
