@@ -189,3 +189,32 @@ table > tbody, .styled__thead {
 #myTable  > tbody{
     display: contents!important;
 }
+/* Design */
+body {
+    background: #F4F7FE;
+}
+p {
+    margin: 0px;
+}
+.menu-header {
+    display: flex;
+    justify-content: end;
+}
+.menu-header > div{
+    border-radius: 15px;
+    background: #fff;
+    width: 50%;
+    color: #2B3674;
+}
+.logo-company {
+    margin: 0px;
+}
+.menu-header > .logo {
+    background: none;
+    font-size: 34px;
+    font-weight: bold;
+}
+.menu-header > div > button {
+    font-weight: bold;
+    color: #2B3674;
+}

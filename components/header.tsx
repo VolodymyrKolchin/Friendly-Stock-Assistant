@@ -81,13 +81,19 @@ const Header = () => {
     if (headerType === HeaderTypes.INNER) return <InnerHeader />;
 
     return (
-        <Box marginBottom="xxLarge">
-            <Tabs
-                activeTab={activeTab}
-                items={items}
-                onTabClick={handleTabClick}
-            />
-        </Box>
+        <>
+            <p className='logo-company'>Friends of Commerce</p>
+            <Box marginBottom="xxLarge" className='menu-header'>
+                <div className='logo'>
+                    <p>STOCK ASSISTANT</p>
+                </div>
+                <Tabs
+                    activeTab={activeTab}
+                    items={items}
+                    onTabClick={handleTabClick}
+                />
+            </Box>
+        </>
     );
 };
 
