@@ -59,10 +59,8 @@ const importProducts = () => {
             },
             body: JSON.stringify({dataSCV: dataImportProduct, formEmail: formEmail})
         }).then((response)=> {
-            console.log('response', response);
             setIsShownSuccess(!isShownSuccess);
         }).catch((error)=> {
-            console.log('error', error);
             setIsShownError(!isShownError);
         })
         .finally(()=>{
@@ -108,7 +106,6 @@ const importProducts = () => {
         if(cronArr[3]=='*' && cronArr[4]=='*' && cronArr[2]!=='*') {
             crontTimeType = 'month';
         }
-        console.log('crontTimeType', crontTimeType);
 
         //http://localhost:8080/subscribe
         fetch('https://stock-assistant-friendsofcomme.herokuapp.com/subscribe', {
@@ -127,10 +124,8 @@ const importProducts = () => {
             })
         })
             .then((data) => {
-                console.log('response', data);
                 setIsShownSuccessSubscribe(!isShownSuccessSubscribe);
             }).catch((error)=> {
-                console.log('error', error);
                 setIsShownErrorSubscribe(!isShownErrorSubscribe);
             })
             .finally(()=>{
