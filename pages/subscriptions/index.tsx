@@ -1,16 +1,27 @@
-import {Panel, Button, Message} from '@bigcommerce/big-design';
+import {Panel, Button, Message, FormGroup, Input, Flex} from '@bigcommerce/big-design';
 import {useProductListAll} from '../../lib/hooks';
-import {useEffect, useState} from 'react';
+import {useEffect, useState, ChangeEvent} from 'react';
 import cronstrue from 'cronstrue';
 
 const subscriptionsPage = () => {
     const [isShownUnsubscribe, setIsShownUnsubscribe] = useState(false);
-    const { error, isLoading, list = [], meta = {}, mutateList=[], data } = useProductListAll();
+    const { error, isLoading, list = [],data } = useProductListAll();
 
-    const clientData = [];
+    const [isShownSuccessSubscribe, setIsShownSuccessSubscribe] = useState(false);
+    const [isShownErrorSubscribe, setIsShownErrorSubscribe] = useState(false);
+    const [isLoadingSubscribeShowEmail, setIsLoadingSubscribeShowEmail] = useState(false);
+    const [form, setForm] = useState({ email: '', cronTime: '', timezone: '', unsubscribe: false });
+    const [formTimeZone, setFormTimeZone] = useState({timezone: 'Africa/Blantyre'});
 
-    if(!isLoading) {
-        console.log('isLoading data', data)
+    //Subscribe
+    const handleChangeForm  = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name: formName, value } = event?.target;
+        setForm(prevForm => ({ ...prevForm, [formName]: value }));
+        setIsLoadingSubscribeShowEmail(false);
+    };
+    const onSelectFun = (event) => {
+        const { name: formName, value } = event?.target;
+        setFormTimeZone(prevForm => ({ ...prevForm, [formName]: value }));
     }
 
     const deleteEmailItem = (e) => {
@@ -36,6 +47,65 @@ const subscriptionsPage = () => {
                 'Content-Type': 'application/json'
             }
         }).then((res)=>{console.log('res', res)})
+    }
+
+    let crontTimeType = '';
+    const onClickBtnSubscribe = (e) => {
+        if(form.email === '' ) {
+            setIsLoadingSubscribeShowEmail(true);
+            return;
+        }
+        if (e.target.nodeName || e.target.parentElement.nodeName == 'BUTTON') {
+            e.target.setAttribute('disabled', 'true');
+            e.target.parentElement.setAttribute('disabled', 'true');
+        }
+       
+        const cronArr = $('#example1-val')[0].textContent.split(' ');
+        if(cronArr[2]=='*' && cronArr[3]=='*' && cronArr[4]=='*') {
+            crontTimeType = 'day';
+        }
+        if(cronArr[2]=='*' && cronArr[3]=='*' && cronArr[4]!=='*') {
+            crontTimeType = 'week';
+        }
+        if(cronArr[3]=='*' && cronArr[4]=='*' && cronArr[2]!=='*') {
+            crontTimeType = 'month';
+        }
+        console.log('crontTimeType', crontTimeType);
+
+        //http://localhost:8080/subscribe
+        fetch('https://stock-assistant-friendsofcomme.herokuapp.com/subscribe', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                form: form,
+                timeZone: formTimeZone.timezone,
+                cronTime: $('#example1-val')[0].textContent,
+                crontTimeType: crontTimeType,
+                accessToken: data?.accessToken,
+                storeHash: data?.storeHash,
+                clientID: process.env.CLIENT_PUBLIC_ID
+            })
+        })
+            .then((data) => {
+                console.log('response', data);
+                setIsShownSuccessSubscribe(!isShownSuccessSubscribe);
+            }).catch((error)=> {
+                console.log('error', error);
+                setIsShownErrorSubscribe(!isShownErrorSubscribe);
+            })
+            .finally(()=>{
+                e.target.removeAttribute('disabled');
+                e.target.parentElement.removeAttribute('disabled');
+                setIsLoadingSubscribeShowEmail(false);
+                setTimeout(() => {
+                    //router.push('/subscriptions');
+                    setIsShownSuccessSubscribe(false);
+                    setIsShownErrorSubscribe(false);
+                    setForm({ email:'', cronTime: '', timezone: '', unsubscribe: false });
+                }, 4000);
+            })
     }
 
     useEffect(() => {
@@ -97,114 +167,116 @@ const subscriptionsPage = () => {
     }, [])
     //stripe_load();
     return (
-        <Panel header='Current Subscriptions'>
-
-        <div className='border-item-crontime' id='day'>
-            <div className='title-cron-time'>Daily</div>
-                {data?.dataEmail.map((el)=>{
-                    return  <>{el.crontTimeType =="day" ? 
-                    <li className="form-control-item day-li">
-                        <li className="form-control-delete">
-                            <Button
-                                id={el._id}
-                                type="submit"
-                                onClick={deleteEmailItem}
-                            >Unsubscribe
-                            </Button>
-                            {el.email} ({cronstrue.toString(el.cronTime, { verbose: true })}, Time zone {el.timeZone})
-                            <div className='hide-message'>
-                                <Message
-                                    type="warning"
-                                    messages={[{ text: `${el.email} has unsubscribed` }]}
-                                    marginVertical="medium"
-                                />
-                            </div>
-                        </li>
-                        <div className='hide-message'>
-                            <Message
-                                type="warning"
-                                messages={[{ text: `${el.email} has unsubscribed` }]}
-                                marginVertical="medium"
-                            />
-                        </div>
-                    </li>  : <></>}
-                    
-                    </>
-                })    
-                }
-                </div>
-                    
-                <div className='border-item-crontime' id='week'>
-                <div className='title-cron-time'>Weekly</div>
-                {data?.dataEmail.map((el)=>{
-                    return  <>{el.crontTimeType =="week" ? 
-                                <li className="form-control-item week-li">
-                                    <li className="form-control-delete">
+        <>
+            <div className='block-dashboard'>
+                SUBSCRIPTIONS
+            </div>
+            <Panel>
+            <div>
+                <table>
+                    <tr className='table-subscription-header'>
+                        <th className='table-header-email'>Email Address</th>
+                        <th>Frequency</th>
+                        <th>Details</th>
+                        <th></th>  
+                    </tr>
+                    {data?.dataEmail.map((el => {
+                        return (
+                            <>
+                                <tr>
+                                    <td className='table-subscription-email'>
+                                        {el.email}
+                                    </td>
+                                    <td className='item-btn-type'>
+                                        <span className={el.crontTimeType}>
+                                            {el.crontTimeType}
+                                        </span>
+                                    </td>
+                                    <td className='table-subscription-details'>
+                                        {cronstrue.toString(el.cronTime, { verbose: true })}, Time zone {el.timeZone}
+                                    </td>
+                                    <td className='table-subscription-btn'>
                                         <Button
                                             id={el._id}
                                             type="submit"
                                             onClick={deleteEmailItem}
-                                        >Unsubscribe
+                                        >
+                                            Unsubscribe
                                         </Button>
-                                        {el.email} ({cronstrue.toString(el.cronTime, { verbose: true })}, Time zone {el.timeZone})
-                                        <div className='hide-message'>
-                                            <Message
-                                                type="warning"
-                                                messages={[{ text: `${el.email} has unsubscribed` }]}
-                                                marginVertical="medium"
-                                            />
-                                        </div>
-                                    </li>
-                                    <div className='hide-message'>
-                                        <Message
-                                            type="warning"
-                                            messages={[{ text: `${el.email} has unsubscribed` }]}
-                                            marginVertical="medium"
-                                        />
-                                    </div>
-                                </li>
-                                : <></>}
+                                    </td>
+                                </tr>
                             </>
-                })    
-                }
-                </div>
-                
-                <div className='border-item-crontime' id='month'>
-                <div className='title-cron-time'>MONTH</div>
-                {data?.dataEmail.map((el)=>{
-                    return  <>{el.crontTimeType =="month" ? 
-                    <li className="form-control-item month-li">
-                        <li className="form-control-delete">
-                            <Button
-                                id={el._id}
-                                type="submit"
-                                onClick={deleteEmailItem}
-                            >Unsubscribe
-                            </Button>
-                            {el.email} ({cronstrue.toString(el.cronTime, { verbose: true })}, Time zone {el.timeZone})
-                            <div className='hide-message'>
-                                <Message
-                                    type="warning"
-                                    messages={[{ text: `${el.email} has unsubscribed` }]}
-                                    marginVertical="medium"
+                        )
+                    }))}
+                </table>
+            </div>
+            </Panel>
+            <div className='inventory-row'>    
+                <Panel header="Report Subscriptions">
+                    <FormGroup>
+                        <Input
+                            label="Email*"
+                            name="email"
+                            placeholder='mail@simple.com'
+                            required
+                            value={form.email}
+                            onChange={handleChangeForm}
+                        />
+                    </FormGroup>
+                    {isShownSuccessSubscribe &&
+                        <Message
+                            type="success"
+                            messages={[{ text: 'Subscription Created ' }]}
+                            marginVertical="medium"
+                        />
+                    }
+                    {isShownErrorSubscribe &&
+                        <Message
+                            type="error"
+                            messages={[{ text: 'An error occurred, the email was not sent. Please repeat again ' }]}
+                            marginVertical="medium"
+                        />
+                    }
+                    {isLoadingSubscribeShowEmail &&
+                        <Message
+                            type="warning"
+                            messages={[{ text: 'Email field is empty, please enter your email ' }]}
+                            marginVertical="medium"
+                        />}
+                        <p>Frequency</p>
+                        <FormGroup>
+                            <p>
+                                <div id='example1-val'></div>
+                                <div 
+                                    id='my-custom-cron' 
+                                    style={{ marginBottom: '10px' }} 
+                                    className='cron-style'
+                                >
+                                    Submit a report:&nbsp;<i className="fa fa-clock-o" aria-hidden="true"></i>
+                                </div>
+                                <select
+                                    name="timezone"
+                                    className="form-control"
+                                    onChange={onSelectFun}
                                 />
-                            </div>
-                        </li>
-                        <div className='hide-message'>
-                            <Message
-                                type="warning"
-                                messages={[{ text: `${el.email} has unsubscribed` }]}
-                                marginVertical="medium"
-                            />
-                        </div>
-                    </li>  : <></>}
-                    
-                    </>
-                })    
-                }
-                </div>
-        
-        </Panel>
+                            </p>
+                        </FormGroup>
+                    <FormGroup>
+                        <Flex justifyContent="flex-end">
+                            <Button
+                                type="submit"
+                                onClick={onClickBtnSubscribe}
+                            >
+                                Subscribe
+                            </Button>
+                        </Flex>
+                    </FormGroup>
+                    {/* <Button type="button" onClick={() => router.push('/subscriptions')}>
+                        Subscribe list
+                    </Button> */}
+                </Panel>
+            </div>
+        </>
     );
 };
 

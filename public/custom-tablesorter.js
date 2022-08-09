@@ -1,9 +1,13 @@
+// $(function() {
+//     $("#myTable").tablesorter({widgets: ['zebra']});
+// });
+
 $(function() {
+    // call the tablesorter plugin
     $("#myTable").tablesorter({
-        theme : 'dropbox',
-        cssIcon: 'tablesorter-icon',
-        initialized : function(table){
-          $(table).find('thead .tablesorter-header-inner').append('<i class="tablesorter-icon"></i>');
-        }
-      });
-});
+        theme : 'blue',
+
+        // change the default sorting order from 'asc' to 'desc'
+        sortInitialOrder: "desc"
+    });
+}); 

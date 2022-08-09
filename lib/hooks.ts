@@ -46,6 +46,37 @@ export function useProductList(query?: QueryParams) {
         mutateList,
     };
 }
+export function useProductListTotalSellers(query?: QueryParams) {
+    const { context } = useSession();
+    const params = new URLSearchParams({ ...query, context }).toString();
+
+    // Use an array to send multiple arguments to fetcher
+    const { data, error, mutate: mutateList } = useSWR(context ? ['/api/products/totalSellers', params] : null, fetcher);
+
+    return {
+        list: data?.data,
+        meta: data?.meta,
+        isLoading: !data && !error,
+        error,
+        mutateList,
+    };
+}
+
+export function listProductProfit(query?: QueryParams) {
+    const { context } = useSession();
+    const params = new URLSearchParams({ ...query, context }).toString();
+
+    // Use an array to send multiple arguments to fetcher
+    const { data, error, mutate: mutateList } = useSWR(context ? ['/api/products/productProfit', params] : null, fetcher);
+
+    return {
+        data: data?.data,
+        meta: data?.meta,
+        isLoading: !data && !error,
+        error,
+        mutateList,
+    };
+}
 
 export function useProductListAll(query?: QueryParams) {
     const { context } = useSession();
