@@ -193,108 +193,145 @@ const importProducts = () => {
     //stripe_load();
 
     return (
-        <Panel>
-            <Panel header="Download your current Inventory Report">
-                <CSVLink
-                    data={dataImportProduct}
-                    className="btn btn-primary"
-                    filename={"BigCommerce-import-products.csv"}
-                >
-                    Download.csv
-                </CSVLink>
-            </Panel>
-            <StyledForm onSubmit={handleSubmit}>
-                <Panel header="Send your Inventory Report file by Email">
+        <>
+            <div className='block-dashboard'>
+                Reports
+            </div>
+            <div className='inventory-row'>
+                <Panel header="Report">
+                <table className='inventory-report-table'>
+                    <tr>
+                        <th>NAME</th>
+                        <th>Download</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <CSVLink
+                                data={dataImportProduct}
+                                className="btn btn-primary"
+                                filename={"BigCommerce-import-products.csv"}
+                            >
+                                Current Inventory report
+                            </CSVLink>
+                        </td>
+                        <td>
+                            <span>
+                                <CSVLink
+                                        data={dataImportProduct}
+                                        className="btn btn-primary"
+                                        filename={"BigCommerce-inventory-report-products.csv"}
+                                    >
+                                    csv
+                                </CSVLink>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+                    
+                </Panel>
+                <StyledForm onSubmit={handleSubmit}>
+                    <Panel header="Email Reports">
+                        <FormGroup>
+                            <Input
+                                label="Email*"
+                                name="email"
+                                placeholder='mail@simple.com'
+                                required
+                                value={formEmail.email}
+                                onChange={handleChange}
+                            />
+                        </FormGroup>
+                        {isShownError &&
+                            <Message
+                                type="error"
+                                messages={[{ text: 'An error occurred, the email was not sent. Please repeat again ' }]}
+                                marginVertical="medium"
+                            />
+                        }
+                        {isShownSuccess &&
+                            <Message
+                                type="success"
+                                messages={[{ text: 'Email sent successfully ' }]}
+                                marginVertical="medium"
+                            />
+                        }
+                        <Flex justifyContent="flex-end">
+                            <Button
+                                type="submit"
+                                onClick={onClickBtnSend}
+                            >
+                                Send Email
+                            </Button>
+                        </Flex>
+                    </Panel>
+                </StyledForm>
+            </div>
+            <div className='inventory-row'>    
+                <Panel header="Report Subscriptions">
                     <FormGroup>
                         <Input
-                            label="Enter Email"
+                            label="Email*"
                             name="email"
+                            placeholder='mail@simple.com'
                             required
-                            value={formEmail.email}
-                            onChange={handleChange}
+                            value={form.email}
+                            onChange={handleChangeForm}
                         />
                     </FormGroup>
-                    {isShownError &&
+                    {isShownSuccessSubscribe &&
+                        <Message
+                            type="success"
+                            messages={[{ text: 'Subscription Created ' }]}
+                            marginVertical="medium"
+                        />
+                    }
+                    {isShownErrorSubscribe &&
                         <Message
                             type="error"
                             messages={[{ text: 'An error occurred, the email was not sent. Please repeat again ' }]}
                             marginVertical="medium"
                         />
                     }
-                    {isShownSuccess &&
+                    {isLoadingSubscribeShowEmail &&
                         <Message
-                            type="success"
-                            messages={[{ text: 'Email sent successfully ' }]}
+                            type="warning"
+                            messages={[{ text: 'Email field is empty, please enter your email ' }]}
                             marginVertical="medium"
-                        />
-                    }
-                    <Flex justifyContent="flex-end">
-                        <Button
-                            type="submit"
-                            onClick={onClickBtnSend}
-                        >
-                            Send Email
-                        </Button>
-                    </Flex>
-                </Panel>
-            </StyledForm>
-            <Panel header="Create an Inventory Report Subscription">
-                <p>Enter the desired frequency of your Inventory Report</p>
-                <FormGroup>
-                    <Input
-                        label="Enter Email"
-                        name="email"
-                        required
-                        value={form.email}
-                        onChange={handleChangeForm}
-                    />
-                </FormGroup>
-                {isShownSuccessSubscribe &&
-                    <Message
-                        type="success"
-                        messages={[{ text: 'Subscription Created ' }]}
-                        marginVertical="medium"
-                    />
-                }
-                {isShownErrorSubscribe &&
-                    <Message
-                        type="error"
-                        messages={[{ text: 'An error occurred, the email was not sent. Please repeat again ' }]}
-                        marginVertical="medium"
-                    />
-                }
-                {isLoadingSubscribeShowEmail &&
-                    <Message
-                        type="warning"
-                        messages={[{ text: 'Email field is empty, please enter your email ' }]}
-                        marginVertical="medium"
-                    />}
+                        />}
+                        <p>Frequency</p>
+                        <FormGroup>
+                            <p>
+                                <div id='example1-val'></div>
+                                <div 
+                                    id='my-custom-cron' 
+                                    style={{ marginBottom: '10px' }} 
+                                    className='cron-style'
+                                >
+                                    Submit a report:&nbsp;<i className="fa fa-clock-o" aria-hidden="true"></i>
+                                </div>
+                                <select
+                                    name="timezone"
+                                    className="form-control"
+                                    onChange={onSelectFun}
+                                />
+                            </p>
+                        </FormGroup>
                     <FormGroup>
-                        <p>
-                            <div id='example1-val'></div>
-                            <div id='my-custom-cron' style={{ marginBottom: '10px' }} className='cron-style'>Submit a report:&nbsp;</div>
-                            <select
-                                name="timezone"
-                                className="form-control"
-                                onChange={onSelectFun}
-                            />
-                        </p>
+                        <Flex justifyContent="flex-end">
+                            <Button
+                                type="submit"
+                                onClick={onClickBtnSubscribe}
+                            >
+                                Subscribe
+                            </Button>
+                        </Flex>
                     </FormGroup>
-                <FormGroup>
-                    <Flex justifyContent="flex-end">
-                        <Button
-                            type="submit"
-                            onClick={onClickBtnSubscribe}
-                        >
-                            Subscribe
-                        </Button>
-                    </Flex>
-                </FormGroup>
-                <Button type="button" onClick={() => router.push('/subscriptions')}>
-                    Subscribe list
-                </Button>
-            </Panel>
-        </Panel>
+                    <Button type="button" onClick={() => router.push('/subscriptions')}>
+                        Subscribe list
+                    </Button>
+                </Panel>
+            </div>
+        </>
     );
 };
 

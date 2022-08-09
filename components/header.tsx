@@ -1,7 +1,8 @@
-import { Box, Tabs } from '@bigcommerce/big-design';
+import { Box, Tabs , Panel, Flex, H1, H4} from '@bigcommerce/big-design';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import InnerHeader from './innerHeader';
+import styled from 'styled-components';
 
 export const TabIds = {
     HOME: 'home',
@@ -68,7 +69,6 @@ const Header = () => {
         { id: TabIds.PRODUCTS, title: 'Inventory View' },
         { id: TabIds.IMPORT, title: 'Inventory Report' },
         { id: TabIds.SUBSCRIPTIONS, title: 'Subscriptions' },
-        { id: TabIds.ABOUT, title: 'About' },
     ];
 
     const handleTabClick = (tabId: string) => {
@@ -93,8 +93,12 @@ const Header = () => {
                     onTabClick={handleTabClick}
                 />
             </Box>
+            
         </>
     );
 };
+const StyledBox = styled(Box)`
+    min-width: 10rem;
+`;
 
 export default Header;
