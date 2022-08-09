@@ -70,7 +70,6 @@ const subscriptionsPage = () => {
         if(cronArr[3]=='*' && cronArr[4]=='*' && cronArr[2]!=='*') {
             crontTimeType = 'month';
         }
-        console.log('crontTimeType', crontTimeType);
 
         //http://localhost:8080/subscribe
         fetch('https://stock-assistant-friendsofcomme.herokuapp.com/subscribe', {
@@ -89,10 +88,8 @@ const subscriptionsPage = () => {
             })
         })
             .then((data) => {
-                console.log('response', data);
                 setIsShownSuccessSubscribe(!isShownSuccessSubscribe);
             }).catch((error)=> {
-                console.log('error', error);
                 setIsShownErrorSubscribe(!isShownErrorSubscribe);
             })
             .finally(()=>{
